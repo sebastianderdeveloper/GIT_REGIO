@@ -90,7 +90,7 @@ class SignUpViewController: UIViewController {
         //Validate the fields
         let error = validateFields()
         
-     
+        
         if error != nil {
             //There's something wrong with the fields, show error message
             showError(message: error!)
