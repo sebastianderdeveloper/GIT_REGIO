@@ -11,16 +11,55 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Login_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="REGIO" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eiQ-NL-cYS">
-                                <rect key="frame" x="40" y="722" width="334" height="100"/>
+                                <rect key="frame" x="40" y="64" width="334" height="758"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="REGIO_LOGO" translatesAutoresizingMaskIntoConstraints="NO" id="rtm-ut-7Eu">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="429.5"/>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xbo-Wt-ns6">
+                                        <rect key="frame" x="0.0" y="449.5" width="334" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="i97-6s-XWw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zP4-wp-Ikp">
+                                        <rect key="frame" x="0.0" y="503.5" width="334" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="5m2-vz-clt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8y-bP-7TF">
+                                        <rect key="frame" x="0.0" y="557.5" width="334" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="jaI-BZ-v4T"/>
+                                            <constraint firstAttribute="height" constant="40" id="k3X-EA-iir"/>
+                                        </constraints>
+                                        <state key="normal" title="Log In"/>
+                                        <connections>
+                                            <action selector="logginTabbed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Vq-w7-dzC"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7YG-VN-nEB">
+                                        <rect key="frame" x="0.0" y="617.5" width="334" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20.5" id="pO3-UF-lIE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYG-k1-BIi">
-                                        <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="658" width="334" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="7pW-M1-Oqf"/>
                                         </constraints>
@@ -30,7 +69,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQ5-1f-Hvq">
-                                        <rect key="frame" x="0.0" y="60" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="718" width="334" height="40"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
                                             <segue destination="rE2-mL-RWh" kind="show" id="bpw-va-CAa"/>
@@ -38,13 +77,10 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="v8y-bP-7TF" firstAttribute="top" secondItem="zP4-wp-Ikp" secondAttribute="bottom" constant="20" id="8UA-OG-Ob0"/>
                                     <constraint firstItem="kQ5-1f-Hvq" firstAttribute="height" secondItem="IYG-k1-BIi" secondAttribute="height" id="BDU-WT-vJc"/>
                                 </constraints>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="REGIO_LOGO" translatesAutoresizingMaskIntoConstraints="NO" id="Ky4-Gr-jLh">
-                                <rect key="frame" x="87" y="184" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -52,11 +88,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eiQ-NL-cYS" secondAttribute="trailing" constant="40" id="67E-fb-Q3N"/>
                             <constraint firstItem="eiQ-NL-cYS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="H29-Y8-6Xq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eiQ-NL-cYS" secondAttribute="bottom" constant="40" id="sNA-RY-eDh"/>
+                            <constraint firstItem="eiQ-NL-cYS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="sTu-OG-RRg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NP9-Nk-DNK"/>
                     <connections>
-                        <outlet property="loginButton" destination="kQ5-1f-Hvq" id="G6J-SM-Yvc"/>
+                        <outlet property="emailTextField" destination="zP4-wp-Ikp" id="T7g-Rl-AFH"/>
+                        <outlet property="errorLabel" destination="7YG-VN-nEB" id="E7I-DH-f5C"/>
+                        <outlet property="passwordTextField" destination="xbo-Wt-ns6" id="NhS-j3-hyz"/>
                         <outlet property="signUpButton" destination="IYG-k1-BIi" id="hBr-B9-gUk"/>
                     </connections>
                 </viewController>
@@ -67,7 +106,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="xO6-Xb-GYX">
             <objects>
-                <viewController id="7bE-xI-Jp6" customClass="SignUpViewController" customModule="Login_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7bE-xI-Jp6" customClass="SignUpViewController" customModule="REGIO" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TCl-nc-Tdr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,46 +184,13 @@
         <!--Login View Controller-->
         <scene sceneID="0AD-Q1-eYw">
             <objects>
-                <viewController id="rE2-mL-RWh" customClass="LoginViewController" customModule="Login_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rE2-mL-RWh" customClass="LoginViewController" customModule="REGIO" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XzJ-o8-88s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RVw-q8-win">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RVw-q8-win">
                                 <rect key="frame" x="40" y="84" width="334" height="220"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zP4-wp-Ikp">
-                                        <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xbo-Wt-ns6">
-                                        <rect key="frame" x="0.0" y="60" width="334" height="40"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8y-bP-7TF">
-                                        <rect key="frame" x="0.0" y="120" width="334" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="k3X-EA-iir"/>
-                                        </constraints>
-                                        <state key="normal" title="Log In"/>
-                                        <connections>
-                                            <action selector="loginTabbed:" destination="rE2-mL-RWh" eventType="touchUpInside" id="gBI-EU-dZq"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7YG-VN-nEB">
-                                        <rect key="frame" x="0.0" y="180" width="334" height="40"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" systemColor="systemRedColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="v8y-bP-7TF" firstAttribute="height" secondItem="zP4-wp-Ikp" secondAttribute="height" id="J0Z-hN-hyu"/>
-                                    <constraint firstItem="xbo-Wt-ns6" firstAttribute="height" secondItem="zP4-wp-Ikp" secondAttribute="height" id="ZAy-X4-Lll"/>
-                                    <constraint firstItem="7YG-VN-nEB" firstAttribute="height" secondItem="zP4-wp-Ikp" secondAttribute="height" id="ktI-30-FTs"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ctq-VN-1nn"/>
@@ -196,12 +202,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4ft-SP-sj9"/>
-                    <connections>
-                        <outlet property="emailTextField" destination="zP4-wp-Ikp" id="hR1-gH-zCO"/>
-                        <outlet property="errorLabel" destination="7YG-VN-nEB" id="NM8-1e-Grq"/>
-                        <outlet property="loginButton" destination="v8y-bP-7TF" id="sME-sL-6Jj"/>
-                        <outlet property="passwordTextField" destination="xbo-Wt-ns6" id="vKS-76-8yT"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPO-w9-pDv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -210,7 +210,7 @@
         <!--Home View Controller-->
         <scene sceneID="usA-eG-Ekv">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" id="sP0-JX-dTn" customClass="HomeViewController" customModule="Login_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="sP0-JX-dTn" customClass="HomeViewController" customModule="REGIO" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3cq-xG-2K2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
