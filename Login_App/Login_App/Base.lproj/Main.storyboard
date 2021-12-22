@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LOGIN_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="eiQ-NL-cYS">
-                                <rect key="frame" x="40" y="402" width="334" height="226"/>
+                                <rect key="frame" x="40" y="348" width="334" height="226"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zP4-wp-Ikp">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
@@ -33,7 +33,7 @@
                                             <constraint firstAttribute="height" constant="34" id="ZQA-PZ-h8R"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8y-bP-7TF">
                                         <rect key="frame" x="0.0" y="128" width="334" height="34"/>
@@ -57,7 +57,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYG-k1-BIi">
-                                <rect key="frame" x="40" y="828" width="334" height="34"/>
+                                <rect key="frame" x="40" y="774" width="334" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="xnw-CS-Pup"/>
                                 </constraints>
@@ -67,7 +67,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="REGIO_LOGO" translatesAutoresizingMaskIntoConstraints="NO" id="O0W-6B-YKG">
-                                <rect key="frame" x="95" y="89" width="224" height="228"/>
+                                <rect key="frame" x="95" y="45" width="224" height="228"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="228" id="Gy0-oE-GWu"/>
                                 </constraints>
@@ -98,18 +98,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1031.8840579710145" y="118.52678571428571"/>
+            <point key="canvasLocation" x="997" y="119"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="xO6-Xb-GYX">
             <objects>
                 <viewController id="7bE-xI-Jp6" customClass="SignUpViewController" customModule="LOGIN_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TCl-nc-Tdr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FLY-ju-Vp4">
-                                <rect key="frame" x="40" y="541.5" width="334" height="320.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="REGIO_LOGO" translatesAutoresizingMaskIntoConstraints="NO" id="dVW-pg-80d">
+                                <rect key="frame" x="95" y="45" width="224" height="228"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="228" id="53R-JF-oL5"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="Dix-nc-Ozz"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCQ-wk-sDV">
+                                <rect key="frame" x="20" y="7" width="55" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="55" id="HqQ-gZ-c8Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Zurück"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="PiX-Gn-nFD"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="FLY-ju-Vp4">
+                                <rect key="frame" x="40" y="358" width="334" height="272.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPL-Qa-Lws">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
@@ -118,59 +136,40 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="efW-xB-xuR">
-                                        <rect key="frame" x="0.0" y="40.5" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Hw-oB-D5H">
-                                        <rect key="frame" x="0.0" y="100.5" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="112.5" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fPr-o9-GQI">
-                                        <rect key="frame" x="0.0" y="160.5" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="175.5" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6GK-Wq-AxZ">
-                                        <rect key="frame" x="0.0" y="220.5" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="238.5" width="334" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vt7-f1-45G">
-                                        <rect key="frame" x="0.0" y="280.5" width="334" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="3cg-T8-33S"/>
-                                        </constraints>
-                                        <state key="normal" title="Sign Up"/>
-                                        <connections>
-                                            <action selector="signUpTapped:" destination="7bE-xI-Jp6" eventType="touchUpInside" id="Ore-ni-QFR"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="3Hw-oB-D5H" firstAttribute="height" secondItem="efW-xB-xuR" secondAttribute="height" id="Miv-1w-vpn"/>
                                     <constraint firstItem="fPr-o9-GQI" firstAttribute="height" secondItem="efW-xB-xuR" secondAttribute="height" id="PfV-sj-7bW"/>
                                     <constraint firstItem="6GK-Wq-AxZ" firstAttribute="height" secondItem="efW-xB-xuR" secondAttribute="height" id="pnq-xG-AgG"/>
-                                    <constraint firstItem="vt7-f1-45G" firstAttribute="height" secondItem="efW-xB-xuR" secondAttribute="height" id="qeN-Z6-Msf"/>
                                 </constraints>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="REGIO_LOGO" translatesAutoresizingMaskIntoConstraints="NO" id="dVW-pg-80d">
-                                <rect key="frame" x="95" y="84" width="224" height="228"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vt7-f1-45G">
+                                <rect key="frame" x="40" y="774" width="334" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="228" id="53R-JF-oL5"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="Dix-nc-Ozz"/>
+                                    <constraint firstAttribute="height" constant="34" id="cJj-QZ-hl0"/>
                                 </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCQ-wk-sDV">
-                                <rect key="frame" x="20" y="51" width="55" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="55" id="HqQ-gZ-c8Z"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" title="Zurück"/>
+                                <state key="normal" title="Sign Up"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="k8V-kb-OOP"/>
+                                    <action selector="signUpTapped:" destination="7bE-xI-Jp6" eventType="touchUpInside" id="Ore-ni-QFR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -179,12 +178,16 @@
                         <constraints>
                             <constraint firstItem="tCQ-wk-sDV" firstAttribute="leading" secondItem="W9g-BI-sci" secondAttribute="leading" constant="20" id="65h-g4-ttJ"/>
                             <constraint firstItem="dVW-pg-80d" firstAttribute="leading" secondItem="W9g-BI-sci" secondAttribute="leading" constant="95" id="6GE-Ff-YIn"/>
-                            <constraint firstItem="W9g-BI-sci" firstAttribute="bottom" secondItem="FLY-ju-Vp4" secondAttribute="bottom" id="8FW-Gq-ptR"/>
+                            <constraint firstItem="W9g-BI-sci" firstAttribute="bottom" secondItem="FLY-ju-Vp4" secondAttribute="bottom" constant="177.5" id="8FW-Gq-ptR"/>
                             <constraint firstItem="W9g-BI-sci" firstAttribute="trailing" secondItem="dVW-pg-80d" secondAttribute="trailing" constant="95" id="NDb-Pg-NdQ"/>
+                            <constraint firstItem="vt7-f1-45G" firstAttribute="bottom" secondItem="W9g-BI-sci" secondAttribute="bottom" id="SWQ-kY-dmf"/>
                             <constraint firstItem="FLY-ju-Vp4" firstAttribute="leading" secondItem="W9g-BI-sci" secondAttribute="leading" constant="40" id="TcH-B4-N9b"/>
                             <constraint firstItem="tCQ-wk-sDV" firstAttribute="top" secondItem="W9g-BI-sci" secondAttribute="top" constant="7" id="XKv-WL-rQg"/>
-                            <constraint firstItem="dVW-pg-80d" firstAttribute="top" secondItem="W9g-BI-sci" secondAttribute="top" constant="40" id="XS8-DT-K5w"/>
+                            <constraint firstItem="dVW-pg-80d" firstAttribute="top" secondItem="W9g-BI-sci" secondAttribute="top" constant="45" id="XS8-DT-K5w"/>
+                            <constraint firstItem="W9g-BI-sci" firstAttribute="trailing" secondItem="vt7-f1-45G" secondAttribute="trailing" constant="40" id="eKh-PJ-6lh"/>
+                            <constraint firstItem="vt7-f1-45G" firstAttribute="leading" secondItem="W9g-BI-sci" secondAttribute="leading" constant="40" id="fgx-No-sKr"/>
                             <constraint firstItem="W9g-BI-sci" firstAttribute="trailing" secondItem="FLY-ju-Vp4" secondAttribute="trailing" constant="40" id="lfI-cg-kbI"/>
+                            <constraint firstItem="W9g-BI-sci" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tCQ-wk-sDV" secondAttribute="trailing" symbolic="YES" id="zRT-OT-IUb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JsE-XW-roQ"/>
@@ -200,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVw-dt-RY9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1860.8695652173915" y="-250.44642857142856"/>
+            <point key="canvasLocation" x="1881" y="119"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="usA-eG-Ekv">
@@ -216,6 +219,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="REGIO_LOGO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufp-OQ-DYl">
+                                <rect key="frame" x="20" y="55" width="70" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2B-bv-s3V">
+                                <rect key="frame" x="348" y="57" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xS4-8s-Lbr">
+                                <rect key="frame" x="20" y="116" width="374" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Iwn-yS-vDI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -227,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T9m-Vx-Mnx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2654" y="119"/>
+            <point key="canvasLocation" x="2653.6231884057975" y="118.52678571428571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IFH-Al-WDw">
@@ -248,7 +265,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4bM-tc-oiu"/>
+        <segue reference="PiX-Gn-nFD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="REGIO_LOGO" width="1500" height="1500"/>
