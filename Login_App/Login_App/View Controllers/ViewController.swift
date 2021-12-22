@@ -13,6 +13,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var signUpButton: UIButton!
     
+    
+    
     @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -29,14 +31,14 @@ class ViewController: UIViewController {
     }
 
     func setUpElements(){
-        Utilities.styleFilledButton(signUpButton)
+        Utilities.styleHollowButton(signUpButton)
        // Utilities.styleHollowButton(loginButton)
         errorLabel.alpha = 0
         
         //Style the Elements
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
-       // Utilities.styleFilledButton(loginButton)
+        Utilities.styleFilledButton(loginButton)
     }
     
     @IBAction func logginTabbed(_ sender: Any) {
