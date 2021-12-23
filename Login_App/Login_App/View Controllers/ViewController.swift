@@ -39,6 +39,23 @@ class ViewController: UIViewController {
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
         Utilities.styleFilledButton(loginButton)
+        
+        
+       
+    }
+    
+    
+    
+   
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        if let _ = string.rangeOfCharacter(from: .uppercaseLetters) {
+            // Do not allow upper case letters
+            return false
+        }
+
+        return true
     }
     
     @IBAction func logginTabbed(_ sender: Any) {
