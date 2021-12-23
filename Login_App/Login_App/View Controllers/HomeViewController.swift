@@ -9,6 +9,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    
+    @IBOutlet weak var homeButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,7 +20,12 @@ class HomeViewController: UIViewController {
         
     }
     
-
+    
+    
+    @IBAction func homeTapped(_ sender: Any) {
+        print("home")
+    }
+    
     /*
     // MARK: - Navigation
 
