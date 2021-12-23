@@ -338,7 +338,7 @@
         <!--Search View Controller-->
         <scene sceneID="WAU-Zp-tL7">
             <objects>
-                <viewController storyboardIdentifier="SearchVC" modalPresentationStyle="fullScreen" id="YSw-un-iI1" customClass="SearchViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="YSw-un-iI1" customClass="SearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q1x-PL-vob">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -444,7 +444,7 @@
         <!--Map View Controller-->
         <scene sceneID="aAy-xy-YL1">
             <objects>
-                <viewController storyboardIdentifier="MapVC" modalPresentationStyle="fullScreen" id="C1Q-KS-Xxg" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="C1Q-KS-Xxg" customClass="MapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qpj-H4-DGq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -550,7 +550,7 @@
         <!--Cart View Controller-->
         <scene sceneID="MZa-eh-uTk">
             <objects>
-                <viewController storyboardIdentifier="CartVC" modalPresentationStyle="fullScreen" id="VvW-Lt-gZY" customClass="CartViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CartVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="VvW-Lt-gZY" customClass="CartViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gey-pN-7aK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -655,10 +655,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="JQA-dN-26Z"/>
         <segue reference="ugc-op-wRm"/>
-        <segue reference="Hp9-mc-HfY"/>
-        <segue reference="bDm-iz-Xwv"/>
-        <segue reference="d3E-FW-sM3"/>
+        <segue reference="BT6-aX-LvJ"/>
+        <segue reference="06T-cu-iuL"/>
+        <segue reference="oB5-vy-0UI"/>
         <segue reference="PiX-Gn-nFD"/>
     </inferredMetricsTieBreakers>
     <resources>

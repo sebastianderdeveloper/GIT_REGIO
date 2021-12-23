@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
+        UIView.setAnimationsEnabled(false)
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
