@@ -221,81 +221,80 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="REGIO_LOGO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufp-OQ-DYl">
-                                <rect key="frame" x="20" y="55" width="70" height="32"/>
+                                <rect key="frame" x="40" y="56" width="34" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="Inp-N3-0r4"/>
-                                    <constraint firstAttribute="width" constant="70" id="urm-T7-kE3"/>
+                                    <constraint firstAttribute="height" constant="30" id="Inp-N3-0r4"/>
+                                    <constraint firstAttribute="width" constant="34" id="urm-T7-kE3"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2B-bv-s3V">
-                                <rect key="frame" x="348" y="60" width="63" height="24"/>
-                                <color key="tintColor" systemColor="labelColor"/>
-                                <state key="normal" title="User">
-                                    <imageReference key="image" image="person.crop.circle" catalog="system" symbolScale="large"/>
-                                </state>
-                            </button>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="xS4-8s-Lbr">
-                                <rect key="frame" x="20" y="116" width="374" height="44"/>
+                                <rect key="frame" x="20" y="117" width="374" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="uiF-wr-Ot3"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <stackView opaque="NO" contentMode="scaleAspectFit" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="Ode-rv-VVa">
-                                <rect key="frame" x="28" y="826" width="359" height="36"/>
+                                <rect key="frame" x="40" y="832.5" width="334" height="29.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agH-hU-Bgg">
-                                        <rect key="frame" x="0.0" y="0.0" width="43" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="34.5" height="29.5"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal">
                                             <imageReference key="image" image="house" catalog="system" symbolScale="large"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="748" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akJ-jd-hYf">
-                                        <rect key="frame" x="100" y="0.0" width="36" height="36"/>
+                                        <rect key="frame" x="91.5" y="0.0" width="28" height="29.5"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal">
                                             <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5I-9i-p9J">
-                                        <rect key="frame" x="193" y="0.0" width="73" height="36"/>
+                                        <rect key="frame" x="176.5" y="0.0" width="72" height="29.5"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal">
                                             <imageReference key="image" image="cart" catalog="system" symbolScale="large"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwS-PO-T2z">
-                                        <rect key="frame" x="323" y="0.0" width="36" height="36"/>
+                                        <rect key="frame" x="305.5" y="0.0" width="28.5" height="29.5"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal">
                                             <imageReference key="image" image="mappin.circle" catalog="system" symbolScale="large"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2B-bv-s3V">
+                                <rect key="frame" x="343" y="56" width="31" height="30"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="person.crop.circle" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Iwn-yS-vDI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Ode-rv-VVa" firstAttribute="bottom" secondItem="Iwn-yS-vDI" secondAttribute="bottom" id="0aB-HO-hQd"/>
                             <constraint firstItem="xS4-8s-Lbr" firstAttribute="centerX" secondItem="zvG-wR-Ohp" secondAttribute="centerX" id="37B-T5-ZDb"/>
-                            <constraint firstItem="Iwn-yS-vDI" firstAttribute="trailing" secondItem="F2B-bv-s3V" secondAttribute="trailing" constant="3" id="5O0-id-Lh6"/>
+                            <constraint firstItem="Iwn-yS-vDI" firstAttribute="trailing" secondItem="F2B-bv-s3V" secondAttribute="trailing" constant="40" id="5O0-id-Lh6"/>
                             <constraint firstItem="zvG-wR-Ohp" firstAttribute="centerY" secondItem="3cq-xG-2K2" secondAttribute="centerY" id="5Uk-p1-0MN"/>
-                            <constraint firstItem="Ufp-OQ-DYl" firstAttribute="top" secondItem="Iwn-yS-vDI" secondAttribute="top" constant="11" id="ILb-PL-ySi"/>
-                            <constraint firstItem="Iwn-yS-vDI" firstAttribute="trailing" secondItem="Ode-rv-VVa" secondAttribute="trailing" constant="27" id="MHL-tY-THz"/>
-                            <constraint firstItem="F2B-bv-s3V" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ufp-OQ-DYl" secondAttribute="trailing" constant="8" symbolic="YES" id="Ncx-Sb-nmh"/>
-                            <constraint firstItem="F2B-bv-s3V" firstAttribute="top" secondItem="Iwn-yS-vDI" secondAttribute="top" constant="16" id="Sqf-2g-R4U"/>
-                            <constraint firstItem="Ufp-OQ-DYl" firstAttribute="leading" secondItem="xS4-8s-Lbr" secondAttribute="leading" id="Tlo-5l-57N"/>
-                            <constraint firstItem="Iwn-yS-vDI" firstAttribute="trailing" secondItem="F2B-bv-s3V" secondAttribute="trailing" constant="3" id="UBn-dK-3yM"/>
-                            <constraint firstItem="Ode-rv-VVa" firstAttribute="leading" secondItem="Iwn-yS-vDI" secondAttribute="leading" constant="28" id="ilx-Bc-E2h"/>
-                            <constraint firstItem="xS4-8s-Lbr" firstAttribute="top" secondItem="Ufp-OQ-DYl" secondAttribute="bottom" constant="29" id="jlY-m1-5Vs"/>
+                            <constraint firstItem="xS4-8s-Lbr" firstAttribute="leading" secondItem="3cq-xG-2K2" secondAttribute="leadingMargin" id="675-fi-nwI"/>
+                            <constraint firstItem="Iwn-yS-vDI" firstAttribute="trailing" secondItem="Ode-rv-VVa" secondAttribute="trailing" constant="40" id="MHL-tY-THz"/>
+                            <constraint firstItem="Ufp-OQ-DYl" firstAttribute="leading" secondItem="Iwn-yS-vDI" secondAttribute="leading" constant="40" id="S5v-SU-dmc"/>
+                            <constraint firstItem="Ufp-OQ-DYl" firstAttribute="top" secondItem="Iwn-yS-vDI" secondAttribute="top" constant="12" id="TZa-uI-1aW"/>
+                            <constraint firstItem="F2B-bv-s3V" firstAttribute="top" secondItem="Iwn-yS-vDI" secondAttribute="top" constant="12" id="gyR-V3-xHC"/>
+                            <constraint firstItem="Ode-rv-VVa" firstAttribute="leading" secondItem="Iwn-yS-vDI" secondAttribute="leading" constant="40" id="ilx-Bc-E2h"/>
+                            <constraint firstItem="xS4-8s-Lbr" firstAttribute="top" secondItem="Ufp-OQ-DYl" secondAttribute="bottom" constant="31" id="jlY-m1-5Vs"/>
                             <constraint firstItem="zvG-wR-Ohp" firstAttribute="centerX" secondItem="3cq-xG-2K2" secondAttribute="centerX" id="lDh-YU-9Xv"/>
-                            <constraint firstItem="Ufp-OQ-DYl" firstAttribute="leading" secondItem="3cq-xG-2K2" secondAttribute="leadingMargin" id="xsU-cS-KI7"/>
                         </constraints>
                     </view>
                 </viewController>
