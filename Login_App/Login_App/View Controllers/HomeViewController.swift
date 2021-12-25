@@ -14,7 +14,13 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var horizontallyScrollableStackView: UIStackView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
+        
+        scrollView.showsHorizontalScrollIndicator = false
+        
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

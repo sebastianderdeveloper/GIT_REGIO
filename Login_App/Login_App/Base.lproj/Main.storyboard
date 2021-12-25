@@ -327,6 +327,7 @@
                     <connections>
                         <outlet property="homeButton" destination="agH-hU-Bgg" id="xvH-3V-Mfb"/>
                         <outlet property="horizontallyScrollableStackView" destination="Etd-dV-Rqj" id="VK3-kx-C82"/>
+                        <outlet property="scrollView" destination="00U-8u-4PG" id="oCm-vB-2Xr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T9m-Vx-Mnx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
