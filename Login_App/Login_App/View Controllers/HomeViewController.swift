@@ -27,9 +27,9 @@ class HomeViewController: UIViewController {
         
         for _ in 0...10 {
                    if let dayView = Bundle.main.loadNibNamed("DayView", owner: nil, options: nil)!.first as? DayView {
-                       dayView.titleLabel.text = "Friday"
-                       dayView.detailLabel.text = "A long detail text will be shown here"
-                       horizontallyScrollableStackView.addArrangedSubview(dayView)
+                        dayView.titleLabel.text = "Obst"
+                    dayView.imageCategory.image = UIImage(named: "Obst")
+                        horizontallyScrollableStackView.addArrangedSubview(dayView)
                    }
                }
     }
