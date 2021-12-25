@@ -12,13 +12,22 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var homeButton: UIButton!
     
+    @IBOutlet weak var horizontallyScrollableStackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        
+        for _ in 0...10 {
+                   if let dayView = Bundle.main.loadNibNamed("DayView", owner: nil, options: nil)!.first as? DayView {
+                       dayView.titleLabel.text = "Friday"
+                       dayView.detailLabel.text = "A long detail text will be shown here"
+                       horizontallyScrollableStackView.addArrangedSubview(dayView)
+                   }
+               }
     }
+    
     
     
     

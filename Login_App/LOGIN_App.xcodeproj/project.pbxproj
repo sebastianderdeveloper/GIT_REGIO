@@ -19,6 +19,8 @@
 		9E377C7E2734470700F806B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E377C7D2734470700F806B2 /* LoginViewController.swift */; };
 		9E377C832734474F00F806B2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E377C822734474F00F806B2 /* SignUpViewController.swift */; };
 		9E377C9427344B9F00F806B2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E377C9327344B9F00F806B2 /* HomeViewController.swift */; };
+		9E9FF69F2777397A00BD3751 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9FF69E2777397A00BD3751 /* DayView.swift */; };
+		9E9FF6AC27773A9D00BD3751 /* DayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E9FF6AB27773A9D00BD3751 /* DayView.xib */; };
 		9ECF39A3273FF383003F1C8C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECF39A2273FF383003F1C8C /* Constants.swift */; };
 		9EE90263273FC51F00736777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9EE90262273FC51F00736777 /* GoogleService-Info.plist */; };
 		9EF2720E273FBADF000417AF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF2720D273FBADF000417AF /* Utilities.swift */; };
@@ -65,6 +67,8 @@
 		9E377C7D2734470700F806B2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9E377C822734474F00F806B2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9E377C9327344B9F00F806B2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9E9FF69E2777397A00BD3751 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		9E9FF6AB27773A9D00BD3751 /* DayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayView.xib; sourceTree = "<group>"; };
 		9ECF39A2273FF383003F1C8C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9EE90262273FC51F00736777 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9EF2720D273FBADF000417AF /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 			children = (
 				9EF2720D273FBADF000417AF /* Utilities.swift */,
 				9ECF39A2273FF383003F1C8C /* Constants.swift */,
+				9E9FF69E2777397A00BD3751 /* DayView.swift */,
+				9E9FF6AB27773A9D00BD3751 /* DayView.xib */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -312,6 +318,7 @@
 			files = (
 				9E377C572734243500F806B2 /* LaunchScreen.storyboard in Resources */,
 				9EE90263273FC51F00736777 /* GoogleService-Info.plist in Resources */,
+				9E9FF6AC27773A9D00BD3751 /* DayView.xib in Resources */,
 				9E377C542734243500F806B2 /* Assets.xcassets in Resources */,
 				9E377C522734242B00F806B2 /* Main.storyboard in Resources */,
 			);
@@ -445,6 +452,7 @@
 				9E377C4F2734242B00F806B2 /* ViewController.swift in Sources */,
 				9EF2720E273FBADF000417AF /* Utilities.swift in Sources */,
 				9E377C4B2734242B00F806B2 /* AppDelegate.swift in Sources */,
+				9E9FF69F2777397A00BD3751 /* DayView.swift in Sources */,
 				9E377C4D2734242B00F806B2 /* SceneDelegate.swift in Sources */,
 				9E377C832734474F00F806B2 /* SignUpViewController.swift in Sources */,
 				9E377C9427344B9F00F806B2 /* HomeViewController.swift in Sources */,
