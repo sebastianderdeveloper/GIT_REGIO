@@ -25,10 +25,16 @@ class HomeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        for _ in 0...10 {
+        for i in 0...10 {
                    if let dayView = Bundle.main.loadNibNamed("DayView", owner: nil, options: nil)!.first as? DayView {
+                    if i % 2 == 0 {
                         dayView.titleLabel.text = "Obst"
-                    dayView.imageCategory.image = UIImage(named: "Obst")
+                        dayView.imageCategory.image = UIImage(named: "Obst")
+                      } else {
+                        dayView.titleLabel.text = "Sweets"
+                        dayView.imageCategory.image = UIImage(named: "Süßigkeiten")
+                      }
+                        
                         horizontallyScrollableStackView.addArrangedSubview(dayView)
                    }
                }
