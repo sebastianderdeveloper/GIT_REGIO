@@ -6,8 +6,15 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
-class HomeViewController: UIViewController {
+
+
+
+
+
+
+class HomeViewController: UIViewController, ObservableObject {
 
     
     @IBOutlet weak var homeButton: UIButton!
@@ -15,6 +22,14 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var horizontallyScrollableStackView: UIStackView!
     
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    @Published var articles = [Article]()
+    
+    private var db = Firestore.firestore()
+    
+    var articlesArray: [Article] = []
+    
+    var searchResults:[Article] = []
     
     override func viewDidLoad() {
         
@@ -24,6 +39,11 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        fetchData()
+        
+       
+        
         
         for i in 0...10 {
                    if let dayView = Bundle.main.loadNibNamed("DayView", owner: nil, options: nil)!.first as? DayView {
@@ -38,13 +58,50 @@ class HomeViewController: UIViewController {
                         horizontallyScrollableStackView.addArrangedSubview(dayView)
                    }
                }
+        
+        
+        
     }
+
+    
+    func fetchData() {
+        
+        db.collection("articles").addSnapshotListener { (querySnapshot, error) in
+                guard let documents = querySnapshot?.documents else {
+                    print("No documents")
+                    return
+                }
+                
+            self.articlesArray.removeAll()
+            
+            self.articles = documents.map { (queryDocumentSnapshot) -> Article in
+                    let data = queryDocumentSnapshot.data()
+                    let name = data["name"] as? String ?? ""
+                    //print(name)
+                    self.articlesArray.append (Article(name: name))
+                    return Article(name: name)
+                }
+            
+            }
+        }
     
     
+    func filterContentForSearchText(_ searchText: String) {
+        searchResults = self.articlesArray.filter({ (article:Article) -> Bool in
+                let nameMatch = article.name.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+                                
+                return nameMatch != nil }
+            )
+        print(searchResults)
+        } // end func filterContent
     
-    
+
     @IBAction func homeTapped(_ sender: Any) {
         print("home")
+        
+        //print(self.articlesArray[0].name)
+        
+        filterContentForSearchText("mi")
     }
     
     /*
