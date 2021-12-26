@@ -77,20 +77,23 @@ class HomeViewController: UIViewController, ObservableObject {
             self.articles = documents.map { (queryDocumentSnapshot) -> Article in
                     let data = queryDocumentSnapshot.data()
                     let name = data["name"] as? String ?? ""
+                    let kategorie = data["kategorie"] as? String ?? ""
                     //print(name)
-                    self.articlesArray.append (Article(name: name))
-                    return Article(name: name)
+                self.articlesArray.append (Article(name: name, kategorie: kategorie))
+                    return Article(name: name, kategorie: kategorie)
                 }
             
             }
         }
     
+    //https://medium.com/nerd-for-tech/swift-dynamic-search-bar-with-multiple-criteria-and-filter-persistence-905ac05b6ae0
+
     
     func filterContentForSearchText(_ searchText: String) {
         searchResults = self.articlesArray.filter({ (article:Article) -> Bool in
                 let nameMatch = article.name.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
-                                
-                return nameMatch != nil }
+                let kategorieMatch = article.kategorie
+                                                    return nameMatch != nil && kategorieMatch == "test"}
             )
         print(searchResults)
         } // end func filterContent

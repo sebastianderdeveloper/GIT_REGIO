@@ -10,5 +10,5 @@ import Foundation
 struct Article: Identifiable {
     var id: String = UUID().uuidString
     var name: String
-    
+    var kategorie: String
 }
