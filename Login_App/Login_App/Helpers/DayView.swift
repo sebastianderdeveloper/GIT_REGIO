@@ -11,7 +11,10 @@ class DayView: UIView {
 
     @IBOutlet weak var titleLabel: UILabel!
     
-    @IBOutlet weak var imageCategory: UIImageView!
+    
+    @IBOutlet weak var imageButton: UIButton!
+    
+    
     
     
     

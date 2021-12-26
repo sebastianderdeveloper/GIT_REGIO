@@ -49,10 +49,10 @@ class HomeViewController: UIViewController, ObservableObject {
                    if let dayView = Bundle.main.loadNibNamed("DayView", owner: nil, options: nil)!.first as? DayView {
                     if i % 2 == 0 {
                         dayView.titleLabel.text = "Obst"
-                        dayView.imageCategory.image = UIImage(named: "Obst")
+                        dayView.imageButton.setImage(UIImage(named: "Obst"),for: .normal)
                       } else {
                         dayView.titleLabel.text = "Sweets"
-                        dayView.imageCategory.image = UIImage(named: "Süßigkeiten")
+                        dayView.imageButton.setImage(UIImage(named: "Süßigkeiten"),for: .normal)
                       }
                         
                         horizontallyScrollableStackView.addArrangedSubview(dayView)
