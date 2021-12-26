@@ -152,6 +152,7 @@ class SignUpViewController: UIViewController {
         
         view.window?.rootViewController = homeViewController
         view.window?.makeKeyAndVisible()
+        
     }
  
 }
