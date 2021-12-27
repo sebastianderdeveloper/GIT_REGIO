@@ -73,12 +73,24 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             if(searchString.isEmpty){
                 self.shapeTableView.reloadData()
             }else{
-                let result = self.shapeList.filter { $0.name.starts(with: searchString) }
+                //let result2 = self.shapeList.filter { $0.name.starts(with: searchString) }
+                var result = [Shape]()
+                print("suffix")
+                
+                for shape in self.shapeList {
+                    print(shape.name.prefix(searchString.count))
+                    if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
+                        result.append(Shape(id: "9", name: shape.name, imageName: "triangle"))
+                    }
+                }
                 
                 print("test: ")
                 print(result)
+                print("test2: ")
+                //print(result2)
                 
                 self.shapeList = result
+                result.removeAll()
                 self.shapeTableView.reloadData()
             }
             
