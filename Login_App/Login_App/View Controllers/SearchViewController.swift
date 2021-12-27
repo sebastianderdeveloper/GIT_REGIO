@@ -14,5 +14,7 @@ class SearchViewController:UIViewController {
     
     override func viewDidLoad() {
         print(kategorie)
+        
     }
+    
 }

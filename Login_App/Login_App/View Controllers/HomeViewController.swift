@@ -123,7 +123,7 @@ class HomeViewController: UIViewController, ObservableObject {
     @IBAction func homeTapped(_ sender: Any) {
         print("home")
         
-        //print(self.articlesArray[0].name)
+        //print(self.articlesArray)
         
         filterContentForSearchText("mi")
     }

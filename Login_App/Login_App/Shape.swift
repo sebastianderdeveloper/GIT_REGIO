@@ -1,7 +1,7 @@
 
 import Foundation
 
-class Shape
+class Shape2
 {
 	var id : String!
 	var name : String!

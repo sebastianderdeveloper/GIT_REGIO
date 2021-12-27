@@ -119,6 +119,7 @@ class SignUpViewController: UIViewController {
                     let db = Firestore.firestore()
                     db.collection("users").addDocument(data: ["firstname": firstName, "lastname": lastName, "uid": result!.user.uid]) { (error) in
                         
+                        
                         if error != nil{
                             //Show error message
                             self.showError(message: "Error saving user data")

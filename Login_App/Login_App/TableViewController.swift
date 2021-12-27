@@ -1,23 +1,29 @@
 
 import UIKit
+import FirebaseFirestore
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchResultsUpdating
 {
 
-	let searchController = UISearchController()
+	
 	@IBOutlet weak var shapeTableView: UITableView!
 	
 	var shapeList = [Shape]()
 	var filteredShapes = [Shape]()
+    var articlesArray: [Article] = []
+    var bool = false
+    
+    private var db = Firestore.firestore()
+    @Published var articles = [Article]()
 	
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
 		initList()
-		initSearchController()
+		//initSearchController()
 	}
 	
-	func initSearchController()
+	/*func initSearchController()
 	{
 		searchController.loadViewIfNeeded()
 		searchController.searchResultsUpdater = self
@@ -30,11 +36,39 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 		navigationItem.hidesSearchBarWhenScrolling = false
 		searchController.searchBar.scopeButtonTitles = ["All", "Rect", "Square", "Oct", "Circle", "Triangle"]
 		searchController.searchBar.delegate = self
-	}
+	}*/
 	
 	func initList()
 	{
-		let circle = Shape(id: "0", name: "Circle 1", imageName: "circle")
+        db.collection("articles").addSnapshotListener { (querySnapshot, error) in
+                guard let documents = querySnapshot?.documents else {
+                    print("No documents")
+                    return
+                }
+                
+            self.articlesArray.removeAll()
+            
+            self.shapeList = documents.map { (queryDocumentSnapshot) -> Shape in
+                    let data = queryDocumentSnapshot.data()
+                    let name = data["name"] as? String ?? ""
+                    //let kategorie = data["kategorie"] as? String ?? ""
+                    //print(name)
+                self.shapeList.append(Shape(id: "9", name: name, imageName: "triangle"))
+                //self.articlesArray.append (Article(name: name, kategorie: kategorie))
+                    return Shape(id: "9", name: name, imageName: "triangle")
+                }
+            let result = self.shapeList.filter { $0.name.starts(with: "m") }
+            
+            print("test: ")
+            print(result)
+            self.shapeList = result
+            }
+        
+        //let result = shapeList.filter { $0.name.starts(with: "M") }
+        
+        
+        
+        /*let circle = Shape(id: "0", name: "Circle 1", imageName: "circle")
 		shapeList.append(circle)
 		
 		let square = Shape(id: "1", name: "Square 1", imageName: "square")
@@ -62,16 +96,22 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 		shapeList.append(rectangle2)
 		
 		let triangle2 = Shape(id: "9", name: "Triangle 2", imageName: "triangle")
-		shapeList.append(triangle2)
+		shapeList.append(triangle2)*/
 	}
 
+    func fetchData() {
+        
+        
+    }
+    
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
 	{
-		if(searchController.isActive)
-		{
-			return filteredShapes.count
-		}
-		return shapeList.count
+		
+        if(bool)
+        {
+            return filteredShapes.count
+        }
+        return shapeList.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -80,14 +120,16 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 		
 		let thisShape: Shape!
 		
-		if(searchController.isActive)
-		{
-			thisShape = filteredShapes[indexPath.row]
-		}
-		else
-		{
-			thisShape = shapeList[indexPath.row]
-		}
+		
+        if(bool)
+        {
+            thisShape = filteredShapes[indexPath.row]
+        }
+        else
+        {
+            thisShape = shapeList[indexPath.row]
+        }
+		
 		
 		
 		tableViewCell.shapeName.text = thisShape.id + " " + thisShape.name
@@ -111,14 +153,15 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 			
 			let selectedShape: Shape!
 			
-			if(searchController.isActive)
-			{
-				selectedShape = filteredShapes[indexPath.row]
-			}
-			else
-			{
-				selectedShape = shapeList[indexPath.row]
-			}
+            if(bool)
+            {
+                selectedShape = filteredShapes[indexPath.row]
+            }
+            else
+            {
+                selectedShape = shapeList[indexPath.row]
+            }
+			
 			
 			
 			tableViewDetail!.selectedShape = selectedShape
@@ -143,16 +186,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 		{
 			shape in
 			let scopeMatch = (scopeButton == "All" || shape.name.lowercased().contains(scopeButton.lowercased()))
-			if(searchController.searchBar.text != "")
-			{
-				let searchTextMatch = shape.name.lowercased().contains(searchText.lowercased())
-				
-				return scopeMatch && searchTextMatch
-			}
-			else
-			{
+			
 				return scopeMatch
-			}
+			
 		}
 		shapeTableView.reloadData()
 	}
