@@ -731,7 +731,7 @@
         <!--Shapes-->
         <scene sceneID="Pe0-No-zdY">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="yMT-Hv-XlH" customClass="TableViewController" customModule="TableViewExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="yMT-Hv-XlH" customClass="TableViewController" customModule="LOGIN_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eW4-pR-nfw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -740,7 +740,7 @@
                                 <rect key="frame" x="0.0" y="200" width="414" height="701"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCellID" id="dyz-w5-JbV" customClass="TableViewCell" customModule="TableViewExample" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCellID" id="dyz-w5-JbV" customClass="TableViewCell" customModule="LOGIN_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dyz-w5-JbV" id="UeH-cf-qdF">
@@ -780,18 +780,26 @@
                                     <outlet property="delegate" destination="yMT-Hv-XlH" id="cIs-5N-8Dv"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="sYd-gd-ATw">
+                                <rect key="frame" x="0.0" y="106" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FbG-0e-I3k"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="sYd-gd-ATw" firstAttribute="trailing" secondItem="FbG-0e-I3k" secondAttribute="trailing" id="24C-2T-LgC"/>
                             <constraint firstItem="xFc-uK-Lyv" firstAttribute="centerX" secondItem="FbG-0e-I3k" secondAttribute="centerX" id="FHu-pg-UCf"/>
                             <constraint firstItem="xFc-uK-Lyv" firstAttribute="height" secondItem="eW4-pR-nfw" secondAttribute="height" constant="-195" id="Gck-Tx-IxP"/>
                             <constraint firstItem="xFc-uK-Lyv" firstAttribute="centerY" secondItem="FbG-0e-I3k" secondAttribute="centerY" constant="97.5" id="I4s-VK-XKL"/>
+                            <constraint firstItem="sYd-gd-ATw" firstAttribute="leading" secondItem="FbG-0e-I3k" secondAttribute="leading" id="bHo-3z-l4C"/>
+                            <constraint firstItem="sYd-gd-ATw" firstAttribute="top" secondItem="FbG-0e-I3k" secondAttribute="top" constant="62" id="eN5-vq-mVT"/>
                             <constraint firstItem="xFc-uK-Lyv" firstAttribute="width" secondItem="eW4-pR-nfw" secondAttribute="width" id="hdv-Kt-9R3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Shapes" id="its-4H-Pg8"/>
                     <connections>
+                        <outlet property="searchBar" destination="sYd-gd-ATw" id="V7W-WK-e0y"/>
                         <outlet property="shapeTableView" destination="xFc-uK-Lyv" id="lpp-EP-V4e"/>
                         <segue destination="RcA-B9-RHf" kind="show" identifier="detailSegue" id="8ud-9e-Eng"/>
                     </connections>
@@ -803,7 +811,7 @@
         <!--Detail-->
         <scene sceneID="OHI-0T-8KR">
             <objects>
-                <viewController id="RcA-B9-RHf" customClass="TableViewDetail" customModule="TableViewExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RcA-B9-RHf" customClass="TableViewDetail" customModule="LOGIN_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="th2-8g-wZ9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -843,8 +851,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kkA-oS-NqB"/>
-        <segue reference="Hp9-mc-HfY"/>
+        <segue reference="ugc-op-wRm"/>
+        <segue reference="BT6-aX-LvJ"/>
         <segue reference="06T-cu-iuL"/>
         <segue reference="oB5-vy-0UI"/>
         <segue reference="PiX-Gn-nFD"/>

@@ -7,8 +7,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
 	
 	@IBOutlet weak var shapeTableView: UITableView!
-	
-	var shapeList = [Shape]()
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
+    
+    var shapeList = [Shape]()
 	var filteredShapes = [Shape]()
     var articlesArray: [Article] = []
     var bool = false
@@ -19,9 +22,19 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
-		initList()
+        initList(searchString: "")
 		//initSearchController()
+        searchBar.delegate = self
 	}
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            print("searchText \(searchText)")
+            initList(searchString: searchText)
+        }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("searchText \(String(describing: searchBar.text))")
+        }
 	
 	/*func initSearchController()
 	{
@@ -38,7 +51,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 		searchController.searchBar.delegate = self
 	}*/
 	
-	func initList()
+    func initList(searchString: String)
 	{
         db.collection("articles").addSnapshotListener { (querySnapshot, error) in
                 guard let documents = querySnapshot?.documents else {
@@ -46,7 +59,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     return
                 }
                 
-            self.articlesArray.removeAll()
+            self.shapeList.removeAll()
             
             self.shapeList = documents.map { (queryDocumentSnapshot) -> Shape in
                     let data = queryDocumentSnapshot.data()
@@ -57,11 +70,19 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 //self.articlesArray.append (Article(name: name, kategorie: kategorie))
                     return Shape(id: "9", name: name, imageName: "triangle")
                 }
-            let result = self.shapeList.filter { $0.name.starts(with: "m") }
+            if(searchString.isEmpty){
+                self.shapeTableView.reloadData()
+            }else{
+                let result = self.shapeList.filter { $0.name.starts(with: searchString) }
+                
+                print("test: ")
+                print(result)
+                
+                self.shapeList = result
+                self.shapeTableView.reloadData()
+            }
             
-            print("test: ")
-            print(result)
-            self.shapeList = result
+            
             }
         
         //let result = shapeList.filter { $0.name.starts(with: "M") }
