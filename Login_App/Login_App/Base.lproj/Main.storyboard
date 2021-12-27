@@ -731,7 +731,7 @@
         <!--Shapes-->
         <scene sceneID="Pe0-No-zdY">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="yMT-Hv-XlH" customClass="TableViewController" customModule="LOGIN_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TableVC" modalPresentationStyle="fullScreen" id="yMT-Hv-XlH" customClass="TableViewController" customModule="LOGIN_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eW4-pR-nfw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -784,11 +784,20 @@
                                 <rect key="frame" x="0.0" y="106" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UO2-So-pxa">
+                                <rect key="frame" x="20" y="44" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="sP0-JX-dTn" kind="show" id="9GV-uG-sFT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FbG-0e-I3k"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="sYd-gd-ATw" firstAttribute="trailing" secondItem="FbG-0e-I3k" secondAttribute="trailing" id="24C-2T-LgC"/>
+                            <constraint firstItem="UO2-So-pxa" firstAttribute="top" secondItem="FbG-0e-I3k" secondAttribute="top" id="6Iq-fH-WkI"/>
+                            <constraint firstItem="UO2-So-pxa" firstAttribute="leading" secondItem="FbG-0e-I3k" secondAttribute="leading" constant="20" id="BZG-lr-fEv"/>
                             <constraint firstItem="xFc-uK-Lyv" firstAttribute="centerX" secondItem="FbG-0e-I3k" secondAttribute="centerX" id="FHu-pg-UCf"/>
                             <constraint firstItem="xFc-uK-Lyv" firstAttribute="height" secondItem="eW4-pR-nfw" secondAttribute="height" constant="-195" id="Gck-Tx-IxP"/>
                             <constraint firstItem="xFc-uK-Lyv" firstAttribute="centerY" secondItem="FbG-0e-I3k" secondAttribute="centerY" constant="97.5" id="I4s-VK-XKL"/>
@@ -854,7 +863,7 @@
         <segue reference="ugc-op-wRm"/>
         <segue reference="BT6-aX-LvJ"/>
         <segue reference="06T-cu-iuL"/>
-        <segue reference="oB5-vy-0UI"/>
+        <segue reference="9GV-uG-sFT"/>
         <segue reference="PiX-Gn-nFD"/>
     </inferredMetricsTieBreakers>
     <resources>

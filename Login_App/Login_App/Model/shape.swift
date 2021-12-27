@@ -11,6 +11,7 @@ struct Shape {
     var id : String!
     var name : String!
     var imageName : String!
+    var kategorie: String!
 }
 
 

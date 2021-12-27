@@ -15,26 +15,44 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 	var filteredShapes = [Shape]()
     var articlesArray: [Article] = []
     var bool = false
+    var kategorie = ""
+    var selectedScopeButtonIndex = 0
+    var searchString = ""
     
     private var db = Firestore.firestore()
     @Published var articles = [Article]()
 	
 	override func viewDidLoad()
 	{
+        print("Kategorie")
+        print(kategorie)
 		super.viewDidLoad()
-        initList(searchString: "")
+        initList(searchString: "", searchScopeButton: 0)
+        
 		//initSearchController()
         searchBar.delegate = self
 	}
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             print("searchText \(searchText)")
-            initList(searchString: searchText)
+        self.searchString = searchText
+        searchBar.showsScopeBar = true
+        initList(searchString: searchString, searchScopeButton: selectedScopeButtonIndex)
+        searchBar.scopeButtonTitles = ["All", "Rect", "Square", "Oct", "Circle", "Triangle"]
         }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("searchText \(String(describing: searchBar.text))")
+        
         }
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        print("New scope index is now \(selectedScope)")
+        self.selectedScopeButtonIndex = selectedScope
+        initList(searchString: searchString, searchScopeButton: selectedScopeButtonIndex)
+        
+        
+    }
 	
 	/*func initSearchController()
 	{
@@ -51,7 +69,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 		searchController.searchBar.delegate = self
 	}*/
 	
-    func initList(searchString: String)
+    func initList(searchString: String, searchScopeButton: Int)
 	{
         db.collection("articles").addSnapshotListener { (querySnapshot, error) in
                 guard let documents = querySnapshot?.documents else {
@@ -64,11 +82,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             self.shapeList = documents.map { (queryDocumentSnapshot) -> Shape in
                     let data = queryDocumentSnapshot.data()
                     let name = data["name"] as? String ?? ""
+                    let kategorie = data["kategorie"] as? String ?? ""
                     //let kategorie = data["kategorie"] as? String ?? ""
-                    //print(name)
-                self.shapeList.append(Shape(id: "9", name: name, imageName: "triangle"))
+                    print(kategorie)
+                self.shapeList.append(Shape(id: "9", name: name, imageName: "triangle", kategorie: kategorie))
                 //self.articlesArray.append (Article(name: name, kategorie: kategorie))
-                    return Shape(id: "9", name: name, imageName: "triangle")
+                    return Shape(id: "9", name: name, imageName: "triangle", kategorie: kategorie)
                 }
             if(searchString.isEmpty){
                 self.shapeTableView.reloadData()
@@ -77,12 +96,26 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 var result = [Shape]()
                 print("suffix")
                 
-                for shape in self.shapeList {
-                    print(shape.name.prefix(searchString.count))
-                    if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
-                        result.append(Shape(id: "9", name: shape.name, imageName: "triangle"))
+                if(searchScopeButton==0){
+                    for shape in self.shapeList {
+                        print(shape.name.prefix(searchString.count))
+                        if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
+                           
+                                result.append(Shape(id: "9", name: shape.name, imageName: "triangle", kategorie: shape.kategorie))
+                            
+                        }
+                    }
+                }else if(searchScopeButton==1) {
+                    for shape in self.shapeList {
+                        print(shape.name.prefix(searchString.count))
+                        if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
+                            if(shape.kategorie=="test"){
+                                result.append(Shape(id: "9", name: shape.name, imageName: "triangle", kategorie: shape.kategorie))
+                            }
+                        }
                     }
                 }
+                
                 
                 print("test: ")
                 print(result)

@@ -77,7 +77,7 @@ class HomeViewController: UIViewController, ObservableObject {
         guard let text = notification.userInfo?["text"] as? String else { return }
             //print ("text: \(text)")
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchViewController
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "TableVC") as! TableViewController
         newViewController.kategorie=text
         self.present(newViewController, animated: true, completion: nil)
         
