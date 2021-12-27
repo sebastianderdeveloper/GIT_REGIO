@@ -16,7 +16,12 @@ class DayView: UIView {
     
     
     @IBAction func imageTapped(_ sender: Any) {
-        NotificationCenter.default.post(name: Notification.Name("functionName"), object: nil)
+        //print(titleLabel.text ?? String.self)
+        let kat = titleLabel.text
+        let userInfo = [ "text" :  kat]
+        NotificationCenter.default.post(name: Notification.Name("functionName"), object: nil, userInfo: userInfo as [AnyHashable : Any])
+        
+        
     }
     /*
     // Only override draw() if you perform custom drawing.

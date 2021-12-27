@@ -31,6 +31,8 @@ class HomeViewController: UIViewController, ObservableObject {
     
     var searchResults:[Article] = []
     
+    var kategorie = ""
+    
     override func viewDidLoad() {
         
         scrollView.showsHorizontalScrollIndicator = false
@@ -52,9 +54,11 @@ class HomeViewController: UIViewController, ObservableObject {
                    if let dayView = Bundle.main.loadNibNamed("DayView", owner: nil, options: nil)!.first as? DayView {
                     if i % 2 == 0 {
                         dayView.titleLabel.text = "Obst"
+                        
                         dayView.imageButton.setImage(UIImage(named: "Obst"),for: .normal)
                       } else {
                         dayView.titleLabel.text = "Sweets"
+                        
                         dayView.imageButton.setImage(UIImage(named: "Süßigkeiten"),for: .normal)
                       }
                         
@@ -66,11 +70,15 @@ class HomeViewController: UIViewController, ObservableObject {
         
         
     }
+    
+  
 
     @objc func functionName (notification: NSNotification){
+        guard let text = notification.userInfo?["text"] as? String else { return }
+            //print ("text: \(text)")
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchViewController
-        newViewController.kategorie="asf"
+        newViewController.kategorie=text
         self.present(newViewController, animated: true, completion: nil)
         
     }
@@ -95,7 +103,9 @@ class HomeViewController: UIViewController, ObservableObject {
                 }
             
             }
-        }
+    }
+    
+    
     
     //https://medium.com/nerd-for-tech/swift-dynamic-search-bar-with-multiple-criteria-and-filter-persistence-905ac05b6ae0
 
