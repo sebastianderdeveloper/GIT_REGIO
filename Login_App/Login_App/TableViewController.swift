@@ -16,29 +16,47 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var articlesArray: [Article] = []
     var bool = false
     var kategorie = ""
-    var selectedScopeButtonIndex = 0
+    var selectedScopeIndex = 0
     var searchString = ""
+    
     
     private var db = Firestore.firestore()
     @Published var articles = [Article]()
 	
 	override func viewDidLoad()
 	{
+        searchBar.selectedScopeButtonIndex = 0
+        
         print("Kategorie")
         print(kategorie)
 		super.viewDidLoad()
-        initList(searchString: "", searchScopeButton: 0)
+        setKategorie()
+        initList(searchString: "", searchScopeButton: selectedScopeIndex)
+        
         
 		//initSearchController()
         searchBar.delegate = self
+        
 	}
     
+    func setKategorie(){
+        if(kategorie=="Obst"){
+            self.selectedScopeIndex = 1
+            
+            searchBar.selectedScopeButtonIndex = 1
+        }else if(kategorie=="Sweets"){
+            self.selectedScopeIndex = 2
+            
+            searchBar.selectedScopeButtonIndex = 2
+        }
+    }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             print("searchText \(searchText)")
         self.searchString = searchText
         searchBar.showsScopeBar = true
-        initList(searchString: searchString, searchScopeButton: selectedScopeButtonIndex)
-        searchBar.scopeButtonTitles = ["All", "Rect", "Square", "Oct", "Circle", "Triangle"]
+        
+        initList(searchString: searchString, searchScopeButton: selectedScopeIndex)
+        searchBar.scopeButtonTitles = ["All", "Obst", "Sweets", "Milchprodukte"]
         }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -48,8 +66,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         print("New scope index is now \(selectedScope)")
-        self.selectedScopeButtonIndex = selectedScope
-        initList(searchString: searchString, searchScopeButton: selectedScopeButtonIndex)
+        self.selectedScopeIndex = selectedScope
+        initList(searchString: searchString, searchScopeButton: selectedScopeIndex)
         
         
     }
