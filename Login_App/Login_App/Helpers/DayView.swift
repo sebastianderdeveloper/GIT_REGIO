@@ -15,9 +15,9 @@ class DayView: UIView {
     @IBOutlet weak var imageButton: UIButton!
     
     
-    
-    
-    
+    @IBAction func imageTapped(_ sender: Any) {
+        NotificationCenter.default.post(name: Notification.Name("functionName"), object: nil)
+    }
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

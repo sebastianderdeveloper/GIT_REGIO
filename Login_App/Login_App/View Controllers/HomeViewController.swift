@@ -40,9 +40,12 @@ class HomeViewController: UIViewController, ObservableObject {
 
         // Do any additional setup after loading the view.
         
+        
+        
+            
         fetchData()
         
-       
+        NotificationCenter.default.addObserver(self, selector: #selector(functionName), name: Notification.Name("functionName"), object: nil)
         
         
         for i in 0...10 {
@@ -56,6 +59,7 @@ class HomeViewController: UIViewController, ObservableObject {
                       }
                         
                         horizontallyScrollableStackView.addArrangedSubview(dayView)
+                   
                    }
                }
         
@@ -63,6 +67,13 @@ class HomeViewController: UIViewController, ObservableObject {
         
     }
 
+    @objc func functionName (notification: NSNotification){
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchViewController
+        newViewController.kategorie="asf"
+        self.present(newViewController, animated: true, completion: nil)
+        
+    }
     
     func fetchData() {
         

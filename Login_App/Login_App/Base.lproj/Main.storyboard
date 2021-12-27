@@ -362,7 +362,7 @@
         <!--Search View Controller-->
         <scene sceneID="WAU-Zp-tL7">
             <objects>
-                <viewController storyboardIdentifier="SearchVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="YSw-un-iI1" customClass="SearchViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="YSw-un-iI1" customClass="SearchViewController" customModule="LOGIN_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q1x-PL-vob">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -724,10 +724,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ecf-3n-HHm"/>
-        <segue reference="Hp9-mc-HfY"/>
-        <segue reference="gG6-Lv-LXA"/>
-        <segue reference="czG-ls-wk0"/>
+        <segue reference="kkA-oS-NqB"/>
+        <segue reference="5ym-48-WQ2"/>
+        <segue reference="06T-cu-iuL"/>
+        <segue reference="oB5-vy-0UI"/>
         <segue reference="PiX-Gn-nFD"/>
     </inferredMetricsTieBreakers>
     <resources>
