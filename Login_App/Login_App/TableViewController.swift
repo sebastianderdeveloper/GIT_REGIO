@@ -109,9 +109,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     let kategorie = data["kategorie"] as? String ?? ""
                     //let kategorie = data["kategorie"] as? String ?? ""
                     print(kategorie)
-                self.shapeList.append(Shape(id: "9", name: name, imageName: "triangle", kategorie: kategorie))
+                self.shapeList.append(Shape(id: "9", name: name, imageName: "Obst", kategorie: kategorie))
                 //self.articlesArray.append (Article(name: name, kategorie: kategorie))
-                    return Shape(id: "9", name: name, imageName: "triangle", kategorie: kategorie)
+                    return Shape(id: "9", name: name, imageName: "Obst", kategorie: kategorie)
                 }
             if(searchString.isEmpty){
                 var result = [Shape]()
@@ -122,7 +122,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                         print(shape.name.prefix(searchString.count))
                         
                             if(shape.kategorie=="test"){
-                                result.append(Shape(id: "9", name: shape.name, imageName: "triangle", kategorie: shape.kategorie))
+                                result.append(Shape(id: "9", name: shape.name, imageName: "Obst", kategorie: shape.kategorie))
                             }
                         
                     }
@@ -141,7 +141,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                         print(shape.name.prefix(searchString.count))
                         if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
                            
-                                result.append(Shape(id: "9", name: shape.name, imageName: "triangle", kategorie: shape.kategorie))
+                                result.append(Shape(id: "9", name: shape.name, imageName: "Süßigkeiten", kategorie: shape.kategorie))
                             
                         }
                     }
@@ -150,7 +150,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                         print(shape.name.prefix(searchString.count))
                         if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
                             if(shape.kategorie=="test"){
-                                result.append(Shape(id: "9", name: shape.name, imageName: "triangle", kategorie: shape.kategorie))
+                                result.append(Shape(id: "9", name: shape.name, imageName: "Obst", kategorie: shape.kategorie))
                             }
                         }
                     }
@@ -236,9 +236,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             thisShape = shapeList[indexPath.row]
         }
 		
-		
-		
-		tableViewCell.shapeName.text = thisShape.id + " " + thisShape.name
+        tableViewCell.artikelPreis.text = thisShape.id
+        tableViewCell.artikelOrt.text = thisShape.kategorie
+		tableViewCell.shapeName.text =  thisShape.name
 		tableViewCell.shapeImage.image = UIImage(named: thisShape.imageName)
 		
 		return tableViewCell
