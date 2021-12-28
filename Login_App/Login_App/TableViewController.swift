@@ -27,6 +27,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 	{
         searchBar.selectedScopeButtonIndex = 0
         
+        
         print("Kategorie")
         print(kategorie)
 		super.viewDidLoad()
@@ -36,6 +37,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
 		//initSearchController()
         searchBar.delegate = self
+        //searchBar.showsScopeBar = true
         
 	}
     
@@ -44,10 +46,14 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             self.selectedScopeIndex = 1
             
             searchBar.selectedScopeButtonIndex = 1
+            searchBar.placeholder="Obst"
+            initList(searchString: "", searchScopeButton: selectedScopeIndex)
         }else if(kategorie=="Sweets"){
             self.selectedScopeIndex = 2
             
             searchBar.selectedScopeButtonIndex = 2
+            searchBar.placeholder="Sweets"
+            initList(searchString: "", searchScopeButton: selectedScopeIndex)
         }
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -68,7 +74,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         print("New scope index is now \(selectedScope)")
         self.selectedScopeIndex = selectedScope
         initList(searchString: searchString, searchScopeButton: selectedScopeIndex)
-        
+        searchBar.placeholder=""
         
     }
 	
@@ -108,7 +114,23 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     return Shape(id: "9", name: name, imageName: "triangle", kategorie: kategorie)
                 }
             if(searchString.isEmpty){
-                self.shapeTableView.reloadData()
+                var result = [Shape]()
+                if(searchScopeButton==0){
+                    self.shapeTableView.reloadData()
+                }else if(searchScopeButton==1) {
+                    for shape in self.shapeList {
+                        print(shape.name.prefix(searchString.count))
+                        
+                            if(shape.kategorie=="test"){
+                                result.append(Shape(id: "9", name: shape.name, imageName: "triangle", kategorie: shape.kategorie))
+                            }
+                        
+                    }
+                    self.shapeList = result
+                    result.removeAll()
+                    self.shapeTableView.reloadData()
+                }
+                
             }else{
                 //let result2 = self.shapeList.filter { $0.name.starts(with: searchString) }
                 var result = [Shape]()
