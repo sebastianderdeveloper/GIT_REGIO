@@ -26,7 +26,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 	override func viewDidLoad()
 	{
         searchBar.selectedScopeButtonIndex = 0
-        
+        searchBar.searchBarStyle = .minimal
         
         print("Kategorie")
         print(kategorie)

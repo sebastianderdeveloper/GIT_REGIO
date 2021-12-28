@@ -23,6 +23,8 @@ class HomeViewController: UIViewController, ObservableObject {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     @Published var articles = [Article]()
     
     private var db = Firestore.firestore()
@@ -39,9 +41,9 @@ class HomeViewController: UIViewController, ObservableObject {
         
         
         super.viewDidLoad()
-
+        searchBar.searchBarStyle = .minimal
         // Do any additional setup after loading the view.
-        
+       
         
         
             
