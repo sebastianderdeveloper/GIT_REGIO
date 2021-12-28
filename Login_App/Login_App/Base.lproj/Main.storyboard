@@ -210,7 +210,7 @@
         <scene sceneID="usA-eG-Ekv">
             <objects>
                 <viewController storyboardIdentifier="HomeVC" modalPresentationStyle="fullScreen" id="sP0-JX-dTn" customClass="HomeViewController" customModule="LOGIN_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3cq-xG-2K2">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="3cq-xG-2K2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -222,13 +222,13 @@
                                 </constraints>
                             </imageView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="xS4-8s-Lbr">
-                                <rect key="frame" x="20" y="117" width="374" height="44"/>
+                                <rect key="frame" x="20" y="117" width="374" height="56"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="uiF-wr-Ot3"/>
+                                    <constraint firstAttribute="height" constant="56" id="uiF-wr-Ot3"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <stackView opaque="NO" contentMode="scaleAspectFit" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="Ode-rv-VVa">
+                            <stackView opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="Ode-rv-VVa">
                                 <rect key="frame" x="40" y="832.5" width="334" height="29.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agH-hU-Bgg">
@@ -289,8 +289,17 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entdecke" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OiE-TK-138">
+                                <rect key="frame" x="26" y="333" width="60" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="iT1-tH-RFA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="00U-8u-4PG">
-                                <rect key="frame" x="29" y="185" width="361" height="150"/>
+                                <rect key="frame" x="27" y="193" width="361" height="150"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Etd-dV-Rqj">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="150"/>
@@ -307,15 +316,6 @@
                                     <constraint firstAttribute="bottom" secondItem="Etd-dV-Rqj" secondAttribute="bottom" id="q49-Yd-35f"/>
                                 </constraints>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entdecke" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OiE-TK-138">
-                                <rect key="frame" x="26" y="353" width="60" height="39"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="iT1-tH-RFA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Iwn-yS-vDI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -324,19 +324,19 @@
                             <constraint firstItem="xS4-8s-Lbr" firstAttribute="leading" secondItem="Iwn-yS-vDI" secondAttribute="leading" constant="20" id="13R-rJ-0J3"/>
                             <constraint firstItem="xS4-8s-Lbr" firstAttribute="centerX" secondItem="3cq-xG-2K2" secondAttribute="centerX" id="1cO-p5-rqe"/>
                             <constraint firstItem="Iwn-yS-vDI" firstAttribute="trailing" secondItem="F2B-bv-s3V" secondAttribute="trailing" constant="40" id="5O0-id-Lh6"/>
-                            <constraint firstItem="00U-8u-4PG" firstAttribute="centerY" secondItem="3cq-xG-2K2" secondAttribute="centerY" constant="-188" id="7AT-oZ-UsB"/>
-                            <constraint firstItem="OiE-TK-138" firstAttribute="top" secondItem="00U-8u-4PG" secondAttribute="bottom" constant="18" id="KcJ-U6-p8C"/>
+                            <constraint firstItem="00U-8u-4PG" firstAttribute="centerY" secondItem="3cq-xG-2K2" secondAttribute="centerY" constant="-160" id="7AT-oZ-UsB"/>
+                            <constraint firstItem="OiE-TK-138" firstAttribute="top" secondItem="00U-8u-4PG" secondAttribute="bottom" constant="-10" id="KcJ-U6-p8C"/>
                             <constraint firstItem="Iwn-yS-vDI" firstAttribute="trailing" secondItem="Ode-rv-VVa" secondAttribute="trailing" constant="40" id="MHL-tY-THz"/>
                             <constraint firstItem="Ufp-OQ-DYl" firstAttribute="leading" secondItem="Iwn-yS-vDI" secondAttribute="leading" constant="40" id="S5v-SU-dmc"/>
                             <constraint firstItem="Ufp-OQ-DYl" firstAttribute="top" secondItem="Iwn-yS-vDI" secondAttribute="top" constant="12" id="TZa-uI-1aW"/>
-                            <constraint firstItem="Iwn-yS-vDI" firstAttribute="trailing" secondItem="00U-8u-4PG" secondAttribute="trailing" constant="24" id="dKc-8w-cgN"/>
-                            <constraint firstItem="00U-8u-4PG" firstAttribute="leading" secondItem="Iwn-yS-vDI" secondAttribute="leading" constant="29" id="g37-Gn-G0h"/>
+                            <constraint firstItem="Iwn-yS-vDI" firstAttribute="trailing" secondItem="00U-8u-4PG" secondAttribute="trailing" constant="26" id="dKc-8w-cgN"/>
+                            <constraint firstItem="00U-8u-4PG" firstAttribute="leading" secondItem="Iwn-yS-vDI" secondAttribute="leading" constant="27" id="g37-Gn-G0h"/>
                             <constraint firstItem="F2B-bv-s3V" firstAttribute="top" secondItem="Iwn-yS-vDI" secondAttribute="top" constant="12" id="gyR-V3-xHC"/>
                             <constraint firstItem="Ode-rv-VVa" firstAttribute="leading" secondItem="Iwn-yS-vDI" secondAttribute="leading" constant="40" id="ilx-Bc-E2h"/>
                             <constraint firstItem="xS4-8s-Lbr" firstAttribute="top" secondItem="Ufp-OQ-DYl" secondAttribute="bottom" constant="31" id="jlY-m1-5Vs"/>
                             <constraint firstItem="Iwn-yS-vDI" firstAttribute="trailing" secondItem="xS4-8s-Lbr" secondAttribute="trailing" constant="20" id="nXr-rt-wwM"/>
-                            <constraint firstItem="00U-8u-4PG" firstAttribute="top" secondItem="xS4-8s-Lbr" secondAttribute="bottom" constant="24" id="t7G-gC-qoN"/>
                             <constraint firstItem="OiE-TK-138" firstAttribute="leading" secondItem="Iwn-yS-vDI" secondAttribute="leading" constant="26" id="vub-8Q-F2n"/>
+                            <constraint firstItem="00U-8u-4PG" firstAttribute="top" secondItem="xS4-8s-Lbr" secondAttribute="bottom" constant="20" id="zx1-hp-dRX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vGY-Td-eDr"/>
