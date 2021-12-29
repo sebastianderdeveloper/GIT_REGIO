@@ -923,10 +923,10 @@
                                         <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jNV-pb-7oB" userLabel="Content View">
-                                                <rect key="frame" x="0.0" y="-318" width="414" height="1242"/>
+                                                <rect key="frame" x="0.0" y="26" width="414" height="1242"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXy-z6-v03">
-                                                        <rect key="frame" x="16" y="50" width="382" height="467"/>
+                                                        <rect key="frame" x="16" y="250" width="382" height="467"/>
                                                         <string key="text">Praesent a aliquet mi, sit amet posuere neque. Morbi lobortis diam eu risus iaculis, interdum scelerisque tellus tempus. Quisque quis ultricies risus. Praesent eu eros malesuada ipsum rhoncus cursus. Integer odio est, tempor vel ipsum id, blandit convallis felis. Donec vitae posuere tellus. Vestibulum aliquet nunc quam, at condimentum elit fringilla sit amet. Vestibulum orci nulla, pulvinar eleifend dui ut, pellentesque egestas nulla.
 
 Ut sed erat eget ex maximus pellentesque in non diam. Sed laoreet faucibus venenatis. Proin laoreet, lorem sed finibus porttitor, massa est egestas eros, quis luctus ipsum mi sit amet lorem. Phasellus euismod malesuada vehicula. Ut sed sem sed arcu lacinia faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ullamcorper luctus pellentesque. Vestibulum commodo tincidunt turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.</string>
@@ -934,13 +934,6 @@ Ut sed erat eget ex maximus pellentesque in non diam. Sed laoreet faucibus venen
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Asriel" translatesAutoresizingMaskIntoConstraints="NO" id="wyc-rh-Px8">
-                                                        <rect key="frame" x="127" y="541" width="160" height="160"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="160" id="9fj-DD-ftc"/>
-                                                            <constraint firstAttribute="height" constant="160" id="ahJ-ij-X1F"/>
-                                                        </constraints>
-                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD1-hS-2fh">
                                                         <rect key="frame" x="16" y="725" width="382" height="467"/>
                                                         <string key="text">Praesent a aliquet mi, sit amet posuere neque. Morbi lobortis diam eu risus iaculis, interdum scelerisque tellus tempus. Quisque quis ultricies risus. Praesent eu eros malesuada ipsum rhoncus cursus. Integer odio est, tempor vel ipsum id, blandit convallis felis. Donec vitae posuere tellus. Vestibulum aliquet nunc quam, at condimentum elit fringilla sit amet. Vestibulum orci nulla, pulvinar eleifend dui ut, pellentesque egestas nulla.
@@ -950,19 +943,34 @@ Ut sed erat eget ex maximus pellentesque in non diam. Sed laoreet faucibus venen
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIK-Oe-7oc">
+                                                        <rect key="frame" x="16" y="203" width="42" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Asriel" translatesAutoresizingMaskIntoConstraints="NO" id="wyc-rh-Px8">
+                                                        <rect key="frame" x="127" y="24" width="160" height="160"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="160" id="9fj-DD-ftc"/>
+                                                            <constraint firstAttribute="height" constant="160" id="ahJ-ij-X1F"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="wyc-rh-Px8" firstAttribute="top" secondItem="PXy-z6-v03" secondAttribute="bottom" constant="24" id="6hk-Vv-QUC"/>
+                                                    <constraint firstItem="wyc-rh-Px8" firstAttribute="top" secondItem="PXy-z6-v03" secondAttribute="bottom" constant="-693" id="6hk-Vv-QUC"/>
                                                     <constraint firstItem="PXy-z6-v03" firstAttribute="centerX" secondItem="jNV-pb-7oB" secondAttribute="centerX" id="7dL-fN-RHF"/>
                                                     <constraint firstItem="wyc-rh-Px8" firstAttribute="centerX" secondItem="jNV-pb-7oB" secondAttribute="centerX" id="8tg-du-52L"/>
                                                     <constraint firstAttribute="trailing" secondItem="PXy-z6-v03" secondAttribute="trailing" constant="16" id="CvI-tM-WI6"/>
                                                     <constraint firstAttribute="trailing" secondItem="fD1-hS-2fh" secondAttribute="trailing" constant="16" id="Gox-I4-TC5"/>
                                                     <constraint firstAttribute="bottom" secondItem="fD1-hS-2fh" secondAttribute="bottom" constant="50" id="ZhQ-df-Dd8"/>
                                                     <constraint firstItem="PXy-z6-v03" firstAttribute="leading" secondItem="jNV-pb-7oB" secondAttribute="leading" constant="16" id="aOE-Bg-zj2"/>
-                                                    <constraint firstItem="PXy-z6-v03" firstAttribute="top" secondItem="jNV-pb-7oB" secondAttribute="top" constant="50" id="aeP-nu-w2q"/>
-                                                    <constraint firstItem="fD1-hS-2fh" firstAttribute="top" secondItem="wyc-rh-Px8" secondAttribute="bottom" constant="24" id="fe0-0S-Fhp"/>
+                                                    <constraint firstItem="PXy-z6-v03" firstAttribute="top" secondItem="jNV-pb-7oB" secondAttribute="top" constant="250" id="aeP-nu-w2q"/>
+                                                    <constraint firstItem="JIK-Oe-7oc" firstAttribute="leading" secondItem="PXy-z6-v03" secondAttribute="leading" id="dBh-NY-Uqq"/>
+                                                    <constraint firstItem="fD1-hS-2fh" firstAttribute="top" secondItem="wyc-rh-Px8" secondAttribute="bottom" constant="541" id="fe0-0S-Fhp"/>
                                                     <constraint firstItem="fD1-hS-2fh" firstAttribute="leading" secondItem="jNV-pb-7oB" secondAttribute="leading" constant="16" id="qQ1-la-Xmy"/>
+                                                    <constraint firstItem="PXy-z6-v03" firstAttribute="top" secondItem="JIK-Oe-7oc" secondAttribute="bottom" constant="26" id="tcV-7C-g3Z"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -991,10 +999,13 @@ Ut sed erat eget ex maximus pellentesque in non diam. Sed laoreet faucibus venen
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="lvI-Vm-Zk5"/>
+                    <connections>
+                        <outlet property="articleImage" destination="wyc-rh-Px8" id="hKG-Yt-yXO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWu-Nc-UgN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3957.971014492754" y="-722.54464285714278"/>
+            <point key="canvasLocation" x="3916" y="-1023"/>
         </scene>
         <!--Detail-->
         <scene sceneID="5h6-Wj-uht">
@@ -1035,7 +1046,7 @@ Ut sed erat eget ex maximus pellentesque in non diam. Sed laoreet faucibus venen
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KsR-CN-6mz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4597" y="-2042"/>
+            <point key="canvasLocation" x="4826" y="-1546"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
