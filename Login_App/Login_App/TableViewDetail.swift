@@ -7,7 +7,7 @@ class TableViewDetail: UIViewController
 	
     @IBOutlet weak var articleImage: UIImageView!
     
-    @IBOutlet weak var articleName: UILabel!
+    //@IBOutlet weak var articleName: UILabel!
     
 	
 	
