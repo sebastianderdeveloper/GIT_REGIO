@@ -959,47 +959,108 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tyS-X4-GTt">
                                 <rect key="frame" x="0.0" y="124" width="414" height="682"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlt-uJ-Pq0" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1242"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tlt-uJ-Pq0" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="873"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiO-RY-Jq8">
-                                                <rect key="frame" x="16" y="50" width="382" height="467"/>
-                                                <string key="text">Praesent a aliquet mi, sit amet posuere neque. Morbi lobortis diam eu risus iaculis, interdum scelerisque tellus tempus. Quisque quis ultricies risus. Praesent eu eros malesuada ipsum rhoncus cursus. Integer odio est, tempor vel ipsum id, blandit convallis felis. Donec vitae posuere tellus. Vestibulum aliquet nunc quam, at condimentum elit fringilla sit amet. Vestibulum orci nulla, pulvinar eleifend dui ut, pellentesque egestas nulla.
-
-Ut sed erat eget ex maximus pellentesque in non diam. Sed laoreet faucibus venenatis. Proin laoreet, lorem sed finibus porttitor, massa est egestas eros, quis luctus ipsum mi sit amet lorem. Phasellus euismod malesuada vehicula. Ut sed sem sed arcu lacinia faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ullamcorper luctus pellentesque. Vestibulum commodo tincidunt turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Asriel" translatesAutoresizingMaskIntoConstraints="NO" id="vLK-IO-xPj">
-                                                <rect key="frame" x="127" y="541" width="160" height="160"/>
+                                                <rect key="frame" x="127" y="8" width="160" height="160"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="160" id="ci0-8r-4P6"/>
                                                     <constraint firstAttribute="height" constant="160" id="kdt-4p-amb"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bri-VL-Hnr">
-                                                <rect key="frame" x="16" y="725" width="382" height="467"/>
-                                                <string key="text">Praesent a aliquet mi, sit amet posuere neque. Morbi lobortis diam eu risus iaculis, interdum scelerisque tellus tempus. Quisque quis ultricies risus. Praesent eu eros malesuada ipsum rhoncus cursus. Integer odio est, tempor vel ipsum id, blandit convallis felis. Donec vitae posuere tellus. Vestibulum aliquet nunc quam, at condimentum elit fringilla sit amet. Vestibulum orci nulla, pulvinar eleifend dui ut, pellentesque egestas nulla.
-
-Ut sed erat eget ex maximus pellentesque in non diam. Sed laoreet faucibus venenatis. Proin laoreet, lorem sed finibus porttitor, massa est egestas eros, quis luctus ipsum mi sit amet lorem. Phasellus euismod malesuada vehicula. Ut sed sem sed arcu lacinia faucibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ullamcorper luctus pellentesque. Vestibulum commodo tincidunt turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.</string>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfX-vD-gzA">
+                                                <rect key="frame" x="16" y="199" width="87.5" height="38.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4B-jl-JwB">
+                                                <rect key="frame" x="111.5" y="214" width="52.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Ixc-VR-Agh">
+                                                <rect key="frame" x="16" y="255" width="94" height="32"/>
+                                            </stepper>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="num-9F-j3R">
+                                                <rect key="frame" x="336" y="206" width="53" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Alpenmilch ist ein Schokoladen-Klassiker von Milka. Die Tafel besteht aus hochwertiger Alpenmilch, Haselnüssen und Kakao." lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62H-Zi-2Lo">
+                                                <rect key="frame" x="16" y="314" width="382" height="61"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edel-Vollmilchschokolade mit Nussstückchen, mit Mandeln und Haselnüssen, aus dem Hause Storck, einzeln verpackte Täfelchen" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEF-iE-zoO">
+                                                <rect key="frame" x="16" y="422.5" width="382" height="61"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inhaltsstoffe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jnu-zt-htZ">
+                                                <rect key="frame" x="16" y="395" width="100" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adresse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FK0-z6-eDY">
+                                                <rect key="frame" x="16" y="503.5" width="65" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beethovenstraße 4, 3250 Wieselburg" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKf-NS-ojR">
+                                                <rect key="frame" x="16" y="531" width="284" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Yyr-Nc-hsu">
+                                                <rect key="frame" x="16" y="569" width="382" height="193"/>
+                                            </mapView>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wLP-eg-KBk">
+                                                <rect key="frame" x="184" y="795" width="46" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="KiO-RY-Jq8" firstAttribute="centerX" secondItem="tlt-uJ-Pq0" secondAttribute="centerX" id="16t-95-bWr"/>
-                                            <constraint firstItem="Bri-VL-Hnr" firstAttribute="leading" secondItem="tlt-uJ-Pq0" secondAttribute="leading" constant="16" id="226-FM-zto"/>
-                                            <constraint firstItem="KiO-RY-Jq8" firstAttribute="top" secondItem="tlt-uJ-Pq0" secondAttribute="top" constant="50" id="48N-W4-lk3"/>
-                                            <constraint firstAttribute="trailing" secondItem="KiO-RY-Jq8" secondAttribute="trailing" constant="16" id="DMW-Yc-LeJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="Bri-VL-Hnr" secondAttribute="trailing" constant="16" id="DjC-D9-L8c"/>
-                                            <constraint firstItem="vLK-IO-xPj" firstAttribute="top" secondItem="KiO-RY-Jq8" secondAttribute="bottom" constant="24" id="VYH-Sk-Xt3"/>
+                                            <constraint firstItem="wLP-eg-KBk" firstAttribute="leading" secondItem="tlt-uJ-Pq0" secondAttribute="leading" constant="184" id="1F7-Z7-8mq"/>
+                                            <constraint firstItem="L4B-jl-JwB" firstAttribute="leading" secondItem="TfX-vD-gzA" secondAttribute="trailing" constant="8" symbolic="YES" id="4Vf-XN-s1U"/>
+                                            <constraint firstItem="62H-Zi-2Lo" firstAttribute="leading" secondItem="tlt-uJ-Pq0" secondAttribute="leading" constant="16" id="7R8-Tz-ayP"/>
+                                            <constraint firstItem="TfX-vD-gzA" firstAttribute="leading" secondItem="tlt-uJ-Pq0" secondAttribute="leading" constant="16" id="7mR-n9-v7F"/>
+                                            <constraint firstItem="62H-Zi-2Lo" firstAttribute="top" secondItem="Ixc-VR-Agh" secondAttribute="bottom" constant="27" id="8K7-We-h5O"/>
+                                            <constraint firstAttribute="trailing" secondItem="wLP-eg-KBk" secondAttribute="trailing" constant="184" id="AYk-FT-3IS"/>
+                                            <constraint firstItem="num-9F-j3R" firstAttribute="top" secondItem="tlt-uJ-Pq0" secondAttribute="top" constant="206" id="Fqg-WK-e5u"/>
+                                            <constraint firstItem="Yyr-Nc-hsu" firstAttribute="top" secondItem="YKf-NS-ojR" secondAttribute="bottom" constant="17.5" id="M7d-sD-9wl"/>
+                                            <constraint firstItem="Jnu-zt-htZ" firstAttribute="top" secondItem="62H-Zi-2Lo" secondAttribute="bottom" constant="20" id="OoG-SK-23t"/>
+                                            <constraint firstItem="Ixc-VR-Agh" firstAttribute="leading" secondItem="tlt-uJ-Pq0" secondAttribute="leading" constant="16" id="PJG-Lx-k02"/>
+                                            <constraint firstAttribute="bottom" secondItem="wLP-eg-KBk" secondAttribute="bottom" constant="34" id="Pa8-OG-cqp"/>
+                                            <constraint firstItem="Yyr-Nc-hsu" firstAttribute="leading" secondItem="tlt-uJ-Pq0" secondAttribute="leading" constant="16" id="Q3Q-7a-1ae"/>
+                                            <constraint firstItem="YKf-NS-ojR" firstAttribute="leading" secondItem="tlt-uJ-Pq0" secondAttribute="leading" constant="16" id="QJg-w9-hi3"/>
+                                            <constraint firstAttribute="bottom" secondItem="YKf-NS-ojR" secondAttribute="bottom" constant="690.5" id="QcO-YZ-exu"/>
+                                            <constraint firstItem="62H-Zi-2Lo" firstAttribute="top" secondItem="num-9F-j3R" secondAttribute="bottom" constant="78" id="UUZ-C1-LN3"/>
+                                            <constraint firstItem="oEF-iE-zoO" firstAttribute="top" secondItem="Jnu-zt-htZ" secondAttribute="bottom" constant="7" id="UXf-cV-cMt"/>
+                                            <constraint firstAttribute="trailing" secondItem="num-9F-j3R" secondAttribute="trailing" constant="25" id="Ufa-8q-dnj"/>
+                                            <constraint firstItem="FK0-z6-eDY" firstAttribute="leading" secondItem="tlt-uJ-Pq0" secondAttribute="leading" constant="16" id="Wew-HQ-qT8"/>
+                                            <constraint firstItem="vLK-IO-xPj" firstAttribute="top" secondItem="tlt-uJ-Pq0" secondAttribute="top" constant="8" id="a0P-0V-lpS"/>
+                                            <constraint firstAttribute="trailing" secondItem="62H-Zi-2Lo" secondAttribute="trailing" constant="16" id="bgP-Ld-us1"/>
+                                            <constraint firstAttribute="trailing" secondItem="oEF-iE-zoO" secondAttribute="trailing" constant="16" id="c2r-d2-J5o"/>
                                             <constraint firstItem="vLK-IO-xPj" firstAttribute="centerX" secondItem="tlt-uJ-Pq0" secondAttribute="centerX" id="cLq-qj-pNM"/>
-                                            <constraint firstItem="Bri-VL-Hnr" firstAttribute="top" secondItem="vLK-IO-xPj" secondAttribute="bottom" constant="24" id="f3T-E5-ejf"/>
-                                            <constraint firstItem="KiO-RY-Jq8" firstAttribute="leading" secondItem="tlt-uJ-Pq0" secondAttribute="leading" constant="16" id="pNo-ii-hYB"/>
-                                            <constraint firstAttribute="bottom" secondItem="Bri-VL-Hnr" secondAttribute="bottom" constant="50" id="wiZ-Ac-37o"/>
+                                            <constraint firstAttribute="trailing" secondItem="Yyr-Nc-hsu" secondAttribute="trailing" constant="16" id="eag-Zc-1px"/>
+                                            <constraint firstItem="TfX-vD-gzA" firstAttribute="top" secondItem="tlt-uJ-Pq0" secondAttribute="top" constant="199" id="eoo-fX-x3d"/>
+                                            <constraint firstItem="Jnu-zt-htZ" firstAttribute="leading" secondItem="tlt-uJ-Pq0" secondAttribute="leading" constant="16" id="nxM-fG-2Yp"/>
+                                            <constraint firstItem="L4B-jl-JwB" firstAttribute="top" secondItem="vLK-IO-xPj" secondAttribute="bottom" constant="46" id="o5Y-WD-jgB"/>
+                                            <constraint firstItem="oEF-iE-zoO" firstAttribute="leading" secondItem="tlt-uJ-Pq0" secondAttribute="leading" constant="16" id="te8-2D-Frp"/>
+                                            <constraint firstItem="FK0-z6-eDY" firstAttribute="top" secondItem="oEF-iE-zoO" secondAttribute="bottom" constant="20" id="vlW-qE-zJO"/>
+                                            <constraint firstItem="wLP-eg-KBk" firstAttribute="top" secondItem="Yyr-Nc-hsu" secondAttribute="bottom" constant="38" id="wav-An-asr"/>
+                                            <constraint firstItem="Ixc-VR-Agh" firstAttribute="top" secondItem="TfX-vD-gzA" secondAttribute="bottom" constant="17.5" id="wdV-kH-mhU"/>
+                                            <constraint firstItem="YKf-NS-ojR" firstAttribute="top" secondItem="FK0-z6-eDY" secondAttribute="bottom" constant="7" id="yun-nm-eTx"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1044,6 +1105,7 @@ Ut sed erat eget ex maximus pellentesque in non diam. Sed laoreet faucibus venen
                                         </state>
                                         <connections>
                                             <action selector="homeTapped:" destination="sP0-JX-dTn" eventType="touchUpInside" id="xwH-OB-PNN"/>
+                                            <segue destination="sP0-JX-dTn" kind="show" id="SBE-T6-3Fe"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="748" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1c-2P-hIX">
@@ -1077,6 +1139,7 @@ Ut sed erat eget ex maximus pellentesque in non diam. Sed laoreet faucibus venen
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Xa3-dk-dWd" firstAttribute="top" secondItem="tDz-SK-VM5" secondAttribute="top" constant="12" id="743-Dt-Hbp"/>
+                            <constraint firstItem="AAX-q0-ARO" firstAttribute="top" secondItem="tyS-X4-GTt" secondAttribute="bottom" constant="26.5" id="7ru-WB-cDg"/>
                             <constraint firstItem="tDz-SK-VM5" firstAttribute="trailing" secondItem="E0p-Co-eqG" secondAttribute="trailing" constant="40" id="BJT-nm-ZJi"/>
                             <constraint firstItem="E0p-Co-eqG" firstAttribute="top" secondItem="tDz-SK-VM5" secondAttribute="top" constant="12" id="Dsa-TB-TZ2"/>
                             <constraint firstItem="Xa3-dk-dWd" firstAttribute="leading" secondItem="tDz-SK-VM5" secondAttribute="leading" constant="40" id="EwX-Pv-O9g"/>
@@ -1089,6 +1152,7 @@ Ut sed erat eget ex maximus pellentesque in non diam. Sed laoreet faucibus venen
                             <constraint firstItem="tyS-X4-GTt" firstAttribute="leading" secondItem="4Wz-4k-TcD" secondAttribute="leading" id="rs7-7w-hWP"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ao8-zd-HbB"/>
                     <connections>
                         <outlet property="articleImage" destination="vLK-IO-xPj" id="5Zs-ec-FLf"/>
                     </connections>
@@ -1103,7 +1167,7 @@ Ut sed erat eget ex maximus pellentesque in non diam. Sed laoreet faucibus venen
         <segue reference="ugc-op-wRm"/>
         <segue reference="BT6-aX-LvJ"/>
         <segue reference="bDm-iz-Xwv"/>
-        <segue reference="qsd-C6-hTf"/>
+        <segue reference="SBE-T6-3Fe"/>
         <segue reference="PiX-Gn-nFD"/>
     </inferredMetricsTieBreakers>
     <resources>
