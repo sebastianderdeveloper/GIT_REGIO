@@ -49,6 +49,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GMStepper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -69,17 +74,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Login_App-Login_AppUITests.xcscheme</key>
+		<key>Pods-LOGIN_App-LOGIN_AppUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Login_App.xcscheme</key>
+		<key>Pods-LOGIN_App.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Login_AppTests.xcscheme</key>
+		<key>Pods-LOGIN_AppTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

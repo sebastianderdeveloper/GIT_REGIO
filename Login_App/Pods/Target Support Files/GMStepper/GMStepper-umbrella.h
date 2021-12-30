@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_LOGIN_AppVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_LOGIN_AppVersionString[];
+FOUNDATION_EXPORT double GMStepperVersionNumber;
+FOUNDATION_EXPORT const unsigned char GMStepperVersionString[];
 

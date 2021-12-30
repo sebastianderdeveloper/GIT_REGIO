@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B9817EBC4650F554CC520FE2CB4598B4"
-               BuildableName = "Pods_LOGIN_AppTests.framework"
-               BlueprintName = "Pods-LOGIN_AppTests"
+               BlueprintIdentifier = "7F8FAAC04E855BC0C6EEF317DDC76ABB"
+               BuildableName = "GMStepper.framework"
+               BlueprintName = "GMStepper"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
