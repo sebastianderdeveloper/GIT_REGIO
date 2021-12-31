@@ -21,6 +21,7 @@ class TableViewDetail: UIViewController
     
     @IBOutlet weak var adresse: UILabel!
     
+    @IBOutlet weak var zurück: UIButton!
     
     var selectedArtikel : Artikel!
 	
@@ -36,5 +37,7 @@ class TableViewDetail: UIViewController
         inhaltstoffe.text = selectedArtikel.inhaltsstoffe
         adresse.text = selectedArtikel.adresse
         Utilities.styleFilledButton(addToCartButton)
+        Utilities.styleHollowButton(zurück)
 	}
+
 }

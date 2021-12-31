@@ -14,7 +14,7 @@ import FirebaseFirestore
 
 
 
-class HomeViewController: UIViewController, ObservableObject {
+class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegate {
 
     
     @IBOutlet weak var homeButton: UIButton!
@@ -42,6 +42,7 @@ class HomeViewController: UIViewController, ObservableObject {
         
         super.viewDidLoad()
         searchBar.searchBarStyle = .minimal
+        searchBar.delegate = self
         // Do any additional setup after loading the view.
        
         
@@ -73,7 +74,19 @@ class HomeViewController: UIViewController, ObservableObject {
         
     }
     
-  
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            print("searchText \(searchText)")
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "TableVC") as! TableViewController
+        newViewController.searchString = searchText
+        self.present(newViewController, animated: true, completion: nil)
+        
+        //self.searchString = searchText
+        //searchBar.showsScopeBar = true
+        
+        //initList(searchString: searchString, searchScopeButton: selectedScopeIndex)
+        //searchBar.scopeButtonTitles = ["All", "Obst", "Sweets", "Milchprodukte"]
+    }
 
     @objc func functionName (notification: NSNotification){
         guard let text = notification.userInfo?["text"] as? String else { return }

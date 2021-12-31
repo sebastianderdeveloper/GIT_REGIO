@@ -25,14 +25,16 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 	
 	override func viewDidLoad()
 	{
+        searchBar.becomeFirstResponder()
         searchBar.selectedScopeButtonIndex = 0
         searchBar.searchBarStyle = .minimal
-        
+        searchBar.searchTextField.text = searchString
         print("Kategorie")
         //print(kategorie)
 		super.viewDidLoad()
         setKategorie()
-        initList(searchString: "", searchScopeButton: selectedScopeIndex)
+        initList(searchString: searchString, searchScopeButton: selectedScopeIndex)
+        
         
         
 		//initSearchController()
@@ -56,6 +58,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             initList(searchString: "", searchScopeButton: selectedScopeIndex)
         }
     }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             print("searchText \(searchText)")
         self.searchString = searchText

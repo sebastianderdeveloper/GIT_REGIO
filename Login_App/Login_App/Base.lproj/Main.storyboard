@@ -910,7 +910,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BN5-B6-8dQ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2615.9420289855075" y="-796.20535714285711"/>
+            <point key="canvasLocation" x="2171" y="-893"/>
         </scene>
         <!--Detail-->
         <scene sceneID="5h6-Wj-uht">
@@ -1055,6 +1055,16 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSX-Ir-KTa">
+                                                <rect key="frame" x="16" y="8" width="65" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="65" id="VyK-Hd-B42"/>
+                                                </constraints>
+                                                <state key="normal" title="zurück"/>
+                                                <connections>
+                                                    <segue destination="yMT-Hv-XlH" kind="show" id="c2T-92-taU"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -1082,9 +1092,11 @@
                                             <constraint firstItem="vLK-IO-xPj" firstAttribute="centerX" secondItem="tlt-uJ-Pq0" secondAttribute="centerX" id="cLq-qj-pNM"/>
                                             <constraint firstAttribute="trailing" secondItem="Yyr-Nc-hsu" secondAttribute="trailing" constant="16" id="eag-Zc-1px"/>
                                             <constraint firstItem="TfX-vD-gzA" firstAttribute="top" secondItem="tlt-uJ-Pq0" secondAttribute="top" constant="199" id="eoo-fX-x3d"/>
+                                            <constraint firstItem="OSX-Ir-KTa" firstAttribute="top" secondItem="tlt-uJ-Pq0" secondAttribute="top" constant="8" id="jaK-hx-CHr"/>
                                             <constraint firstItem="Jnu-zt-htZ" firstAttribute="leading" secondItem="tlt-uJ-Pq0" secondAttribute="leading" constant="16" id="nxM-fG-2Yp"/>
                                             <constraint firstItem="L4B-jl-JwB" firstAttribute="top" secondItem="vLK-IO-xPj" secondAttribute="bottom" constant="93" id="o5Y-WD-jgB"/>
                                             <constraint firstItem="Fj2-lh-pCo" firstAttribute="leading" secondItem="tlt-uJ-Pq0" secondAttribute="leading" constant="16" id="qND-XK-KPo"/>
+                                            <constraint firstItem="OSX-Ir-KTa" firstAttribute="leading" secondItem="tlt-uJ-Pq0" secondAttribute="leading" constant="16" id="sfk-lj-Ewv"/>
                                             <constraint firstItem="oEF-iE-zoO" firstAttribute="leading" secondItem="tlt-uJ-Pq0" secondAttribute="leading" constant="16" id="te8-2D-Frp"/>
                                             <constraint firstItem="FK0-z6-eDY" firstAttribute="top" secondItem="oEF-iE-zoO" secondAttribute="bottom" constant="20" id="vlW-qE-zJO"/>
                                             <constraint firstItem="62H-Zi-2Lo" firstAttribute="top" secondItem="Fj2-lh-pCo" secondAttribute="bottom" constant="27" id="wLA-xc-0Yr"/>
@@ -1192,19 +1204,20 @@
                         <outlet property="inhaltstoffe" destination="oEF-iE-zoO" id="lJc-02-O60"/>
                         <outlet property="menge" destination="L4B-jl-JwB" id="aaX-bK-b1g"/>
                         <outlet property="preis" destination="num-9F-j3R" id="lKp-bl-YlF"/>
+                        <outlet property="zurück" destination="OSX-Ir-KTa" id="a3P-ut-B7l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QnG-ee-PPn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1461" y="-893"/>
+            <point key="canvasLocation" x="1292.753623188406" y="-798.21428571428567"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dTd-b4-wmy"/>
+        <segue reference="c2T-92-taU"/>
         <segue reference="ugc-op-wRm"/>
         <segue reference="BT6-aX-LvJ"/>
         <segue reference="bDm-iz-Xwv"/>
-        <segue reference="qsd-C6-hTf"/>
+        <segue reference="SBE-T6-3Fe"/>
         <segue reference="PiX-Gn-nFD"/>
     </inferredMetricsTieBreakers>
     <resources>
