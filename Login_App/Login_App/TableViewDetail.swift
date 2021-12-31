@@ -11,14 +11,30 @@ class TableViewDetail: UIViewController
 	
     @IBOutlet weak var addToCartButton: UIButton!
     
-	var selectedShape : Shape!
+    @IBOutlet weak var preis: UILabel!
+    
+    @IBOutlet weak var menge: UILabel!
+    
+    @IBOutlet weak var beschreibung: UILabel!
+    
+    @IBOutlet weak var inhaltstoffe: UILabel!
+    
+    @IBOutlet weak var adresse: UILabel!
+    
+    
+    var selectedArtikel : Artikel!
 	
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
 		
-		articleName.text = selectedShape.name
-		articleImage.image = UIImage(named: selectedShape.imageName)
+		articleName.text = selectedArtikel.name
+		articleImage.image = UIImage(named: selectedArtikel.imageName)
+        preis.text = selectedArtikel.preis.stringValue
+        menge.text = selectedArtikel.menge
+        beschreibung.text = selectedArtikel.beschreibung
+        inhaltstoffe.text = selectedArtikel.inhaltsstoffe
+        adresse.text = selectedArtikel.adresse
         Utilities.styleFilledButton(addToCartButton)
 	}
 }

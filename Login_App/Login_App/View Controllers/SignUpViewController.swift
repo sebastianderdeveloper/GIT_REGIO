@@ -89,7 +89,7 @@ class SignUpViewController: UIViewController {
 
     @IBAction func signUpTapped(_ sender: Any) {
         
-        print("signup")
+        //print("signup")
         //Validate the fields
         let error = validateFields()
         

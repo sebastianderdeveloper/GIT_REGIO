@@ -89,7 +89,7 @@ class HomeViewController: UIViewController, ObservableObject {
         
         db.collection("articles").addSnapshotListener { (querySnapshot, error) in
                 guard let documents = querySnapshot?.documents else {
-                    print("No documents")
+                    //print("No documents")
                     return
                 }
                 
@@ -118,12 +118,12 @@ class HomeViewController: UIViewController, ObservableObject {
                 let kategorieMatch = article.kategorie
                                                     return nameMatch != nil && kategorieMatch == "test"}
             )
-        print(searchResults)
+        //print(searchResults)
         } // end func filterContent
     
 
     @IBAction func homeTapped(_ sender: Any) {
-        print("home")
+        //print("home")
         
         //print(self.articlesArray)
         

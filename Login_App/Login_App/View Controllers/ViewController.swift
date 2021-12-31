@@ -60,7 +60,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func logginTabbed(_ sender: Any) {
-        print("clicked Login Button")
+        //print("clicked Login Button")
         
         // Validate Text Fields
         

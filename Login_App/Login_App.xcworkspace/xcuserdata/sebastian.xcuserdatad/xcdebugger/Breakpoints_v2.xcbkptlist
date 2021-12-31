@@ -30,10 +30,58 @@
             filePath = "Login_App/TableViewDetail.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "TableViewDetail"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "20EA1E4A-F148-4559-8884-BF66AAC2E794"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Login_App/TableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "TableViewController"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "20EA1E4A-F148-4559-8884-BF66AAC2E794 - 2f62bcb163c7af6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LOGIN_App.TableViewController.initList(searchString: Swift.String, searchScopeButton: Swift.Int) -&gt; ()"
+                  moduleName = "LOGIN_App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sebastian/REGIO/GIT_REGIO/Login_App/Login_App/TableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "66">
+               </Location>
+               <Location
+                  uuid = "20EA1E4A-F148-4559-8884-BF66AAC2E794 - 89a167b07988cf6b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in LOGIN_App.TableViewController.initList(searchString: Swift.String, searchScopeButton: Swift.Int) -&gt; ()"
+                  moduleName = "LOGIN_App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sebastian/REGIO/GIT_REGIO/Login_App/Login_App/TableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "487">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

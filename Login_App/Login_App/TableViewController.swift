@@ -11,11 +11,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     
-    var shapeList = [Shape]()
-	var filteredShapes = [Shape]()
+    var artikelList = [Artikel]()
+	var artikelGefiltert = [Artikel]()
     var articlesArray: [Article] = []
     var bool = false
-    var kategorie = ""
+ 
     var selectedScopeIndex = 0
     var searchString = ""
     
@@ -29,7 +29,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         searchBar.searchBarStyle = .minimal
         
         print("Kategorie")
-        print(kategorie)
+        //print(kategorie)
 		super.viewDidLoad()
         setKategorie()
         initList(searchString: "", searchScopeButton: selectedScopeIndex)
@@ -78,91 +78,95 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
 	
-	/*func initSearchController()
-	{
-		searchController.loadViewIfNeeded()
-		searchController.searchResultsUpdater = self
-		searchController.obscuresBackgroundDuringPresentation = false
-		searchController.searchBar.enablesReturnKeyAutomatically = false
-		searchController.searchBar.returnKeyType = UIReturnKeyType.done
-		definesPresentationContext = true
-		
-		navigationItem.searchController = searchController
-		navigationItem.hidesSearchBarWhenScrolling = false
-		searchController.searchBar.scopeButtonTitles = ["All", "Rect", "Square", "Oct", "Circle", "Triangle"]
-		searchController.searchBar.delegate = self
-	}*/
+    var name = ""
+    var kategorie = ""
+    var adresse = ""
+    var beschreibung = ""
+    var bild = ""
+    var preis = NSNumber()
+    var inhaltsstoffe = ""
+    var menge = ""
+	
 	
     func initList(searchString: String, searchScopeButton: Int)
 	{
+        
         db.collection("articles").addSnapshotListener { (querySnapshot, error) in
                 guard let documents = querySnapshot?.documents else {
-                    print("No documents")
+                    //print("No documents")
                     return
                 }
                 
-            self.shapeList.removeAll()
+            self.artikelList.removeAll()
             
-            self.shapeList = documents.map { (queryDocumentSnapshot) -> Shape in
-                    let data = queryDocumentSnapshot.data()
-                    let name = data["name"] as? String ?? ""
-                    let kategorie = data["kategorie"] as? String ?? ""
+            self.artikelList = documents.map { (queryDocumentSnapshot) -> Artikel in
+                let data = queryDocumentSnapshot.data()
+                self.name = data["name"] as? String ?? ""
+                self.kategorie = data["kategorie"] as? String ?? ""
+                self.adresse = data["adresse"] as? String ?? ""
+                self.beschreibung = data["beschreibung"] as? String ?? ""
+                self.bild = data["bild"] as? String ?? ""
+                self.preis = data["preis"] as? NSNumber ?? 0
+                self.inhaltsstoffe = data["inhaltsstoffe"] as? String ?? ""
+                self.menge = data["menge"] as? String ?? ""
                     //let kategorie = data["kategorie"] as? String ?? ""
-                    print(kategorie)
-                self.shapeList.append(Shape(id: "9", name: name, imageName: "Obst", kategorie: kategorie))
+                print("preissss")
+                //print(preis)
+                self.artikelList.append(Artikel(name: self.name, imageName: self.bild, kategorie: self.kategorie, preis: self.preis, beschreibung: self.beschreibung, inhaltsstoffe: self.inhaltsstoffe, menge: self.menge, adresse: self.adresse))
                 //self.articlesArray.append (Article(name: name, kategorie: kategorie))
-                    return Shape(id: "9", name: name, imageName: "Obst", kategorie: kategorie)
+                return Artikel(name: self.name, imageName: self.bild, kategorie: self.kategorie, preis: self.preis, beschreibung: self.beschreibung, inhaltsstoffe: self.inhaltsstoffe, menge: self.menge, adresse: self.adresse)
                 }
+            
             if(searchString.isEmpty){
-                var result = [Shape]()
+                var result = [Artikel]()
                 if(searchScopeButton==0){
                     self.shapeTableView.reloadData()
                 }else if(searchScopeButton==1) {
-                    for shape in self.shapeList {
-                        print(shape.name.prefix(searchString.count))
+                    for shape in self.artikelList {
+                        //print(shape.name.prefix(searchString.count))
                         
-                            if(shape.kategorie=="test"){
-                                result.append(Shape(id: "9", name: shape.name, imageName: "Obst", kategorie: shape.kategorie))
+                            if(shape.kategorie=="Obst"){
+                                result.append(Artikel(name: self.self.name, imageName: self.self.bild, kategorie: self.self.kategorie, preis: self.self.preis, beschreibung: self.self.beschreibung, inhaltsstoffe: self.self.inhaltsstoffe, menge: self.self.menge, adresse: self.self.adresse))
                             }
                         
                     }
-                    self.shapeList = result
+                    self.artikelList = result
                     result.removeAll()
                     self.shapeTableView.reloadData()
                 }
                 
             }else{
                 //let result2 = self.shapeList.filter { $0.name.starts(with: searchString) }
-                var result = [Shape]()
-                print("suffix")
+                var result = [Artikel]()
+                //print("suffix")
                 
                 if(searchScopeButton==0){
-                    for shape in self.shapeList {
-                        print(shape.name.prefix(searchString.count))
+                    for shape in self.artikelList {
+                        //print(shape.name.prefix(searchString.count))
                         if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
                            
-                                result.append(Shape(id: "9", name: shape.name, imageName: "Süßigkeiten", kategorie: shape.kategorie))
+                            result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
                             
                         }
                     }
                 }else if(searchScopeButton==1) {
-                    for shape in self.shapeList {
-                        print(shape.name.prefix(searchString.count))
+                    for shape in self.artikelList {
+                        //print(shape.name.prefix(searchString.count))
                         if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
                             if(shape.kategorie=="test"){
-                                result.append(Shape(id: "9", name: shape.name, imageName: "Obst", kategorie: shape.kategorie))
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
                             }
                         }
                     }
                 }
                 
                 
-                print("test: ")
-                print(result)
-                print("test2: ")
+                //print("test: ")
+                //print(result)
+                //print("test2: ")
                 //print(result2)
                 
-                self.shapeList = result
+                self.artikelList = result
                 result.removeAll()
                 self.shapeTableView.reloadData()
             }
@@ -170,39 +174,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             }
         
-        //let result = shapeList.filter { $0.name.starts(with: "M") }
-        
-        
-        
-        /*let circle = Shape(id: "0", name: "Circle 1", imageName: "circle")
-		shapeList.append(circle)
-		
-		let square = Shape(id: "1", name: "Square 1", imageName: "square")
-		shapeList.append(square)
-		
-		let octagon = Shape(id: "2", name: "Octagon 1", imageName: "octagon")
-		shapeList.append(octagon)
-		
-		let rectangle = Shape(id: "3", name: "Rectangle 1", imageName: "rectangle")
-		shapeList.append(rectangle)
-		
-		let triangle = Shape(id: "4", name: "Triangle 1", imageName: "triangle")
-		shapeList.append(triangle)
-		
-		let circle2 = Shape(id: "5", name: "Circle 2", imageName: "circle")
-		shapeList.append(circle2)
-		
-		let square2 = Shape(id: "6", name: "Square 2", imageName: "square")
-		shapeList.append(square2)
-		
-		let octagon2 = Shape(id: "7", name: "Octagon 2", imageName: "octagon")
-		shapeList.append(octagon2)
-		
-		let rectangle2 = Shape(id: "8", name: "Rectangle 2", imageName: "rectangle")
-		shapeList.append(rectangle2)
-		
-		let triangle2 = Shape(id: "9", name: "Triangle 2", imageName: "triangle")
-		shapeList.append(triangle2)*/
+       
 	}
 
     func fetchData() {
@@ -215,31 +187,32 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 		
         if(bool)
         {
-            return filteredShapes.count
+            return artikelGefiltert.count
         }
-        return shapeList.count
+        return artikelList.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
 	{
 		let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! TableViewCell
 		
-		let thisShape: Shape!
+		let thisArtikel: Artikel!
 		
 		
         if(bool)
         {
-            thisShape = filteredShapes[indexPath.row]
+            thisArtikel = artikelGefiltert[indexPath.row]
         }
         else
         {
-            thisShape = shapeList[indexPath.row]
+            thisArtikel = artikelList[indexPath.row]
         }
 		
-        tableViewCell.artikelPreis.text = thisShape.id
-        tableViewCell.artikelOrt.text = thisShape.kategorie
-		tableViewCell.shapeName.text =  thisShape.name
-		tableViewCell.shapeImage.image = UIImage(named: thisShape.imageName)
+       
+        tableViewCell.artikelPreis.text = thisArtikel.preis.stringValue
+        tableViewCell.artikelOrt.text = thisArtikel.adresse
+        tableViewCell.artikelName.text =  thisArtikel.name
+        tableViewCell.artikelBild.image = UIImage(named: thisArtikel.imageName)
 		
 		return tableViewCell
 	}
@@ -257,20 +230,20 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 			
 			let tableViewDetail = segue.destination as? TableViewDetail
 			
-			let selectedShape: Shape!
+			let selectedArtikel: Artikel!
 			
             if(bool)
             {
-                selectedShape = filteredShapes[indexPath.row]
+                selectedArtikel = artikelGefiltert[indexPath.row]
             }
             else
             {
-                selectedShape = shapeList[indexPath.row]
+                selectedArtikel = artikelList[indexPath.row]
             }
 			
 			
 			
-			tableViewDetail!.selectedShape = selectedShape
+			tableViewDetail!.selectedArtikel = selectedArtikel
 			
 			self.shapeTableView.deselectRow(at: indexPath, animated: true)
 		}
@@ -288,7 +261,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 	
 	func filterForSearchTextAndScopeButton(searchText: String, scopeButton : String = "All")
 	{
-		filteredShapes = shapeList.filter
+		artikelGefiltert = artikelList.filter
 		{
 			shape in
 			let scopeMatch = (scopeButton == "All" || shape.name.lowercased().contains(scopeButton.lowercased()))
