@@ -42,12 +42,13 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
     override func viewDidLoad() {
         
         scrollView.showsHorizontalScrollIndicator = false
-        
+        scrollView2.showsHorizontalScrollIndicator = false
         
         super.viewDidLoad()
+        
         searchBar.searchBarStyle = .minimal
         searchBar.delegate = self
-        // Do any additional setup after loading the view.
+        
        
         
         
@@ -56,17 +57,29 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
         
         NotificationCenter.default.addObserver(self, selector: #selector(functionName), name: Notification.Name("functionName"), object: nil)
         
-        
-        for i in 0...10 {
+        for i in 0...6 {
                    if let dayView = Bundle.main.loadNibNamed("DayView", owner: nil, options: nil)!.first as? DayView {
-                    if i % 2 == 0 {
+                    if (i == 0){
                         dayView.titleLabel.text = "Obst"
-                        
                         dayView.imageButton.setImage(UIImage(named: "Obst"),for: .normal)
-                      } else {
-                        dayView.titleLabel.text = "Sweets"
-                        
-                        dayView.imageButton.setImage(UIImage(named: "Süßigkeiten"),for: .normal)
+                      }else if(i==1) {
+                        dayView.titleLabel.text = "Gemüse"
+                        dayView.imageButton.setImage(UIImage(named: "Gemüse"),for: .normal)
+                      }else if(i==2){
+                        dayView.titleLabel.text = "Milchprod."
+                        dayView.imageButton.setImage(UIImage(named: "Milchprodukte"),for: .normal)
+                      }else if(i==3){
+                        dayView.titleLabel.text = "Fleisch"
+                        dayView.imageButton.setImage(UIImage(named: "Fleisch"),for: .normal)
+                      }else if(i==4){
+                        dayView.titleLabel.text = "Süßwaren"
+                        dayView.imageButton.setImage(UIImage(named: "Süßwaren"),for: .normal)
+                      }else if(i==5){
+                        dayView.titleLabel.text = "Backwaren"
+                        dayView.imageButton.setImage(UIImage(named: "Backwaren"),for: .normal)
+                      }else if(i==6){
+                        dayView.titleLabel.text = "Getränke"
+                        dayView.imageButton.setImage(UIImage(named: "Getränke"),for: .normal)
                       }
                         
                         horizontallyScrollableStackView.addArrangedSubview(dayView)
@@ -78,16 +91,12 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
                    if let entdeckeUI = Bundle.main.loadNibNamed("EntdeckeUI", owner: nil, options: nil)!.first as? EntdeckeUI {
                     if i % 2 == 0 {
                         entdeckeUI.titleLabel.text = "Obst"
-                        
                         entdeckeUI.imageButton.setImage(UIImage(named: "Obst"),for: .normal)
                       } else {
                         entdeckeUI.titleLabel.text = "Sweets"
-                        
                         entdeckeUI.imageButton.setImage(UIImage(named: "Süßigkeiten"),for: .normal)
                       }
-                        
                         horizontallyScrollableStackView2.addArrangedSubview(entdeckeUI)
-                        
                    }
         }
         

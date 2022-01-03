@@ -29,43 +29,70 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         searchBar.selectedScopeButtonIndex = 0
         searchBar.searchBarStyle = .minimal
         searchBar.searchTextField.text = searchString
-        print("Kategorie")
-        //print(kategorie)
+        let font = UIFont.systemFont(ofSize: 7)
+        searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.font : font], for: .normal)
+     
 		super.viewDidLoad()
         setKategorie()
         initList(searchString: searchString, searchScopeButton: selectedScopeIndex)
         
         
         
-		//initSearchController()
+		
         searchBar.delegate = self
-        //searchBar.showsScopeBar = true
+       
         
 	}
     
     func setKategorie(){
         if(kategorie=="Obst"){
             self.selectedScopeIndex = 1
-            
             searchBar.selectedScopeButtonIndex = 1
             searchBar.placeholder="Obst"
             initList(searchString: "", searchScopeButton: selectedScopeIndex)
-        }else if(kategorie=="Sweets"){
+        }else if(kategorie=="Gemüse"){
             self.selectedScopeIndex = 2
-            
             searchBar.selectedScopeButtonIndex = 2
-            searchBar.placeholder="Sweets"
+            searchBar.placeholder="Gemüse"
+            initList(searchString: "", searchScopeButton: selectedScopeIndex)
+        }else if(kategorie=="Milchprod."){
+            self.selectedScopeIndex = 3
+            searchBar.selectedScopeButtonIndex = 3
+            searchBar.placeholder="Milchprodukte"
+            initList(searchString: "", searchScopeButton: selectedScopeIndex)
+        }else if(kategorie=="Fleisch"){
+            self.selectedScopeIndex = 4
+            searchBar.selectedScopeButtonIndex = 4
+            searchBar.placeholder="Fleisch"
+            initList(searchString: "", searchScopeButton: selectedScopeIndex)
+        }else if(kategorie=="Süßwaren"){
+            self.selectedScopeIndex = 5
+            searchBar.selectedScopeButtonIndex = 5
+            searchBar.placeholder="Süßwaren"
+            initList(searchString: "", searchScopeButton: selectedScopeIndex)
+        }else if(kategorie=="Backwaren"){
+            self.selectedScopeIndex = 6
+            searchBar.selectedScopeButtonIndex = 6
+            searchBar.placeholder="Backwaren"
+            initList(searchString: "", searchScopeButton: selectedScopeIndex)
+        }else if(kategorie=="Getränke"){
+            self.selectedScopeIndex = 7
+            searchBar.selectedScopeButtonIndex = 7
+            searchBar.placeholder="Getränke"
             initList(searchString: "", searchScopeButton: selectedScopeIndex)
         }
+        print("!!!")
+        print(kategorie)
+        print(selectedScopeIndex)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            print("searchText \(searchText)")
+           
         self.searchString = searchText
         searchBar.showsScopeBar = true
         
         initList(searchString: searchString, searchScopeButton: selectedScopeIndex)
-        searchBar.scopeButtonTitles = ["All", "Obst", "Sweets", "Milchprodukte"]
+        searchBar.scopeButtonTitles = ["All", "Obst", "Gemüse", "Milchprod.", "Fleisch", "Süßwaren", "Getränke"]
         }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -99,7 +126,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     //print("No documents")
                     return
                 }
-                
+            
+            
             self.artikelList.removeAll()
             
             self.artikelList = documents.map { (queryDocumentSnapshot) -> Artikel in
@@ -113,7 +141,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.inhaltsstoffe = data["inhaltsstoffe"] as? String ?? ""
                 self.menge = data["menge"] as? String ?? ""
                     //let kategorie = data["kategorie"] as? String ?? ""
-                print("preissss")
+                //print("preissss")
                 //print(preis)
                 self.artikelList.append(Artikel(name: self.name, imageName: self.bild, kategorie: self.kategorie, preis: self.preis, beschreibung: self.beschreibung, inhaltsstoffe: self.inhaltsstoffe, menge: self.menge, adresse: self.adresse))
                 //self.articlesArray.append (Article(name: name, kategorie: kategorie))
@@ -126,12 +154,63 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     self.shapeTableView.reloadData()
                 }else if(searchScopeButton==1) {
                     for shape in self.artikelList {
-                        //print(shape.name.prefix(searchString.count))
-                        
                             if(shape.kategorie=="Obst"){
-                                result.append(Artikel(name: self.self.name, imageName: self.self.bild, kategorie: self.self.kategorie, preis: self.self.preis, beschreibung: self.self.beschreibung, inhaltsstoffe: self.self.inhaltsstoffe, menge: self.self.menge, adresse: self.self.adresse))
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
                             }
-                        
+                    }
+                    self.artikelList = result
+                    result.removeAll()
+                    self.shapeTableView.reloadData()
+                }else if(searchScopeButton==2) {
+                    for shape in self.artikelList {
+                            if(shape.kategorie=="Gemüse"){
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                            }
+                    }
+                    self.artikelList = result
+                    result.removeAll()
+                    self.shapeTableView.reloadData()
+                }else if(searchScopeButton==3) {
+                    for shape in self.artikelList {
+                            if(shape.kategorie=="Milchprodukte"){
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                            }
+                    }
+                    self.artikelList = result
+                    result.removeAll()
+                    self.shapeTableView.reloadData()
+                }else if(searchScopeButton==4) {
+                    for shape in self.artikelList {
+                            if(shape.kategorie=="Fleisch"){
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                            }
+                    }
+                    self.artikelList = result
+                    result.removeAll()
+                    self.shapeTableView.reloadData()
+                }else if(searchScopeButton==5) {
+                    for shape in self.artikelList {
+                            if(shape.kategorie=="Süßwaren"){
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                            }
+                    }
+                    self.artikelList = result
+                    result.removeAll()
+                    self.shapeTableView.reloadData()
+                }else if(searchScopeButton==6) {
+                    for shape in self.artikelList {
+                            if(shape.kategorie=="Backwaren"){
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                            }
+                    }
+                    self.artikelList = result
+                    result.removeAll()
+                    self.shapeTableView.reloadData()
+                }else if(searchScopeButton==7) {
+                    for shape in self.artikelList {
+                            if(shape.kategorie=="Getränke"){
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                            }
                     }
                     self.artikelList = result
                     result.removeAll()

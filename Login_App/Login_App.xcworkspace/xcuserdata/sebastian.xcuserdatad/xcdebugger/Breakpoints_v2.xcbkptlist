@@ -14,8 +14,8 @@
             filePath = "Login_App/View Controllers/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "HomeViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -46,10 +46,10 @@
             filePath = "Login_App/TableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "TableViewController"
-            landmarkType = "3">
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "preis"
+            landmarkType = "24">
             <Locations>
                <Location
                   uuid = "20EA1E4A-F148-4559-8884-BF66AAC2E794 - 2f62bcb163c7af6"

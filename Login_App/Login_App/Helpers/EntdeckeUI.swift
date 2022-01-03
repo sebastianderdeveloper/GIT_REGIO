@@ -12,6 +12,7 @@ class EntdeckeUI: UIView {
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     
+    
 }
 
 
