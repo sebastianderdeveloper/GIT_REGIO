@@ -1059,7 +1059,7 @@
                                                 </constraints>
                                                 <state key="normal" title="zurück"/>
                                                 <connections>
-                                                    <segue destination="yMT-Hv-XlH" kind="show" id="c2T-92-taU"/>
+                                                    <action selector="zurückTabbed:" destination="hVk-zi-EiE" eventType="touchUpInside" id="pCJ-6c-dNf"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfX-vD-gzA">
@@ -1218,12 +1218,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8ud-9e-Eng"/>
-        <segue reference="c2T-92-taU"/>
+        <segue reference="JQA-dN-26Z"/>
+        <segue reference="dTd-b4-wmy"/>
         <segue reference="ugc-op-wRm"/>
         <segue reference="BT6-aX-LvJ"/>
         <segue reference="gG6-Lv-LXA"/>
-        <segue reference="qsd-C6-hTf"/>
+        <segue reference="d3E-FW-sM3"/>
         <segue reference="PiX-Gn-nFD"/>
     </inferredMetricsTieBreakers>
     <resources>

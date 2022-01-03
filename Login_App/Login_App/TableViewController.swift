@@ -381,6 +381,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 			
 			
 			tableViewDetail!.selectedArtikel = selectedArtikel
+            tableViewDetail!.entdecke = false
 			
 			self.shapeTableView.deselectRow(at: indexPath, animated: true)
 		}

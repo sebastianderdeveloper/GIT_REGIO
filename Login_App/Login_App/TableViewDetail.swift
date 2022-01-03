@@ -50,4 +50,16 @@ class TableViewDetail: UIViewController
         Utilities.roundCorners(map)
 	}
 
+    @IBAction func zurückTabbed(_ sender: Any) {
+        if (entdecke){
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
+            self.present(newViewController, animated: true, completion: nil)
+        }else {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "TableVC") as! TableViewController
+            self.present(newViewController, animated: true, completion: nil)
+        }
+        
+    }
 }
