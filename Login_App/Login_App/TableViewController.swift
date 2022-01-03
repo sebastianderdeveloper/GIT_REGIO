@@ -346,7 +346,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
 		
        
-        tableViewCell.artikelPreis.text = thisArtikel.preis.stringValue
+        tableViewCell.artikelPreis.text = thisArtikel.preis.stringValue + "€"
         tableViewCell.artikelOrt.text = thisArtikel.adresse
         tableViewCell.artikelName.text =  thisArtikel.name
         tableViewCell.artikelBild.image = UIImage(named: thisArtikel.imageName)
