@@ -32,6 +32,7 @@ class TableViewDetail: UIViewController
     var selectedArtikel : Artikel!
     
     var anzahl = 0
+    var entdecke: Bool!
 	
 	override func viewDidLoad()
 	{

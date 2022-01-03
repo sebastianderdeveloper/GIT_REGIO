@@ -122,8 +122,17 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
     @objc func namePost (notification: NSNotification){
         guard let text = notification.userInfo?["text"] as? String else { return }
             print ("text: \(text)")
+        var artikel = Artikel()
+        for shape in self.entdeckeListGefiltert {
+                if(shape.name==text){
+                    artikel = Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse)
+            }
+        }
+        
+        
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "DetailVC") as! TableViewDetail
+        newViewController.selectedArtikel = artikel
         //newViewController.kategorie=text
         self.present(newViewController, animated: true, completion: nil)
         
