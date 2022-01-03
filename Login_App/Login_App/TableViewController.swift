@@ -201,8 +201,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     for shape in self.artikelList {
                        
                             if(shape.kategorie=="Backwaren"){
-                                print("Backwaren")
-                                print(shape.adresse)
                                 result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
                             }
                     }
@@ -238,7 +236,61 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     for shape in self.artikelList {
                         //print(shape.name.prefix(searchString.count))
                         if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
-                            if(shape.kategorie=="test"){
+                            if(shape.kategorie=="Obst"){
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                            }
+                        }
+                    }
+                }else if(searchScopeButton==2) {
+                    for shape in self.artikelList {
+                        //print(shape.name.prefix(searchString.count))
+                        if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
+                            if(shape.kategorie=="Gemüse"){
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                            }
+                        }
+                    }
+                }else if(searchScopeButton==3) {
+                    for shape in self.artikelList {
+                        //print(shape.name.prefix(searchString.count))
+                        if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
+                            if(shape.kategorie=="Milchprodukte"){
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                            }
+                        }
+                    }
+                }else if(searchScopeButton==4) {
+                    for shape in self.artikelList {
+                        //print(shape.name.prefix(searchString.count))
+                        if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
+                            if(shape.kategorie=="Fleisch"){
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                            }
+                        }
+                    }
+                }else if(searchScopeButton==5) {
+                    for shape in self.artikelList {
+                        //print(shape.name.prefix(searchString.count))
+                        if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
+                            if(shape.kategorie=="Süßwaren"){
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                            }
+                        }
+                    }
+                }else if(searchScopeButton==6) {
+                    for shape in self.artikelList {
+                        //print(shape.name.prefix(searchString.count))
+                        if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
+                            if(shape.kategorie=="Backwaren"){
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                            }
+                        }
+                    }
+                }else if(searchScopeButton==7) {
+                    for shape in self.artikelList {
+                        //print(shape.name.prefix(searchString.count))
+                        if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
+                            if(shape.kategorie=="Getränke"){
                                 result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
                             }
                         }

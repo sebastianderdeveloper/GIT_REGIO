@@ -953,7 +953,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BN5-B6-8dQ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2170" y="-798"/>
+            <point key="canvasLocation" x="2435" y="-798"/>
         </scene>
         <!--Table View Detail-->
         <scene sceneID="dqZ-Vu-ggg">
@@ -1217,7 +1217,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="dTd-b4-wmy"/>
-        <segue reference="ugc-op-wRm"/>
+        <segue reference="ecf-3n-HHm"/>
         <segue reference="BT6-aX-LvJ"/>
         <segue reference="gG6-Lv-LXA"/>
         <segue reference="qsd-C6-hTf"/>
