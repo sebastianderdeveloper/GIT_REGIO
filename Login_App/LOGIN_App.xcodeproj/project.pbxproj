@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		68DE05F7CF44854CEA1CEE2B /* Pods_LOGIN_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525B37E4B8F4D2A2CC155A6C /* Pods_LOGIN_App.framework */; };
+		9E12A34B27818E690029AA93 /* EntdeckeUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E12A34A27818E690029AA93 /* EntdeckeUI.swift */; };
 		9E2D1B542778BDC700E1EAC2 /* article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2D1B532778BDC700E1EAC2 /* article.swift */; };
+		9E32874F278188E200F6811B /* EntdeckeUI.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E32874E278188E200F6811B /* EntdeckeUI.xib */; };
 		9E377C4B2734242B00F806B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E377C4A2734242B00F806B2 /* AppDelegate.swift */; };
 		9E377C4D2734242B00F806B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E377C4C2734242B00F806B2 /* SceneDelegate.swift */; };
 		9E377C4F2734242B00F806B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E377C4E2734242B00F806B2 /* ViewController.swift */; };
@@ -60,7 +62,9 @@
 		525B37E4B8F4D2A2CC155A6C /* Pods_LOGIN_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LOGIN_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6675E95E914F0FB783A88F44 /* Pods-LOGIN_AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOGIN_AppTests.release.xcconfig"; path = "Target Support Files/Pods-LOGIN_AppTests/Pods-LOGIN_AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		9C9D28918FF5F7F280D20425 /* Pods-Login_App-Login_AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login_App-Login_AppUITests.release.xcconfig"; path = "Target Support Files/Pods-Login_App-Login_AppUITests/Pods-Login_App-Login_AppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9E12A34A27818E690029AA93 /* EntdeckeUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntdeckeUI.swift; sourceTree = "<group>"; };
 		9E2D1B532778BDC700E1EAC2 /* article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = article.swift; sourceTree = "<group>"; };
+		9E32874E278188E200F6811B /* EntdeckeUI.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EntdeckeUI.xib; sourceTree = "<group>"; };
 		9E377C472734242B00F806B2 /* LOGIN_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LOGIN_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E377C4A2734242B00F806B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E377C4C2734242B00F806B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -245,6 +249,8 @@
 				9ECF39A2273FF383003F1C8C /* Constants.swift */,
 				9E9FF69E2777397A00BD3751 /* DayView.swift */,
 				9E9FF6AB27773A9D00BD3751 /* DayView.xib */,
+				9E32874E278188E200F6811B /* EntdeckeUI.xib */,
+				9E12A34A27818E690029AA93 /* EntdeckeUI.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -359,6 +365,7 @@
 			files = (
 				9E377C572734243500F806B2 /* LaunchScreen.storyboard in Resources */,
 				9EE90263273FC51F00736777 /* GoogleService-Info.plist in Resources */,
+				9E32874F278188E200F6811B /* EntdeckeUI.xib in Resources */,
 				9E9FF6AC27773A9D00BD3751 /* DayView.xib in Resources */,
 				9E377C542734243500F806B2 /* Assets.xcassets in Resources */,
 				9E377C522734242B00F806B2 /* Main.storyboard in Resources */,
@@ -493,6 +500,7 @@
 				9E9391FB2779FA0E00EE3C9E /* TableViewController.swift in Sources */,
 				9E377C7E2734470700F806B2 /* LoginViewController.swift in Sources */,
 				9EA025AA2779A40C00ACC918 /* SearchViewController.swift in Sources */,
+				9E12A34B27818E690029AA93 /* EntdeckeUI.swift in Sources */,
 				9E9391FC2779FA0E00EE3C9E /* TableViewDetail.swift in Sources */,
 				9E377C4F2734242B00F806B2 /* ViewController.swift in Sources */,
 				9EF2720E273FBADF000417AF /* Utilities.swift in Sources */,

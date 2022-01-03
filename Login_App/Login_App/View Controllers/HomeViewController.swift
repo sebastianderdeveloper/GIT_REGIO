@@ -25,6 +25,10 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet weak var scrollView2: UIScrollView!
+    
+    @IBOutlet weak var horizontallyScrollableStackView2: UIStackView!
+    
     @Published var articles = [Article]()
     
     private var db = Firestore.firestore()
@@ -68,7 +72,24 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
                         horizontallyScrollableStackView.addArrangedSubview(dayView)
                    
                    }
-               }
+        }
+        
+        for i in 0...3 {
+                   if let entdeckeUI = Bundle.main.loadNibNamed("EntdeckeUI", owner: nil, options: nil)!.first as? EntdeckeUI {
+                    if i % 2 == 0 {
+                        entdeckeUI.titleLabel.text = "Obst"
+                        
+                        entdeckeUI.imageButton.setImage(UIImage(named: "Obst"),for: .normal)
+                      } else {
+                        entdeckeUI.titleLabel.text = "Sweets"
+                        
+                        entdeckeUI.imageButton.setImage(UIImage(named: "Süßigkeiten"),for: .normal)
+                      }
+                        
+                        horizontallyScrollableStackView2.addArrangedSubview(entdeckeUI)
+                        
+                   }
+        }
         
         
         

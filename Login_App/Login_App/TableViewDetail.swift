@@ -1,6 +1,7 @@
 
 import Foundation
 import UIKit
+import GMStepper
 
 class TableViewDetail: UIViewController
 {
@@ -23,12 +24,17 @@ class TableViewDetail: UIViewController
     
     @IBOutlet weak var zurück: UIButton!
     
+    @IBOutlet weak var gmStepper: GMStepper!
+    
     var selectedArtikel : Artikel!
+    
+    var anzahl = 0
 	
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
-		
+        gmStepper.value = Double(anzahl)
+        
 		articleName.text = selectedArtikel.name
 		articleImage.image = UIImage(named: selectedArtikel.imageName)
         preis.text = selectedArtikel.preis.stringValue
