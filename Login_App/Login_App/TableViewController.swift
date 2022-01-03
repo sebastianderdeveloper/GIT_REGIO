@@ -92,7 +92,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         searchBar.showsScopeBar = true
         
         initList(searchString: searchString, searchScopeButton: selectedScopeIndex)
-        searchBar.scopeButtonTitles = ["All", "Obst", "Gemüse", "Milchprod.", "Fleisch", "Süßwaren", "Getränke"]
+        searchBar.scopeButtonTitles = ["All", "Obst", "Gemüse", "Milchprod.", "Fleisch", "Süßwaren", "Backwaren", "Getränke"]
         }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -199,7 +199,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     self.shapeTableView.reloadData()
                 }else if(searchScopeButton==6) {
                     for shape in self.artikelList {
+                       
                             if(shape.kategorie=="Backwaren"){
+                                print("Backwaren")
+                                print(shape.adresse)
                                 result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
                             }
                     }
