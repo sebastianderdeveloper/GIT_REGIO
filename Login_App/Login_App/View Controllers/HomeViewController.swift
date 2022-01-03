@@ -7,12 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
-
-
-
-
-
-
+import MapKit
 
 class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegate {
 
@@ -28,6 +23,8 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
     @IBOutlet weak var scrollView2: UIScrollView!
     
     @IBOutlet weak var horizontallyScrollableStackView2: UIStackView!
+    
+    @IBOutlet weak var map: MKMapView!
     
     @Published var articles = [Article]()
     
@@ -49,8 +46,7 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
         searchBar.searchBarStyle = .minimal
         searchBar.delegate = self
         
-       
-        
+        Utilities.roundCorners(map)
         
             
         fetchData()
@@ -87,14 +83,17 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
                    }
         }
         
-        for i in 0...3 {
+        for i in 0...2 {
                    if let entdeckeUI = Bundle.main.loadNibNamed("EntdeckeUI", owner: nil, options: nil)!.first as? EntdeckeUI {
-                    if i % 2 == 0 {
-                        entdeckeUI.titleLabel.text = "Obst"
-                        entdeckeUI.imageButton.setImage(UIImage(named: "Obst"),for: .normal)
-                      } else {
-                        entdeckeUI.titleLabel.text = "Sweets"
-                        entdeckeUI.imageButton.setImage(UIImage(named: "Süßigkeiten"),for: .normal)
+                    if (i==0) {
+                        entdeckeUI.titleLabel.text = "BIO Leichtmilch"
+                        entdeckeUI.imageButton.setImage(UIImage(named: "entdecke_milch"),for: .normal)
+                      }else if(i==1){
+                        entdeckeUI.titleLabel.text = "Bio Tee"
+                        entdeckeUI.imageButton.setImage(UIImage(named: "entdecke_tee"),for: .normal)
+                      }else if(i==2){
+                        entdeckeUI.titleLabel.text = "Mango Eis"
+                        entdeckeUI.imageButton.setImage(UIImage(named: "entdecke_eis"),for: .normal)
                       }
                         horizontallyScrollableStackView2.addArrangedSubview(entdeckeUI)
                    }

@@ -386,7 +386,8 @@
                         <outlet property="homeButton" destination="agH-hU-Bgg" id="xvH-3V-Mfb"/>
                         <outlet property="horizontallyScrollableStackView" destination="Etd-dV-Rqj" id="ew6-J4-pNw"/>
                         <outlet property="horizontallyScrollableStackView2" destination="K3P-cw-Mo4" id="rBq-4k-lgh"/>
-                        <outlet property="scrollView" destination="nmK-gZ-hRL" id="bnF-KC-FWA"/>
+                        <outlet property="map" destination="7wu-x1-du9" id="PLC-Wf-QmW"/>
+                        <outlet property="scrollView" destination="00U-8u-4PG" id="ed1-Wq-wJb"/>
                         <outlet property="scrollView2" destination="nmK-gZ-hRL" id="NJN-Ua-fPE"/>
                         <outlet property="searchBar" destination="xS4-8s-Lbr" id="tzt-pw-MyF"/>
                     </connections>
@@ -1205,6 +1206,7 @@
                         <outlet property="beschreibung" destination="62H-Zi-2Lo" id="TIB-UL-KE4"/>
                         <outlet property="gmStepper" destination="Fj2-lh-pCo" id="NpQ-l5-fqz"/>
                         <outlet property="inhaltstoffe" destination="oEF-iE-zoO" id="lJc-02-O60"/>
+                        <outlet property="map" destination="Yyr-Nc-hsu" id="aKf-6j-ubk"/>
                         <outlet property="menge" destination="L4B-jl-JwB" id="aaX-bK-b1g"/>
                         <outlet property="preis" destination="num-9F-j3R" id="lKp-bl-YlF"/>
                         <outlet property="zurück" destination="OSX-Ir-KTa" id="a3P-ut-B7l"/>
@@ -1217,10 +1219,10 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="dTd-b4-wmy"/>
-        <segue reference="ecf-3n-HHm"/>
+        <segue reference="ugc-op-wRm"/>
         <segue reference="BT6-aX-LvJ"/>
         <segue reference="gG6-Lv-LXA"/>
-        <segue reference="qsd-C6-hTf"/>
+        <segue reference="SBE-T6-3Fe"/>
         <segue reference="PiX-Gn-nFD"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -2,6 +2,7 @@
 import Foundation
 import UIKit
 import GMStepper
+import MapKit
 
 class TableViewDetail: UIViewController
 {
@@ -26,6 +27,8 @@ class TableViewDetail: UIViewController
     
     @IBOutlet weak var gmStepper: GMStepper!
     
+    @IBOutlet weak var map: MKMapView!
+    
     var selectedArtikel : Artikel!
     
     var anzahl = 0
@@ -34,7 +37,6 @@ class TableViewDetail: UIViewController
 	{
 		super.viewDidLoad()
         gmStepper.value = Double(anzahl)
-        
 		articleName.text = selectedArtikel.name
 		articleImage.image = UIImage(named: selectedArtikel.imageName)
         preis.text = selectedArtikel.preis.stringValue
@@ -44,6 +46,7 @@ class TableViewDetail: UIViewController
         adresse.text = selectedArtikel.adresse
         Utilities.styleFilledButton(addToCartButton)
         Utilities.styleHollowButton(zurück)
+        Utilities.roundCorners(map)
 	}
 
 }

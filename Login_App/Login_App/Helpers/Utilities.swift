@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class Utilities {
     
@@ -51,4 +52,7 @@ class Utilities {
         return passwordTest.evaluate(with: password)
     }
     
+    static func roundCorners(_ map: MKMapView) {
+        map.layer.cornerRadius = 12.5
+    }
 }
