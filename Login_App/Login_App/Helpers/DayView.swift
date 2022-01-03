@@ -19,7 +19,7 @@ class DayView: UIView {
         //print(titleLabel.text ?? String.self)
         let kat = titleLabel.text
         let userInfo = [ "text" :  kat]
-        NotificationCenter.default.post(name: Notification.Name("functionName"), object: nil, userInfo: userInfo as [AnyHashable : Any])
+        NotificationCenter.default.post(name: Notification.Name("kategoriePost"), object: nil, userInfo: userInfo as [AnyHashable : Any])
     }
     /*
     // Only override draw() if you perform custom drawing.

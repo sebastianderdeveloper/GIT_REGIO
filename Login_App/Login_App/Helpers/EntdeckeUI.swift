@@ -13,6 +13,11 @@ class EntdeckeUI: UIView {
     @IBOutlet weak var titleLabel: UILabel!
     
     
+    @IBAction func buttonTabbed(_ sender: Any) {
+        let kat = titleLabel.text
+        let userInfo = [ "text" :  kat]
+        NotificationCenter.default.post(name: Notification.Name("namePost"), object: nil, userInfo: userInfo as [AnyHashable : Any])
+    }
 }
 
 

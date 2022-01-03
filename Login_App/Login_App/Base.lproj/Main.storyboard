@@ -959,7 +959,7 @@
         <!--Table View Detail-->
         <scene sceneID="dqZ-Vu-ggg">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="hVk-zi-EiE" customClass="TableViewDetail" customModule="LOGIN_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailVC" modalPresentationStyle="fullScreen" id="hVk-zi-EiE" customClass="TableViewDetail" customModule="LOGIN_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Wz-4k-TcD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1218,7 +1218,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dTd-b4-wmy"/>
+        <segue reference="c2T-92-taU"/>
         <segue reference="ugc-op-wRm"/>
         <segue reference="BT6-aX-LvJ"/>
         <segue reference="gG6-Lv-LXA"/>

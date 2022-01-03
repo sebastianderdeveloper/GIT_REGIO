@@ -36,6 +36,9 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
     
     var kategorie = ""
     
+    var entdeckeList = [Artikel]()
+    var entdeckeListGefiltert = [Artikel]()
+    
     override func viewDidLoad() {
         
         scrollView.showsHorizontalScrollIndicator = false
@@ -50,8 +53,11 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
         
             
         fetchData()
+        fetchEntdeckeArtikel()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(functionName), name: Notification.Name("functionName"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(kategoriePost), name: Notification.Name("kategoriePost"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(namePost), name: Notification.Name("namePost"), object: nil)
+
         
         for i in 0...6 {
                    if let dayView = Bundle.main.loadNibNamed("DayView", owner: nil, options: nil)!.first as? DayView {
@@ -83,21 +89,7 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
                    }
         }
         
-        for i in 0...2 {
-                   if let entdeckeUI = Bundle.main.loadNibNamed("EntdeckeUI", owner: nil, options: nil)!.first as? EntdeckeUI {
-                    if (i==0) {
-                        entdeckeUI.titleLabel.text = "BIO Leichtmilch"
-                        entdeckeUI.imageButton.setImage(UIImage(named: "entdecke_milch"),for: .normal)
-                      }else if(i==1){
-                        entdeckeUI.titleLabel.text = "Bio Tee"
-                        entdeckeUI.imageButton.setImage(UIImage(named: "entdecke_tee"),for: .normal)
-                      }else if(i==2){
-                        entdeckeUI.titleLabel.text = "Mango Eis"
-                        entdeckeUI.imageButton.setImage(UIImage(named: "entdecke_eis"),for: .normal)
-                      }
-                        horizontallyScrollableStackView2.addArrangedSubview(entdeckeUI)
-                   }
-        }
+        
         
         
         
@@ -117,12 +109,22 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
         //searchBar.scopeButtonTitles = ["All", "Obst", "Sweets", "Milchprodukte"]
     }
 
-    @objc func functionName (notification: NSNotification){
+    @objc func kategoriePost (notification: NSNotification){
         guard let text = notification.userInfo?["text"] as? String else { return }
             //print ("text: \(text)")
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "TableVC") as! TableViewController
         newViewController.kategorie=text
+        self.present(newViewController, animated: true, completion: nil)
+        
+    }
+    
+    @objc func namePost (notification: NSNotification){
+        guard let text = notification.userInfo?["text"] as? String else { return }
+            print ("text: \(text)")
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "DetailVC") as! TableViewDetail
+        //newViewController.kategorie=text
         self.present(newViewController, animated: true, completion: nil)
         
     }
@@ -149,6 +151,80 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
             }
     }
     
+    func fetchEntdeckeArtikel() {
+        
+        db.collection("articles").addSnapshotListener { (querySnapshot, error) in
+                guard let documents = querySnapshot?.documents else {
+                    //print("No documents")
+                    return
+                }
+                
+            self.entdeckeList = documents.map { (queryDocumentSnapshot) -> Artikel in
+                let data = queryDocumentSnapshot.data()
+                let name = data["name"] as? String ?? ""
+                let kategorie = data["kategorie"] as? String ?? ""
+                let adresse = data["adresse"] as? String ?? ""
+                let beschreibung = data["beschreibung"] as? String ?? ""
+                let bild = data["bild"] as? String ?? ""
+                let preis = data["preis"] as? NSNumber ?? 0
+                let inhaltsstoffe = data["inhaltsstoffe"] as? String ?? ""
+                let menge = data["menge"] as? String ?? ""
+                    //let kategorie = data["kategorie"] as? String ?? ""
+                //print("preissss")
+                //print(preis)
+                
+                
+                self.entdeckeList.append(Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse))
+                //self.articlesArray.append (Article(name: name, kategorie: kategorie))
+                return Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse)
+                }
+            
+            
+                for shape in self.entdeckeList {
+                    
+                        if(shape.name=="NOMOO MANGOEIS"){
+                            if let entdeckeUI = Bundle.main.loadNibNamed("EntdeckeUI", owner: nil, options: nil)!.first as? EntdeckeUI {
+                                self.entdeckeListGefiltert.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                                entdeckeUI.titleLabel.text = shape.name
+                                entdeckeUI.imageButton.setImage(UIImage(named: shape.imageName),for: .normal)
+                                self.horizontallyScrollableStackView2.addArrangedSubview(entdeckeUI)
+                            }
+                    }else if(shape.name=="BIO-Leichtmilch"){
+                        if let entdeckeUI = Bundle.main.loadNibNamed("EntdeckeUI", owner: nil, options: nil)!.first as? EntdeckeUI {
+                            self.entdeckeListGefiltert.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                            entdeckeUI.titleLabel.text = shape.name
+                            entdeckeUI.imageButton.setImage(UIImage(named: shape.imageName),for: .normal)
+                            self.horizontallyScrollableStackView2.addArrangedSubview(entdeckeUI)
+                        }
+                    }else if(shape.name=="Honest Bio Tee"){
+                        if let entdeckeUI = Bundle.main.loadNibNamed("EntdeckeUI", owner: nil, options: nil)!.first as? EntdeckeUI {
+                            self.entdeckeListGefiltert.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                            entdeckeUI.titleLabel.text = shape.name
+                            entdeckeUI.imageButton.setImage(UIImage(named: shape.imageName),for: .normal)
+                            self.horizontallyScrollableStackView2.addArrangedSubview(entdeckeUI)
+                        }
+                    }
+                    
+                }
+                
+            }
+        
+        /*for i in 0...2 {
+                   if let entdeckeUI = Bundle.main.loadNibNamed("EntdeckeUI", owner: nil, options: nil)!.first as? EntdeckeUI {
+                    if (i==0) {
+                        entdeckeUI.titleLabel.text = "BIO Leichtmilch"
+                        entdeckeUI.imageButton.setImage(UIImage(named: "entdecke_milch"),for: .normal)
+                      }else if(i==1){
+                        entdeckeUI.titleLabel.text = "Bio Tee"
+                        entdeckeUI.imageButton.setImage(UIImage(named: "entdecke_tee"),for: .normal)
+                      }else if(i==2){
+                        entdeckeUI.titleLabel.text = "Mango Eis"
+                        entdeckeUI.imageButton.setImage(UIImage(named: "entdecke_eis"),for: .normal)
+                      }
+                        horizontallyScrollableStackView2.addArrangedSubview(entdeckeUI)
+                   }
+        }*/
+    }
     
     
     //https://medium.com/nerd-for-tech/swift-dynamic-search-bar-with-multiple-criteria-and-filter-persistence-905ac05b6ae0
