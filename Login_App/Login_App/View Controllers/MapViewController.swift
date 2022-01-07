@@ -53,6 +53,7 @@ class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDe
                 //print("preissss")
                 //print(preis)
                 
+                self.addAnn(article: Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude))
                 
                 self.articleList.append(Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude))
                 //self.articlesArray.append (Article(name: name, kategorie: kategorie))
@@ -60,24 +61,22 @@ class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDe
                 }
             
             
-            for shape in self.articleList {
-               
-                
-                
-                let artwork = Artwork(
-                    title: shape.name,
-                    locationName: shape.adresse,
-                  discipline: "Sculpture",
-                    coordinate: CLLocationCoordinate2D(latitude: shape.latitude as! Double, longitude: shape.longitude as! Double))
-                    
-                
-                self.mapView.addAnnotation(artwork)
-                
-            }
+            
             
           
             
     }
+    }
+    
+    func addAnn(article: Artikel){
+        let artwork = Artwork(
+            title: article.name,
+            locationName: article.adresse,
+          discipline: "Sculpture",
+            coordinate: CLLocationCoordinate2D(latitude: article.latitude as! Double, longitude: article.longitude as! Double))
+            
+        
+        self.mapView.addAnnotation(artwork)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
