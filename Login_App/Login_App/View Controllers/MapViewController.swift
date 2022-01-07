@@ -77,7 +77,7 @@ class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDe
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
         }
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
+ /*   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
         {
             if annotation is MKUserLocation {return nil}
 
@@ -87,6 +87,7 @@ class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDe
             if pinView == nil {
                 pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
                 pinView!.canShowCallout = true
+                pinView!.image = UIImage(named:"pin")!
                 pinView!.animatesDrop = true
                 let calloutButton = UIButton(type: .detailDisclosure)
                 pinView!.rightCalloutAccessoryView = calloutButton
@@ -105,5 +106,30 @@ class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDe
               print("button tapped")
             }
         }
+    */
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    guard !(annotation is MKUserLocation) else {
+        return nil
+    }
+
+     let annotationIdentifier = "Identifier"
+     var annotationView: MKAnnotationView?
+     if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) {
+        annotationView = dequeuedAnnotationView
+        annotationView?.annotation = annotation
+    }
+    else {
+        annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+        annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+    }
+
+     if let annotationView = annotationView {
+
+        annotationView.canShowCallout = true
+        annotationView.image = UIImage(named: "pin")
+    }
+      return annotationView
+    }
+    
     
 }
