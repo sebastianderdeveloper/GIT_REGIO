@@ -192,7 +192,7 @@ class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDe
                     print(shape.imageName ?? "uff")
                     if(shape.name==view.annotation?.title){
                             
-                            artikel = Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse)
+                        artikel = Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude)
                     }
                 }
                 

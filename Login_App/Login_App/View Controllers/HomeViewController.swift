@@ -135,7 +135,7 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
         var artikel = Artikel()
         for shape in self.entdeckeListGefiltert {
                 if(shape.name==text){
-                    artikel = Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse)
+                    artikel = Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse,longitude: shape.longitude, latitude: shape.latitude)
             }
         }
         
@@ -189,14 +189,16 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
                 let preis = data["preis"] as? NSNumber ?? 0
                 let inhaltsstoffe = data["inhaltsstoffe"] as? String ?? ""
                 let menge = data["menge"] as? String ?? ""
+                let longitude = data["longitude"] as? NSNumber ?? 0
+                let latitude = data["latitude"] as? NSNumber ?? 0
                     //let kategorie = data["kategorie"] as? String ?? ""
                 //print("preissss")
                 //print(preis)
                 
                 
-                self.entdeckeList.append(Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse))
+                self.entdeckeList.append(Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude))
                 //self.articlesArray.append (Article(name: name, kategorie: kategorie))
-                return Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse)
+                return Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude)
                 }
             
             
@@ -204,21 +206,21 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
                     
                         if(shape.name=="NOMOO MANGOEIS"){
                             if let entdeckeUI = Bundle.main.loadNibNamed("EntdeckeUI", owner: nil, options: nil)!.first as? EntdeckeUI {
-                                self.entdeckeListGefiltert.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                                self.entdeckeListGefiltert.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude))
                                 entdeckeUI.titleLabel.text = shape.name
                                 entdeckeUI.imageButton.setImage(UIImage(named: shape.imageName),for: .normal)
                                 self.horizontallyScrollableStackView2.addArrangedSubview(entdeckeUI)
                             }
                     }else if(shape.name=="BIO-Leichtmilch"){
                         if let entdeckeUI = Bundle.main.loadNibNamed("EntdeckeUI", owner: nil, options: nil)!.first as? EntdeckeUI {
-                            self.entdeckeListGefiltert.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                            self.entdeckeListGefiltert.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude))
                             entdeckeUI.titleLabel.text = shape.name
                             entdeckeUI.imageButton.setImage(UIImage(named: shape.imageName),for: .normal)
                             self.horizontallyScrollableStackView2.addArrangedSubview(entdeckeUI)
                         }
                     }else if(shape.name=="Honest Bio Tee"){
                         if let entdeckeUI = Bundle.main.loadNibNamed("EntdeckeUI", owner: nil, options: nil)!.first as? EntdeckeUI {
-                            self.entdeckeListGefiltert.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                            self.entdeckeListGefiltert.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude))
                             entdeckeUI.titleLabel.text = shape.name
                             entdeckeUI.imageButton.setImage(UIImage(named: shape.imageName),for: .normal)
                             self.horizontallyScrollableStackView2.addArrangedSubview(entdeckeUI)

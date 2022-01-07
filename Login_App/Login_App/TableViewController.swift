@@ -114,6 +114,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var beschreibung = ""
     var bild = ""
     var preis = NSNumber()
+    var latitude = NSNumber()
+    var longitude = NSNumber()
     var inhaltsstoffe = ""
     var menge = ""
 	
@@ -140,12 +142,14 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.preis = data["preis"] as? NSNumber ?? 0
                 self.inhaltsstoffe = data["inhaltsstoffe"] as? String ?? ""
                 self.menge = data["menge"] as? String ?? ""
+                self.longitude = data["longitude"] as? NSNumber ?? 0
+                self.latitude = data["latitude"] as? NSNumber ?? 0
                     //let kategorie = data["kategorie"] as? String ?? ""
                 //print("preissss")
                 //print(preis)
-                self.artikelList.append(Artikel(name: self.name, imageName: self.bild, kategorie: self.kategorie, preis: self.preis, beschreibung: self.beschreibung, inhaltsstoffe: self.inhaltsstoffe, menge: self.menge, adresse: self.adresse))
+                self.artikelList.append(Artikel(name: self.name, imageName: self.bild, kategorie: self.kategorie, preis: self.preis, beschreibung: self.beschreibung, inhaltsstoffe: self.inhaltsstoffe, menge: self.menge, adresse: self.adresse, longitude: self.longitude, latitude: self.latitude))
                 //self.articlesArray.append (Article(name: name, kategorie: kategorie))
-                return Artikel(name: self.name, imageName: self.bild, kategorie: self.kategorie, preis: self.preis, beschreibung: self.beschreibung, inhaltsstoffe: self.inhaltsstoffe, menge: self.menge, adresse: self.adresse)
+                return Artikel(name: self.name, imageName: self.bild, kategorie: self.kategorie, preis: self.preis, beschreibung: self.beschreibung, inhaltsstoffe: self.inhaltsstoffe, menge: self.menge, adresse: self.adresse, longitude: self.longitude, latitude: self.latitude)
                 }
             
             if(searchString.isEmpty){
@@ -155,7 +159,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 }else if(searchScopeButton==1) {
                     for shape in self.artikelList {
                             if(shape.kategorie=="Obst"){
-                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude))
                             }
                     }
                     self.artikelList = result
@@ -164,7 +168,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 }else if(searchScopeButton==2) {
                     for shape in self.artikelList {
                             if(shape.kategorie=="Gemüse"){
-                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude))
                             }
                     }
                     self.artikelList = result
@@ -173,7 +177,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 }else if(searchScopeButton==3) {
                     for shape in self.artikelList {
                             if(shape.kategorie=="Milchprodukte"){
-                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude))
                             }
                     }
                     self.artikelList = result
@@ -182,7 +186,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 }else if(searchScopeButton==4) {
                     for shape in self.artikelList {
                             if(shape.kategorie=="Fleisch"){
-                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude))
                             }
                     }
                     self.artikelList = result
@@ -191,7 +195,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 }else if(searchScopeButton==5) {
                     for shape in self.artikelList {
                             if(shape.kategorie=="Süßwaren"){
-                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude))
                             }
                     }
                     self.artikelList = result
@@ -201,7 +205,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     for shape in self.artikelList {
                        
                             if(shape.kategorie=="Backwaren"){
-                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude))
                             }
                     }
                     self.artikelList = result
@@ -210,7 +214,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 }else if(searchScopeButton==7) {
                     for shape in self.artikelList {
                             if(shape.kategorie=="Getränke"){
-                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude))
                             }
                     }
                     self.artikelList = result
@@ -228,7 +232,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                         //print(shape.name.prefix(searchString.count))
                         if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
                            
-                            result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                            result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude))
                             
                         }
                     }
@@ -237,7 +241,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                         //print(shape.name.prefix(searchString.count))
                         if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
                             if(shape.kategorie=="Obst"){
-                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude))
                             }
                         }
                     }
@@ -246,7 +250,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                         //print(shape.name.prefix(searchString.count))
                         if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
                             if(shape.kategorie=="Gemüse"){
-                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude))
                             }
                         }
                     }
@@ -255,7 +259,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                         //print(shape.name.prefix(searchString.count))
                         if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
                             if(shape.kategorie=="Milchprodukte"){
-                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude))
                             }
                         }
                     }
@@ -264,7 +268,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                         //print(shape.name.prefix(searchString.count))
                         if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
                             if(shape.kategorie=="Fleisch"){
-                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude))
                             }
                         }
                     }
@@ -273,7 +277,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                         //print(shape.name.prefix(searchString.count))
                         if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
                             if(shape.kategorie=="Süßwaren"){
-                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude))
                             }
                         }
                     }
@@ -282,7 +286,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                         //print(shape.name.prefix(searchString.count))
                         if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
                             if(shape.kategorie=="Backwaren"){
-                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude))
                             }
                         }
                     }
@@ -291,7 +295,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                         //print(shape.name.prefix(searchString.count))
                         if (shape.name.prefix(searchString.count) == searchString||shape.name.prefix(searchString.count) == searchString.lowercased()) {
                             if(shape.kategorie=="Getränke"){
-                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse))
+                                result.append(Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude))
                             }
                         }
                     }
