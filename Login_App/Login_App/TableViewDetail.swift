@@ -36,6 +36,7 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
     var entdecke =  false
     var mapView  = false
     let locationManager = CLLocationManager()
+   
     
 	override func viewDidLoad()
 	{
@@ -51,6 +52,8 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
         Utilities.styleFilledButton(addToCartButton)
         Utilities.styleHollowButton(zurück)
         Utilities.roundCorners(map)
+        
+        
         
         checkLocationServices()
         
@@ -91,15 +94,16 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
             guard let location = locations.last else { return }
-            let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: 4000, longitudinalMeters: 4000)
-            map.setRegion(region, animated: true)
+        let coordinate = CLLocationCoordinate2D(latitude: selectedArtikel.latitude as! CLLocationDegrees, longitude: selectedArtikel.longitude as! CLLocationDegrees)
+            let region = self.map.regionThatFits(MKCoordinateRegion(center: coordinate, latitudinalMeters: 200, longitudinalMeters: 200))
+            self.map.setRegion(region, animated: true)
         }
        
         func checkLocationAuthorization() {
             switch CLLocationManager.authorizationStatus() {
             case .authorizedWhenInUse:
-                map.showsUserLocation = true
-                followUserLocation()
+                map.showsUserLocation = false
+                
                 locationManager.startUpdatingLocation()
                 break
             case .denied:
@@ -124,12 +128,7 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
             }
         }
         
-        func followUserLocation() {
-            if let location = locationManager.location?.coordinate {
-                let region = MKCoordinateRegion.init(center: location, latitudinalMeters: 4000, longitudinalMeters: 4000)
-                map.setRegion(region, animated: true)
-            }
-        }
+       
         
         func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
             checkLocationAuthorization()
@@ -196,23 +195,36 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
             if control == view.rightCalloutAccessoryView {
              
-                var artikel = Artikel()
-                for shape in self.articleList {
-                    print(shape.imageName ?? "uff")
-                    if(shape.name==view.annotation?.title){
-                            
-                        artikel = Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude)
-                    }
-                }
-                
-                
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let newViewController = storyBoard.instantiateViewController(withIdentifier: "DetailVC") as! TableViewDetail
-                newViewController.selectedArtikel = artikel
-                newViewController.mapView = true
-                //newViewController.kategorie=text
-                self.present(newViewController, animated: true, completion: nil)
+                openMapForPlace(lat: self.selectedArtikel.latitude as! CLLocationDegrees, long: self.selectedArtikel.longitude as! CLLocationDegrees)
             }
         }
+    
+    @IBAction func addToCartTabbed(_ sender: Any) {
+        
+       
+        
+}
+    
+    
+    
+    func openMapForPlace(lat: CLLocationDegrees, long: CLLocationDegrees) {
+            let latitude: CLLocationDegrees = lat
+            let longitude: CLLocationDegrees = long
+            
+            let regionDistance:CLLocationDistance = 10000
+            let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+            let options = [
+                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+            ]
+            let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+            let mapItem = MKMapItem(placemark: placemark)
+            mapItem.name = selectedArtikel.name + " " + selectedArtikel.adresse
+       
+            mapItem.openInMaps(launchOptions: options)
+        }
+
+
     
 }

@@ -1015,7 +1015,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yyr-Nc-hsu">
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Yyr-Nc-hsu">
                                                 <rect key="frame" x="16" y="562" width="382" height="155"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="155" id="6xf-m9-xAO"/>
@@ -1026,6 +1026,9 @@
                                                 <rect key="frame" x="62" y="762" width="290" height="51"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                                 <state key="normal" title="Artikel in Warenkorb hinzufügen"/>
+                                                <connections>
+                                                    <action selector="addToCartTabbed:" destination="hVk-zi-EiE" eventType="touchUpInside" id="80S-He-Bcg"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fj2-lh-pCo" customClass="GMStepper" customModule="GMStepper">
                                                 <rect key="frame" x="16" y="239.5" width="106" height="40.5"/>
