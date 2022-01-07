@@ -69,7 +69,7 @@ class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDe
                     locationName: shape.adresse,
                   discipline: "Sculpture",
                     coordinate: CLLocationCoordinate2D(latitude: shape.latitude as! Double, longitude: shape.longitude as! Double))
-                
+                    
                 
                 self.mapView.addAnnotation(artwork)
                 
