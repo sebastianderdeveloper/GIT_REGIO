@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseFirestore
 import MapKit
+import CoreLocation
 
 class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegate {
 
@@ -39,12 +40,21 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
     var entdeckeList = [Artikel]()
     var entdeckeListGefiltert = [Artikel]()
     
+    fileprivate let locationManager:CLLocationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         
         scrollView.showsHorizontalScrollIndicator = false
         scrollView2.showsHorizontalScrollIndicator = false
         
         super.viewDidLoad()
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = kCLDistanceFilterNone
+        locationManager.startUpdatingLocation()
+        
+        map.showsUserLocation = true
+        
         
         searchBar.searchBarStyle = .minimal
         searchBar.delegate = self
@@ -268,4 +278,45 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
     }
     */
 
+}
+
+extension ViewController: CLLocationManagerDelegate {
+    
+    // iOS 14
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        if #available(iOS 14.0, *) {
+            switch manager.authorizationStatus {
+            case .notDetermined:
+                print("Not determined")
+            case .restricted:
+                print("Restricted")
+            case .denied:
+                print("Denied")
+            case .authorizedAlways:
+                print("Authorized Always")
+            case .authorizedWhenInUse:
+                print("Authorized When in Use")
+            @unknown default:
+                print("Unknown status")
+            }
+        }
+    }
+    
+    // iOS 13 and below
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined:
+            print("Not determined")
+        case .restricted:
+            print("Restricted")
+        case .denied:
+            print("Denied")
+        case .authorizedAlways:
+            print("Authorized Always")
+        case .authorizedWhenInUse:
+            print("Authorized When in Use")
+        @unknown default:
+            print("Unknown status")
+        }
+    }
 }

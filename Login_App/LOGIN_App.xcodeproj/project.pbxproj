@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		68DE05F7CF44854CEA1CEE2B /* Pods_LOGIN_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525B37E4B8F4D2A2CC155A6C /* Pods_LOGIN_App.framework */; };
+		9E09E1C5278872FD00462F6E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E09E1C4278872FD00462F6E /* MapViewController.swift */; };
 		9E12A34B27818E690029AA93 /* EntdeckeUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E12A34A27818E690029AA93 /* EntdeckeUI.swift */; };
 		9E2D1B542778BDC700E1EAC2 /* article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2D1B532778BDC700E1EAC2 /* article.swift */; };
 		9E32874F278188E200F6811B /* EntdeckeUI.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E32874E278188E200F6811B /* EntdeckeUI.xib */; };
@@ -62,6 +63,7 @@
 		525B37E4B8F4D2A2CC155A6C /* Pods_LOGIN_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LOGIN_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6675E95E914F0FB783A88F44 /* Pods-LOGIN_AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOGIN_AppTests.release.xcconfig"; path = "Target Support Files/Pods-LOGIN_AppTests/Pods-LOGIN_AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		9C9D28918FF5F7F280D20425 /* Pods-Login_App-Login_AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login_App-Login_AppUITests.release.xcconfig"; path = "Target Support Files/Pods-Login_App-Login_AppUITests/Pods-Login_App-Login_AppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9E09E1C4278872FD00462F6E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9E12A34A27818E690029AA93 /* EntdeckeUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntdeckeUI.swift; sourceTree = "<group>"; };
 		9E2D1B532778BDC700E1EAC2 /* article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = article.swift; sourceTree = "<group>"; };
 		9E32874E278188E200F6811B /* EntdeckeUI.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EntdeckeUI.xib; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				9E377C822734474F00F806B2 /* SignUpViewController.swift */,
 				9E377C9327344B9F00F806B2 /* HomeViewController.swift */,
 				9EA025A92779A40C00ACC918 /* SearchViewController.swift */,
+				9E09E1C4278872FD00462F6E /* MapViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				9E939245277A0B8300EE3C9E /* artikel.swift in Sources */,
 				9E9FF69F2777397A00BD3751 /* DayView.swift in Sources */,
 				9E377C4D2734242B00F806B2 /* SceneDelegate.swift in Sources */,
+				9E09E1C5278872FD00462F6E /* MapViewController.swift in Sources */,
 				9E2D1B542778BDC700E1EAC2 /* article.swift in Sources */,
 				9E377C832734474F00F806B2 /* SignUpViewController.swift in Sources */,
 				9E377C9427344B9F00F806B2 /* HomeViewController.swift in Sources */,

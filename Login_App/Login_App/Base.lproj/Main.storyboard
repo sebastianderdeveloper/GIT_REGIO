@@ -316,7 +316,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7wu-x1-du9">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7wu-x1-du9">
                                 <rect key="frame" x="27" y="661" width="361" height="148"/>
                             </mapView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="nmK-gZ-hRL">
@@ -471,7 +471,7 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
                                         <connections>
-                                            <segue destination="yMT-Hv-XlH" kind="show" id="IsQ-hm-ER6"/>
+                                            <segue destination="C1Q-KS-Xxg" kind="show" id="jbA-in-Dnt"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UvP-KT-Hwh">
@@ -528,17 +528,11 @@
         <!--Map View Controller-->
         <scene sceneID="aAy-xy-YL1">
             <objects>
-                <viewController storyboardIdentifier="MapVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="C1Q-KS-Xxg" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="C1Q-KS-Xxg" customClass="MapViewController" customModule="LOGIN_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qpj-H4-DGq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XK-0W-eFb">
-                                <rect key="frame" x="169.5" y="438" width="75" height="20.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="REGIO_LOGO" translatesAutoresizingMaskIntoConstraints="NO" id="UWh-eO-I02">
                                 <rect key="frame" x="40" y="56" width="34" height="30"/>
                                 <constraints>
@@ -607,6 +601,9 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21"/>
                                 </state>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zgg-A6-pq5">
+                                <rect key="frame" x="20" y="194" width="374" height="608"/>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Fds-Xg-4EG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -614,22 +611,27 @@
                             <constraint firstItem="bYD-el-jZa" firstAttribute="top" secondItem="UWh-eO-I02" secondAttribute="bottom" constant="31" id="6NX-Iv-9Q1"/>
                             <constraint firstItem="UWh-eO-I02" firstAttribute="top" secondItem="Fds-Xg-4EG" secondAttribute="top" constant="12" id="8LD-6r-NTB"/>
                             <constraint firstItem="wvi-wE-iYp" firstAttribute="top" secondItem="Fds-Xg-4EG" secondAttribute="top" constant="12" id="DR9-L2-gMh"/>
-                            <constraint firstItem="4XK-0W-eFb" firstAttribute="centerY" secondItem="Qpj-H4-DGq" secondAttribute="centerY" id="KaO-ox-Ih5"/>
+                            <constraint firstItem="bYD-el-jZa" firstAttribute="trailing" secondItem="zgg-A6-pq5" secondAttribute="trailing" id="MaN-Zw-v3I"/>
                             <constraint firstItem="UWh-eO-I02" firstAttribute="leading" secondItem="Fds-Xg-4EG" secondAttribute="leading" constant="40" id="RaK-Gb-9xQ"/>
-                            <constraint firstItem="4XK-0W-eFb" firstAttribute="centerX" secondItem="Qpj-H4-DGq" secondAttribute="centerX" id="g1U-GJ-aks"/>
+                            <constraint firstItem="dYg-VF-c5L" firstAttribute="top" secondItem="zgg-A6-pq5" secondAttribute="bottom" constant="30.5" id="Ram-TI-8L0"/>
+                            <constraint firstItem="zgg-A6-pq5" firstAttribute="leading" secondItem="Fds-Xg-4EG" secondAttribute="leading" constant="20" id="SoD-gI-kze"/>
                             <constraint firstItem="bYD-el-jZa" firstAttribute="leading" secondItem="Qpj-H4-DGq" secondAttribute="leadingMargin" id="h0f-cj-AG4"/>
+                            <constraint firstItem="Fds-Xg-4EG" firstAttribute="trailing" secondItem="zgg-A6-pq5" secondAttribute="trailing" constant="20" id="jsc-Nj-1tT"/>
                             <constraint firstItem="dYg-VF-c5L" firstAttribute="leading" secondItem="Fds-Xg-4EG" secondAttribute="leading" constant="40" id="loq-hN-p2G"/>
                             <constraint firstItem="dYg-VF-c5L" firstAttribute="bottom" secondItem="Fds-Xg-4EG" secondAttribute="bottom" id="ojk-Fi-WgE"/>
-                            <constraint firstItem="bYD-el-jZa" firstAttribute="centerX" secondItem="4XK-0W-eFb" secondAttribute="centerX" id="qW0-Yi-8YO"/>
                             <constraint firstItem="Fds-Xg-4EG" firstAttribute="trailing" secondItem="dYg-VF-c5L" secondAttribute="trailing" constant="40" id="qo5-pB-4Ry"/>
+                            <constraint firstItem="zgg-A6-pq5" firstAttribute="top" secondItem="bYD-el-jZa" secondAttribute="bottom" constant="33" id="tir-yy-DJi"/>
                             <constraint firstItem="Fds-Xg-4EG" firstAttribute="trailing" secondItem="wvi-wE-iYp" secondAttribute="trailing" constant="40" id="tk2-JN-LR5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OVw-a4-3MI"/>
+                    <connections>
+                        <outlet property="mapView" destination="zgg-A6-pq5" id="gPu-KF-1hx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tga-FT-UJ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4532" y="119"/>
+            <point key="canvasLocation" x="4531.884057971015" y="118.52678571428571"/>
         </scene>
         <!--Cart View Controller-->
         <scene sceneID="MZa-eh-uTk">
@@ -1013,7 +1015,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Yyr-Nc-hsu">
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yyr-Nc-hsu">
                                                 <rect key="frame" x="16" y="562" width="382" height="155"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="155" id="6xf-m9-xAO"/>
@@ -1218,12 +1220,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JQA-dN-26Z"/>
-        <segue reference="dTd-b4-wmy"/>
-        <segue reference="ugc-op-wRm"/>
+        <segue reference="ecf-3n-HHm"/>
         <segue reference="BT6-aX-LvJ"/>
         <segue reference="gG6-Lv-LXA"/>
-        <segue reference="d3E-FW-sM3"/>
+        <segue reference="czG-ls-wk0"/>
         <segue reference="PiX-Gn-nFD"/>
     </inferredMetricsTieBreakers>
     <resources>
