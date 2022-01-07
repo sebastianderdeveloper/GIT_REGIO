@@ -9,22 +9,62 @@ import Foundation
 import UIKit
 import MapKit
 import CoreLocation
+import FirebaseFirestore
 
 class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
+    var articleList = [Artikel]()
+    
+    private var db = Firestore.firestore()
     
     override func viewDidLoad() {
+        fetchData()
         checkLocationServices()
-        let artwork = Artwork(
+        /*let artwork = Artwork(
           title: "King David Kalakaua",
           locationName: "Waikiki Gateway Park",
           discipline: "Sculpture",
-          coordinate: CLLocationCoordinate2D(latitude: 48.108551, longitude: 15.135973))
+          coordinate: CLLocationCoordinate2D(latitude: 48.108551, longitude: 15.135973))*/
+        let artwork2 = Artwork(
+          title: "Bio Eier Steiner",
+          locationName: "Bahnstraße 24",
+          discipline: "Sculpture",
+          coordinate: CLLocationCoordinate2D(latitude: 48.108812, longitude: 15.1350741))
         mapView.delegate = self
-        mapView.addAnnotation(artwork)
+        //mapView.addAnnotation(artwork)
+        mapView.addAnnotation(artwork2)
         
+    }
+    
+    func fetchData(){
+        db.collection("articles").addSnapshotListener { (querySnapshot, error) in
+                guard let documents = querySnapshot?.documents else {
+                    //print("No documents")
+                    return
+                }
+                
+            self.articleList = documents.map { (queryDocumentSnapshot) -> Artikel in
+                let data = queryDocumentSnapshot.data()
+                let name = data["name"] as? String ?? ""
+                let kategorie = data["kategorie"] as? String ?? ""
+                let adresse = data["adresse"] as? String ?? ""
+                let beschreibung = data["beschreibung"] as? String ?? ""
+                let bild = data["bild"] as? String ?? ""
+                let preis = data["preis"] as? NSNumber ?? 0
+                let inhaltsstoffe = data["inhaltsstoffe"] as? String ?? ""
+                let menge = data["menge"] as? String ?? ""
+                    //let kategorie = data["kategorie"] as? String ?? ""
+                //print("preissss")
+                //print(preis)
+                
+                
+                self.articleList.append(Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse))
+                //self.articlesArray.append (Article(name: name, kategorie: kategorie))
+                return Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse)
+                }
+    }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -134,6 +174,22 @@ class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDe
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
             if control == view.rightCalloutAccessoryView {
               print("button tapped")
+                var artikel = Artikel()
+                for shape in self.articleList {
+                    print(shape.imageName ?? "uff")
+                        if(shape.name=="Birne"){
+                            print(shape.imageName ?? "uff")
+                            artikel = Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse)
+                    }
+                }
+                
+                
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let newViewController = storyBoard.instantiateViewController(withIdentifier: "DetailVC") as! TableViewDetail
+                newViewController.selectedArtikel = artikel
+                newViewController.entdecke = true
+                //newViewController.kategorie=text
+                self.present(newViewController, animated: true, completion: nil)
             }
         }
     
