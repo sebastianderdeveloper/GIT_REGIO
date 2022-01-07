@@ -273,6 +273,7 @@ PODS:
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/UserDefaults (~> 6.7)
     - PromisesObjC (~> 1.2)
+  - GMStepper (2.2)
   - GoogleAppMeasurement (6.9.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
     - GoogleUtilities/MethodSwizzler (~> 6.7)
@@ -339,6 +340,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
   - FirebaseFirestoreSwift
+  - GMStepper
 
 SPEC REPOS:
   trunk:
@@ -352,6 +354,7 @@ SPEC REPOS:
     - FirebaseFirestore
     - FirebaseFirestoreSwift
     - FirebaseInstallations
+    - GMStepper
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
@@ -373,6 +376,7 @@ SPEC CHECKSUMS:
   FirebaseFirestore: 9b2f1b9b9a6f2f0b6fb7484b9e32ab7e39243554
   FirebaseFirestoreSwift: 2c46dbc1156db97dc4f6dd798d4f5b57b9c7fab6
   FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
+  GMStepper: 89fb106944dfcc3aa3add7164e3ebd463ea2104b
   GoogleAppMeasurement: a6a3a066369828db64eda428cb2856dc1cdc7c4e
   GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
@@ -383,6 +387,6 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
-PODFILE CHECKSUM: a56d3193183cdf4dc7ad573fdf5ec3b404aa30eb
+PODFILE CHECKSUM: b584578c971cb64ac9c83852a0ac41a201fb8057
 
 COCOAPODS: 1.11.2

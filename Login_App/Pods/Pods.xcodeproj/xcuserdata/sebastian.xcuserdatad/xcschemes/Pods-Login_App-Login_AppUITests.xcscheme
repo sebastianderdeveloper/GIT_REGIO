@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DD5FD097E3AE90DA01F6547DD49D14D2"
-               BuildableName = "Pods_Login_App_Login_AppUITests.framework"
-               BlueprintName = "Pods-Login_App-Login_AppUITests"
+               BlueprintIdentifier = "CE9088B25F50A462FEEFAE0619D31A64"
+               BuildableName = "Pods_LOGIN_App_LOGIN_AppUITests.framework"
+               BlueprintName = "Pods-LOGIN_App-LOGIN_AppUITests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

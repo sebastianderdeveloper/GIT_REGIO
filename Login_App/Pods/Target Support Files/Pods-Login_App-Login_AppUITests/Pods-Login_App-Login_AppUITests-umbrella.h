@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_Login_App_Login_AppUITestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_Login_App_Login_AppUITestsVersionString[];
+FOUNDATION_EXPORT double Pods_LOGIN_App_LOGIN_AppUITestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_LOGIN_App_LOGIN_AppUITestsVersionString[];
 

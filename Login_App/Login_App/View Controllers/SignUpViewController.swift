@@ -24,6 +24,8 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var signUpButton: UIButton!
     
+    @IBOutlet weak var backButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,6 +45,7 @@ class SignUpViewController: UIViewController {
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
         Utilities.styleFilledButton(signUpButton)
+        Utilities.styleHollowButton(backButton)
     }
     
 
@@ -86,7 +89,7 @@ class SignUpViewController: UIViewController {
 
     @IBAction func signUpTapped(_ sender: Any) {
         
-        print("signup")
+        //print("signup")
         //Validate the fields
         let error = validateFields()
         
@@ -115,6 +118,7 @@ class SignUpViewController: UIViewController {
                     // User was created succesfully, now store the first name and last name
                     let db = Firestore.firestore()
                     db.collection("users").addDocument(data: ["firstname": firstName, "lastname": lastName, "uid": result!.user.uid]) { (error) in
+                        
                         
                         if error != nil{
                             //Show error message
