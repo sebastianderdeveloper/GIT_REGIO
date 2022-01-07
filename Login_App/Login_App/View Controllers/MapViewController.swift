@@ -10,13 +10,21 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController:UIViewController, CLLocationManagerDelegate {
+class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         checkLocationServices()
+        let artwork = Artwork(
+          title: "King David Kalakaua",
+          locationName: "Waikiki Gateway Park",
+          discipline: "Sculpture",
+          coordinate: CLLocationCoordinate2D(latitude: 48.108551, longitude: 15.135973))
+        mapView.delegate = self
+        mapView.addAnnotation(artwork)
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -69,6 +77,33 @@ class MapViewController:UIViewController, CLLocationManagerDelegate {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
         }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
+        {
+            if annotation is MKUserLocation {return nil}
 
+            let reuseId = "pin"
+
+            var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+            if pinView == nil {
+                pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+                pinView!.canShowCallout = true
+                pinView!.animatesDrop = true
+                let calloutButton = UIButton(type: .detailDisclosure)
+                pinView!.rightCalloutAccessoryView = calloutButton
+                pinView!.sizeToFit()
+            }
+            else {
+                pinView!.annotation = annotation
+            }
+
+
+            return pinView
+        }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+            if control == view.rightCalloutAccessoryView {
+              print("button tapped")
+            }
+        }
     
 }

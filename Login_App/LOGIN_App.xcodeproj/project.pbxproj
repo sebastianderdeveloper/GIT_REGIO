@@ -23,6 +23,7 @@
 		9E377C7E2734470700F806B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E377C7D2734470700F806B2 /* LoginViewController.swift */; };
 		9E377C832734474F00F806B2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E377C822734474F00F806B2 /* SignUpViewController.swift */; };
 		9E377C9427344B9F00F806B2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E377C9327344B9F00F806B2 /* HomeViewController.swift */; };
+		9E852002278886C0000BA29F /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E852001278886C0000BA29F /* Artwork.swift */; };
 		9E9391FA2779FA0E00EE3C9E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9391F42779FA0800EE3C9E /* TableViewCell.swift */; };
 		9E9391FB2779FA0E00EE3C9E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9391F52779FA0A00EE3C9E /* TableViewController.swift */; };
 		9E9391FC2779FA0E00EE3C9E /* TableViewDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9391F62779FA0B00EE3C9E /* TableViewDetail.swift */; };
@@ -84,6 +85,7 @@
 		9E377C7D2734470700F806B2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9E377C822734474F00F806B2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9E377C9327344B9F00F806B2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9E852001278886C0000BA29F /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		9E9391F42779FA0800EE3C9E /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		9E9391F52779FA0A00EE3C9E /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		9E9391F62779FA0B00EE3C9E /* TableViewDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDetail.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				9E9FF6AB27773A9D00BD3751 /* DayView.xib */,
 				9E32874E278188E200F6811B /* EntdeckeUI.xib */,
 				9E12A34A27818E690029AA93 /* EntdeckeUI.swift */,
+				9E852001278886C0000BA29F /* Artwork.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				9E9391FD2779FA0E00EE3C9E /* Shape.swift in Sources */,
 				9E377C4B2734242B00F806B2 /* AppDelegate.swift in Sources */,
 				9E939245277A0B8300EE3C9E /* artikel.swift in Sources */,
+				9E852002278886C0000BA29F /* Artwork.swift in Sources */,
 				9E9FF69F2777397A00BD3751 /* DayView.swift in Sources */,
 				9E377C4D2734242B00F806B2 /* SceneDelegate.swift in Sources */,
 				9E09E1C5278872FD00462F6E /* MapViewController.swift in Sources */,
