@@ -32,8 +32,8 @@ class TableViewDetail: UIViewController
     var selectedArtikel : Artikel!
     
     var anzahl = 0
-    var entdecke: Bool!
-	
+    var entdecke =  false
+    var mapView  = false
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
@@ -55,7 +55,12 @@ class TableViewDetail: UIViewController
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
             self.present(newViewController, animated: true, completion: nil)
-        }else {
+        }else if(mapView){
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "MapVC") as! MapViewController
+            self.present(newViewController, animated: true, completion: nil)
+        }
+        else {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "TableVC") as! TableViewController
             self.present(newViewController, animated: true, completion: nil)

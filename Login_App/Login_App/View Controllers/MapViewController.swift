@@ -187,7 +187,7 @@ class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDe
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let newViewController = storyBoard.instantiateViewController(withIdentifier: "DetailVC") as! TableViewDetail
                 newViewController.selectedArtikel = artikel
-                newViewController.entdecke = true
+                newViewController.mapView = true
                 //newViewController.kategorie=text
                 self.present(newViewController, animated: true, completion: nil)
             }
