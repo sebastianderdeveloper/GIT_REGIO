@@ -4,7 +4,7 @@ import UIKit
 import GMStepper
 import MapKit
 
-class TableViewDetail: UIViewController
+class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 {
 	
     @IBOutlet weak var articleImage: UIImageView!
@@ -30,10 +30,13 @@ class TableViewDetail: UIViewController
     @IBOutlet weak var map: MKMapView!
     
     var selectedArtikel : Artikel!
+    var articleList = [Artikel]()
     
     var anzahl = 0
     var entdecke =  false
     var mapView  = false
+    let locationManager = CLLocationManager()
+    
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
@@ -48,6 +51,13 @@ class TableViewDetail: UIViewController
         Utilities.styleFilledButton(addToCartButton)
         Utilities.styleHollowButton(zurück)
         Utilities.roundCorners(map)
+        
+        checkLocationServices()
+        
+        
+        
+        map.delegate = self
+        addAnn(article: selectedArtikel)
 	}
 
     @IBAction func zurückTabbed(_ sender: Any) {
@@ -67,4 +77,142 @@ class TableViewDetail: UIViewController
         }
         
     }
+    
+    func addAnn(article: Artikel){
+        let artwork = Artwork(
+            title: article.name,
+            locationName: article.adresse,
+          discipline: "Sculpture",
+            coordinate: CLLocationCoordinate2D(latitude: article.latitude as! Double, longitude: article.longitude as! Double))
+            
+        
+        self.map.addAnnotation(artwork)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            guard let location = locations.last else { return }
+            let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: 4000, longitudinalMeters: 4000)
+            map.setRegion(region, animated: true)
+        }
+       
+        func checkLocationAuthorization() {
+            switch CLLocationManager.authorizationStatus() {
+            case .authorizedWhenInUse:
+                map.showsUserLocation = true
+                followUserLocation()
+                locationManager.startUpdatingLocation()
+                break
+            case .denied:
+                // Show alert
+                break
+            case .notDetermined:
+                locationManager.requestWhenInUseAuthorization()
+            case .restricted:
+                // Show alert
+                break
+            case .authorizedAlways:
+                break
+            }
+        }
+        
+        func checkLocationServices() {
+            if CLLocationManager.locationServicesEnabled() {
+                setupLocationManager()
+                checkLocationAuthorization()
+            } else {
+                // the user didn't turn it on
+            }
+        }
+        
+        func followUserLocation() {
+            if let location = locationManager.location?.coordinate {
+                let region = MKCoordinateRegion.init(center: location, latitudinalMeters: 4000, longitudinalMeters: 4000)
+                map.setRegion(region, animated: true)
+            }
+        }
+        
+        func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+            checkLocationAuthorization()
+        }
+        
+        func setupLocationManager() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        }
+ /*   func map(_ map: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
+        {
+            if annotation is MKUserLocation {return nil}
+
+            let reuseId = "pin"
+
+            var pinView = map.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+            if pinView == nil {
+                pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+                pinView!.canShowCallout = true
+                pinView!.image = UIImage(named:"pin")!
+                pinView!.animatesDrop = true
+                let calloutButton = UIButton(type: .detailDisclosure)
+                pinView!.rightCalloutAccessoryView = calloutButton
+                pinView!.sizeToFit()
+            }
+            else {
+                pinView!.annotation = annotation
+            }
+
+
+            return pinView
+        }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+            if control == view.rightCalloutAccessoryView {
+              print("button tapped")
+            }
+        }
+    */
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    guard !(annotation is MKUserLocation) else {
+        return nil
+    }
+
+     let annotationIdentifier = "Identifier"
+     var annotationView: MKAnnotationView?
+     if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) {
+        annotationView = dequeuedAnnotationView
+        annotationView?.annotation = annotation
+    }
+    else {
+        annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+        annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+    }
+
+     if let annotationView = annotationView {
+
+        annotationView.canShowCallout = true
+        annotationView.image = UIImage(named: "pin")
+    }
+      return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+            if control == view.rightCalloutAccessoryView {
+             
+                var artikel = Artikel()
+                for shape in self.articleList {
+                    print(shape.imageName ?? "uff")
+                    if(shape.name==view.annotation?.title){
+                            
+                        artikel = Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse, longitude: shape.longitude, latitude: shape.latitude)
+                    }
+                }
+                
+                
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let newViewController = storyBoard.instantiateViewController(withIdentifier: "DetailVC") as! TableViewDetail
+                newViewController.selectedArtikel = artikel
+                newViewController.mapView = true
+                //newViewController.kategorie=text
+                self.present(newViewController, animated: true, completion: nil)
+            }
+        }
+    
 }
