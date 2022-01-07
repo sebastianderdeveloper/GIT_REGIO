@@ -11,15 +11,23 @@ import MapKit
 import CoreLocation
 import FirebaseFirestore
 
-class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, MKLocalSearchCompleterDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchResultsTable: UITableView!
+    
+    var searchCompleter = MKLocalSearchCompleter()
+    var searchResults = [MKLocalSearchCompletion]()
+    
+    
     let locationManager = CLLocationManager()
     var articleList = [Artikel]()
     
     private var db = Firestore.firestore()
     
     override func viewDidLoad() {
+        Utilities.roundCorners(mapView)
         fetchData()
         checkLocationServices()
         
@@ -125,6 +133,12 @@ class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDe
             checkLocationAuthorization()
         }
         
+    func locationSearch(){
+        let coordinate = CLLocationCoordinate2D(latitude: 48.056740, longitude: 15.130471)
+            let region = self.mapView.regionThatFits(MKCoordinateRegion(center: coordinate, latitudinalMeters: 200, longitudinalMeters: 200))
+            self.mapView.setRegion(region, animated: true)
+    }
+        
         func setupLocationManager() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -204,5 +218,9 @@ class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDe
                 self.present(newViewController, animated: true, completion: nil)
             }
         }
+    @IBAction func card(_ sender: Any) {
+        locationSearch()
+    }
     
 }
+
