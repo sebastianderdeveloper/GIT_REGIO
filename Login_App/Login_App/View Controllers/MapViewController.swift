@@ -22,18 +22,18 @@ class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDe
     override func viewDidLoad() {
         fetchData()
         checkLocationServices()
-        /*let artwork = Artwork(
-          title: "King David Kalakaua",
+        let artwork = Artwork(
+          title: "Karotten",
           locationName: "Waikiki Gateway Park",
           discipline: "Sculpture",
-          coordinate: CLLocationCoordinate2D(latitude: 48.108551, longitude: 15.135973))*/
+          coordinate: CLLocationCoordinate2D(latitude: 48.108551, longitude: 15.135973))
         let artwork2 = Artwork(
-          title: "Bio Eier Steiner",
+          title: "Birne",
           locationName: "Bahnstraße 24",
           discipline: "Sculpture",
           coordinate: CLLocationCoordinate2D(latitude: 48.108812, longitude: 15.1350741))
         mapView.delegate = self
-        //mapView.addAnnotation(artwork)
+        mapView.addAnnotation(artwork)
         mapView.addAnnotation(artwork2)
         
     }
@@ -177,7 +177,7 @@ class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDe
                 var artikel = Artikel()
                 for shape in self.articleList {
                     print(shape.imageName ?? "uff")
-                        if(shape.name=="Birne"){
+                    if(shape.name==view.annotation?.title){
                             print(shape.imageName ?? "uff")
                             artikel = Artikel(name: shape.name, imageName: shape.imageName, kategorie: shape.kategorie, preis: shape.preis, beschreibung: shape.beschreibung, inhaltsstoffe: shape.inhaltsstoffe, menge: shape.menge, adresse: shape.adresse)
                     }
