@@ -17,6 +17,8 @@ struct Artikel {
     var inhaltsstoffe: String!
     var menge: String!
     var adresse: String!
+    var longitude: NSNumber!
+    var latitude: NSNumber!
     
 }
 
