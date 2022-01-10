@@ -11,7 +11,7 @@ import UIKit
 
 class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource{
     
-    var artikelList = [Artikel]()
+    static var artikelList = [Artikel]()
     
  
     var a = Artikel()
@@ -58,7 +58,7 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
             
             let selectedArtikel: Artikel!
             
-            selectedArtikel = artikelList[indexPath.row]
+            selectedArtikel = OpenOrdersViewController.artikelList[indexPath.row]
                
             tableViewDetail!.selectedArtikel = selectedArtikel
             tableViewDetail!.entdecke = false
@@ -68,7 +68,7 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return artikelList.count
+        return OpenOrdersViewController.artikelList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,7 +78,7 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
         
         
         
-            thisArtikel = artikelList[indexPath.row]
+        thisArtikel = OpenOrdersViewController.artikelList[indexPath.row]
         
         
        
