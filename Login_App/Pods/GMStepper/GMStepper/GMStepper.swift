@@ -9,7 +9,8 @@
 import UIKit
 
 @IBDesignable public class GMStepper: UIControl {
-
+    
+    @objc @IBInspectable public var buttonTapped = ""
     /// Current value of the stepper. Defaults to 0.
     @objc @IBInspectable public var value: Double = 0 {
         didSet {
@@ -426,7 +427,10 @@ extension GMStepper {
 
 // MARK: Button Events
 extension GMStepper {
+   
+    
     @objc func leftButtonTouchDown(button: UIButton) {
+        self.buttonTapped = "Minus"
         rightButton.isEnabled = false
         label.isUserInteractionEnabled = false
         resetTimer()
@@ -441,6 +445,7 @@ extension GMStepper {
     }
 
     @objc func rightButtonTouchDown(button: UIButton) {
+        self.buttonTapped = "Plus"
         leftButton.isEnabled = false
         label.isUserInteractionEnabled = false
         resetTimer()
@@ -454,8 +459,10 @@ extension GMStepper {
     }
 
     @objc func buttonTouchUp(button: UIButton) {
+        self.buttonTapped = ""
         reset()
     }
+    
 }
 
 // MARK: Animations

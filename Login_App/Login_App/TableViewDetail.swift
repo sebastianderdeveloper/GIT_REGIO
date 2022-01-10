@@ -4,6 +4,7 @@ import UIKit
 import GMStepper
 import MapKit
 
+
 class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 {
 	
@@ -201,7 +202,10 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
     
     @IBAction func addToCartTabbed(_ sender: Any) {
         
-       
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "OpenBvc") as! OpenOrdersViewController
+        
+        self.present(newViewController, animated: true, completion: nil)
         
 }
     
@@ -225,6 +229,11 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
             mapItem.openInMaps(launchOptions: options)
         }
 
-
+    @IBAction func stepper_Item_Tapped(_ sender: GMStepper) {
+        print(sender.value)
+        
+    }
     
 }
+
+
