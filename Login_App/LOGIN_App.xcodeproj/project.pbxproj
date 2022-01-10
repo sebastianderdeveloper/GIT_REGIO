@@ -24,6 +24,7 @@
 		9E377C9427344B9F00F806B2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E377C9327344B9F00F806B2 /* HomeViewController.swift */; };
 		9E61729A278C41FB0010F6C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E617299278C41FB0010F6C0 /* Main.storyboard */; };
 		9E852002278886C0000BA29F /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E852001278886C0000BA29F /* Artwork.swift */; };
+		9E8ED791278C63F800DACC00 /* TableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8ED790278C63F800DACC00 /* TableViewCell2.swift */; };
 		9E9391FA2779FA0E00EE3C9E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9391F42779FA0800EE3C9E /* TableViewCell.swift */; };
 		9E9391FB2779FA0E00EE3C9E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9391F52779FA0A00EE3C9E /* TableViewController.swift */; };
 		9E9391FC2779FA0E00EE3C9E /* TableViewDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9391F62779FA0B00EE3C9E /* TableViewDetail.swift */; };
@@ -87,6 +88,7 @@
 		9E377C9327344B9F00F806B2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9E617299278C41FB0010F6C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9E852001278886C0000BA29F /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
+		9E8ED790278C63F800DACC00 /* TableViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell2.swift; sourceTree = "<group>"; };
 		9E9391F42779FA0800EE3C9E /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		9E9391F52779FA0A00EE3C9E /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		9E9391F62779FA0B00EE3C9E /* TableViewDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDetail.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				9E32874E278188E200F6811B /* EntdeckeUI.xib */,
 				9E12A34A27818E690029AA93 /* EntdeckeUI.swift */,
 				9E852001278886C0000BA29F /* Artwork.swift */,
+				9E8ED790278C63F800DACC00 /* TableViewCell2.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				9E377C4F2734242B00F806B2 /* ViewController.swift in Sources */,
 				9EF2720E273FBADF000417AF /* Utilities.swift in Sources */,
 				9E9391FD2779FA0E00EE3C9E /* Shape.swift in Sources */,
+				9E8ED791278C63F800DACC00 /* TableViewCell2.swift in Sources */,
 				9E377C4B2734242B00F806B2 /* AppDelegate.swift in Sources */,
 				9E939245277A0B8300EE3C9E /* artikel.swift in Sources */,
 				9E852002278886C0000BA29F /* Artwork.swift in Sources */,

@@ -15,7 +15,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     
  
     var a = Artikel()
-   
+    var preis = 0.0
     
     
     @IBOutlet weak var offeneBestellungen: UIButton!
@@ -26,12 +26,14 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     
     @IBOutlet weak var bezahlen: UIButton!
     
-   
+    @IBOutlet weak var PreisLabel: UILabel!
+    
     @IBOutlet weak var shapeTableView: UITableView!
     
     override func viewDidLoad() {
+        preis = 0
         designUI()
-       
+        gesamtPreis()
     }
     
     func designUI(){
@@ -39,11 +41,18 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
         Utilities.styleHollowButton(abgeschlosseneBestellungen)
         Utilities.styleHollowButton(routeÖffnen)
         Utilities.styleFilledButton(bezahlen)
-        
-       
         }
     
-func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    func gesamtPreis(){
+        for artikel in OpenOrdersViewController.artikelList {
+            preis = preis + artikel.preis.doubleValue
+        }
+        PreisLabel.text=String(preis)
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         self.performSegue(withIdentifier: "detailSegue", sender: self)
     }
@@ -72,7 +81,7 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! TableViewCell
+        let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! TableViewCell2
         
         let thisArtikel: Artikel!
         
