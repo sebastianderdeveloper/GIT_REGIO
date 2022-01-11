@@ -34,13 +34,15 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
     
     var selectedArtikel : Artikel!
     var articleList = [Artikel]()
-    
+    var db = Firestore.firestore()
     var anzahl = 0
     var entdecke =  false
     var mapView  = false
+    var exist = false
     let locationManager = CLLocationManager()
     let database = Firestore.firestore()
     
+    var artikelList = [Artikel]()
     
 	override func viewDidLoad()
 	{
@@ -81,24 +83,7 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
         
 	}
     
-    func writeData(selectedArtikel: Artikel) {
-        let userID : String = (Auth.auth().currentUser?.uid)!
-           print("Current user ID is" + userID)
-        let docRef = database.document("Openorders: " + userID+"/"+selectedArtikel.name)
-        docRef.setData(["name": selectedArtikel.name ?? "",
-                        "imageName": selectedArtikel.imageName ?? "",
-                        "kategorie": selectedArtikel.kategorie ?? "",
-                        "preis": selectedArtikel.preis ?? 0,
-                        "beschreibung": selectedArtikel.beschreibung ?? "",
-                        "inhaltsstoffe": selectedArtikel.inhaltsstoffe ?? "",
-                        "menge": selectedArtikel.menge ?? "",
-                        "adresse": selectedArtikel.menge ?? "",
-                        "longitude": selectedArtikel.menge ?? 0,
-                        "latitude": selectedArtikel.latitude ?? 0,
-                        "anzahl": selectedArtikel.anzahl
-        ])
-        
-    }
+   
 
     @IBAction func zurückTabbed(_ sender: Any) {
         if (entdecke){
@@ -238,14 +223,105 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
     
     @IBAction func addToCartTabbed(_ sender: Any) {
         
+        
+        
+        
+        let userID : String = (Auth.auth().currentUser?.uid)!
+           print("Current user ID is" + userID)
+       var i=0
+        db.collection("Openorders: " + userID).addSnapshotListener { (querySnapshot, error) in
+                guard let documents = querySnapshot?.documents else {
+                    //print("No documents")
+                    return
+                }
+                
+            self.artikelList = documents.map { (queryDocumentSnapshot) -> Artikel in
+                let data = queryDocumentSnapshot.data()
+                let name = data["name"] as? String ?? ""
+                let kategorie = data["kategorie"] as? String ?? ""
+                let adresse = data["adresse"] as? String ?? ""
+                let beschreibung = data["beschreibung"] as? String ?? ""
+                let bild = data["imageName"] as? String ?? ""
+                let preis = data["preis"] as? NSNumber ?? 0
+                let inhaltsstoffe = data["inhaltsstoffe"] as? String ?? ""
+                let menge = data["menge"] as? String ?? ""
+                let longitude = data["longitude"] as? NSNumber ?? 0
+                let latitude = data["latitude"] as? NSNumber ?? 0
+                let anzahl = data["anzahl"] as? Int ?? 1
+                    //let kategorie = data["kategorie"] as? String ?? ""
+                //print("preissss")
+                //print(preis)
+                //print("1" + name)
+                //print("2" + self.selectedArtikel.name ?? "")
+                /*if (name == self.selectedArtikel.name ?? ""){
+                    //print("yoyoyo")
+                    self.exist = true
+                }
+                
+                if(i == self.artikelList.count){
+                    self.addUpdate()
+                    self.exist = false
+                }*/
+                
+                self.artikelList.append(Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl))
+                i = i + 1
+                //self.articlesArray.append (Article(name: name, kategorie: kategorie))
+                return Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl)
+                }
+        }
+        
+        writeData(selectedArtikel: selectedArtikel)
+       //updateData()
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "OpenBvc") as! OpenOrdersViewController
         //OpenOrdersViewController.artikelList.append(selectedArtikel)
         self.present(newViewController, animated: true, completion: nil)
-        
-        writeData(selectedArtikel: selectedArtikel)
 }
     
+    func addUpdate(){
+        
+        if(self.exist == true){
+            updateData()
+        }else{
+            writeData(selectedArtikel: selectedArtikel)
+        }
+    }
+    
+    func writeData(selectedArtikel: Artikel) {
+        let userID : String = (Auth.auth().currentUser?.uid)!
+           print("Current user ID is" + userID)
+        let docRef = database.document("Openorders: " + userID+"/"+selectedArtikel.name)
+        docRef.setData(["name": selectedArtikel.name ?? "",
+                        "imageName": selectedArtikel.imageName ?? "",
+                        "kategorie": selectedArtikel.kategorie ?? "",
+                        "preis": selectedArtikel.preis ?? 0,
+                        "beschreibung": selectedArtikel.beschreibung ?? "",
+                        "inhaltsstoffe": selectedArtikel.inhaltsstoffe ?? "",
+                        "menge": selectedArtikel.menge ?? "",
+                        "adresse": selectedArtikel.menge ?? "",
+                        "longitude": selectedArtikel.menge ?? 0,
+                        "latitude": selectedArtikel.latitude ?? 0,
+                        "anzahl": selectedArtikel.anzahl
+        ])
+        
+    }
+    
+    func updateData(){
+        let userID : String = (Auth.auth().currentUser?.uid)!
+           print("update!!!!!!")
+        let selA = db.collection("Openorders: " + userID).document(selectedArtikel.name)
+
+        // Set the "capital" field of the city 'DC'
+        selA.updateData([
+            "anzahl": 2
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+    }
     
     
     func openMapForPlace(lat: CLLocationDegrees, long: CLLocationDegrees) {

@@ -41,6 +41,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
         fetchArticles()
         designUI()
         gesamtPreis()
+        shapeTableView.reloadData()
     }
     
     func fetchArticles(){
@@ -76,6 +77,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
                 return Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl)
                 }
         }
+        shapeTableView.reloadData()
     }
     
     func designUI(){
