@@ -3,6 +3,8 @@ import Foundation
 import UIKit
 import GMStepper
 import MapKit
+import FirebaseFirestore
+import FirebaseAuth
 
 
 class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
@@ -37,7 +39,8 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
     var entdecke =  false
     var mapView  = false
     let locationManager = CLLocationManager()
-   
+    let database = Firestore.firestore()
+    
     
 	override func viewDidLoad()
 	{
@@ -62,7 +65,40 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
         
         map.delegate = self
         addAnn(article: selectedArtikel)
+        
+        let userID : String = (Auth.auth().currentUser?.uid)!
+           print("Current user ID is" + userID)
+        
+        let docRef = database.document("Openorders: " + userID+"/"+selectedArtikel.name)
+        docRef.getDocument { snapshot, error in
+            guard let data = snapshot?.data(), error == nil else {
+                return
+            }
+            print(data)
+        }
+        
+        
+        
 	}
+    
+    func writeData(selectedArtikel: Artikel) {
+        let userID : String = (Auth.auth().currentUser?.uid)!
+           print("Current user ID is" + userID)
+        let docRef = database.document("Openorders: " + userID+"/"+selectedArtikel.name)
+        docRef.setData(["name": selectedArtikel.name ?? "",
+                        "imageName": selectedArtikel.imageName ?? "",
+                        "kategorie": selectedArtikel.kategorie ?? "",
+                        "preis": selectedArtikel.preis ?? 0,
+                        "beschreibung": selectedArtikel.beschreibung ?? "",
+                        "inhaltsstoffe": selectedArtikel.inhaltsstoffe ?? "",
+                        "menge": selectedArtikel.menge ?? "",
+                        "adresse": selectedArtikel.menge ?? "",
+                        "longitude": selectedArtikel.menge ?? 0,
+                        "latitude": selectedArtikel.latitude ?? 0,
+                        "anzahl": selectedArtikel.anzahl
+        ])
+        
+    }
 
     @IBAction func zurückTabbed(_ sender: Any) {
         if (entdecke){
@@ -207,6 +243,7 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
         OpenOrdersViewController.artikelList.append(selectedArtikel)
         self.present(newViewController, animated: true, completion: nil)
         
+        writeData(selectedArtikel: selectedArtikel)
 }
     
     
