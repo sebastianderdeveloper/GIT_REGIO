@@ -14,8 +14,7 @@ import FirebaseFirestore
 class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate, MKLocalSearchCompleterDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var searchResultsTable: UITableView!
+  
     
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()

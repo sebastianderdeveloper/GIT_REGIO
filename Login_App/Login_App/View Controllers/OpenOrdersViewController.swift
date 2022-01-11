@@ -16,6 +16,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
  
     var a = Artikel()
     var preis = 0.0
+    var anzahl = 0
     
     
     @IBOutlet weak var offeneBestellungen: UIButton!
@@ -29,6 +30,8 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     @IBOutlet weak var PreisLabel: UILabel!
     
     @IBOutlet weak var shapeTableView: UITableView!
+    
+    
     
     override func viewDidLoad() {
         preis = 0
