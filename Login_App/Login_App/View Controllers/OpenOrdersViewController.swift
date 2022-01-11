@@ -7,17 +7,20 @@
 
 import Foundation
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
 
 
 class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource{
     
-    static var artikelList = [Artikel]()
-    
+    //static var artikelList = [Artikel]()
+    var artikelList = [Artikel]()
+
  
     var a = Artikel()
     var preis = 0.0
     var anzahl = 0
-    
+    var db = Firestore.firestore()
     
     @IBOutlet weak var offeneBestellungen: UIButton!
     
@@ -35,8 +38,44 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         preis = 0
+        fetchArticles()
         designUI()
         gesamtPreis()
+    }
+    
+    func fetchArticles(){
+        let userID : String = (Auth.auth().currentUser?.uid)!
+           print("Current user ID is" + userID)
+        
+        db.collection("Openorders: " + userID).addSnapshotListener { (querySnapshot, error) in
+                guard let documents = querySnapshot?.documents else {
+                    //print("No documents")
+                    return
+                }
+                
+            self.artikelList = documents.map { (queryDocumentSnapshot) -> Artikel in
+                let data = queryDocumentSnapshot.data()
+                let name = data["name"] as? String ?? ""
+                let kategorie = data["kategorie"] as? String ?? ""
+                let adresse = data["adresse"] as? String ?? ""
+                let beschreibung = data["beschreibung"] as? String ?? ""
+                let bild = data["imageName"] as? String ?? ""
+                let preis = data["preis"] as? NSNumber ?? 0
+                let inhaltsstoffe = data["inhaltsstoffe"] as? String ?? ""
+                let menge = data["menge"] as? String ?? ""
+                let longitude = data["longitude"] as? NSNumber ?? 0
+                let latitude = data["latitude"] as? NSNumber ?? 0
+                let anzahl = data["anzahl"] as? Int ?? 1
+                    //let kategorie = data["kategorie"] as? String ?? ""
+                //print("preissss")
+                //print(preis)
+                
+                
+                self.artikelList.append(Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl))
+                //self.articlesArray.append (Article(name: name, kategorie: kategorie))
+                return Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl)
+                }
+        }
     }
     
     func designUI(){
@@ -47,7 +86,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
         }
     
     func gesamtPreis(){
-        for artikel in OpenOrdersViewController.artikelList {
+        for artikel in artikelList {
             preis = preis + artikel.preis.doubleValue
         }
         PreisLabel.text=String(preis)
@@ -70,7 +109,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
             
             let selectedArtikel: Artikel!
             
-            selectedArtikel = OpenOrdersViewController.artikelList[indexPath.row]
+            selectedArtikel = artikelList[indexPath.row]
                
             tableViewDetail!.selectedArtikel = selectedArtikel
             tableViewDetail!.entdecke = false
@@ -80,7 +119,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return OpenOrdersViewController.artikelList.count
+        return artikelList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -90,7 +129,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
         
         
         
-        thisArtikel = OpenOrdersViewController.artikelList[indexPath.row]
+        thisArtikel = artikelList[indexPath.row]
         
         
        

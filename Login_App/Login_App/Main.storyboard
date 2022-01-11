@@ -272,7 +272,7 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
                                         <connections>
-                                            <segue destination="VvW-Lt-gZY" kind="show" id="ugc-op-wRm"/>
+                                            <segue destination="Fyh-PU-sCa" kind="show" id="cIO-Bg-yje"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1490,8 +1490,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="cIO-Bg-yje"/>
         <segue reference="QiE-Sd-yoj"/>
-        <segue reference="ugc-op-wRm"/>
+        <segue reference="kkA-oS-NqB"/>
         <segue reference="BT6-aX-LvJ"/>
         <segue reference="gG6-Lv-LXA"/>
         <segue reference="wIh-du-VXu"/>

@@ -240,7 +240,7 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "OpenBvc") as! OpenOrdersViewController
-        OpenOrdersViewController.artikelList.append(selectedArtikel)
+        //OpenOrdersViewController.artikelList.append(selectedArtikel)
         self.present(newViewController, animated: true, completion: nil)
         
         writeData(selectedArtikel: selectedArtikel)
