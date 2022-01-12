@@ -21,6 +21,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     var preis = 0.0
     var anzahl = 0
     var db = Firestore.firestore()
+    var selectedArtikel: Artikel!
     
     @IBOutlet weak var offeneBestellungen: UIButton!
     
@@ -107,6 +108,28 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
             -> UISwipeActionsConfiguration? {
             let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_, _, completionHandler) in
                 // delete the item here
+                print("deletingggg")
+                
+                let userID : String = (Auth.auth().currentUser?.uid)!
+                   print("Current user ID is" + userID)
+                
+                
+            
+                
+                
+                let selectedArtikel: Artikel!
+                
+                selectedArtikel = self.artikelList[indexPath.row]
+                
+                self.db.collection("Openorders: " + userID).document(selectedArtikel.name).delete() { err in
+                    if let err = err {
+                        print("Error removing document: \(err)")
+                    } else {
+                        print("Document successfully removed!")
+                    }
+                }
+                
+                self.shapeTableView.reloadData()
                 completionHandler(true)
             }
             deleteAction.image = UIImage(systemName: "trash")
