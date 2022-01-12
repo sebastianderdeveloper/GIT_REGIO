@@ -307,7 +307,7 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
 
         // Set the "capital" field of the city 'DC'
         selA.updateData([
-            "anzahl": 2
+            "anzahl": selectedArtikel.anzahl + 1
         ]) { err in
             if let err = err {
                 print("Error updating document: \(err)")
