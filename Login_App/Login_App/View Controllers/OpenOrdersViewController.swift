@@ -76,7 +76,9 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
                 //self.articlesArray.append (Article(name: name, kategorie: kategorie))
                 return Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl)
                 }
+            
         }
+        
         shapeTableView.reloadData()
     }
     
@@ -90,8 +92,14 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     func gesamtPreis(){
         for artikel in artikelList {
             preis = preis + artikel.preis.doubleValue
+            print("preis")
+            print(artikel.preis ?? "")
         }
+        print("preis")
+        print(artikelList)
+        
         PreisLabel.text=String(preis)
+        preis = 0
     }
     
     
@@ -125,6 +133,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        gesamtPreis()
         let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! TableViewCell2
         
         let thisArtikel: Artikel!
@@ -139,6 +148,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
         tableViewCell.artikelOrt.text = thisArtikel.adresse
         tableViewCell.artikelName.text =  thisArtikel.name
         tableViewCell.artikelBild.image = UIImage(named: thisArtikel.imageName)
+        tableViewCell.artikelAnzahl.text = String(thisArtikel.anzahl)
         
         return tableViewCell
     }

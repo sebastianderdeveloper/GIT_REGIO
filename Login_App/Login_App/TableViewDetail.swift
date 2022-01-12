@@ -42,7 +42,7 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
     let locationManager = CLLocationManager()
     let database = Firestore.firestore()
     
-    var artikelList = [Artikel]()
+    @Published var artikelList = [Artikel]()
     
 	override func viewDidLoad()
 	{
@@ -68,16 +68,7 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
         map.delegate = self
         addAnn(article: selectedArtikel)
         
-        let userID : String = (Auth.auth().currentUser?.uid)!
-           print("Current user ID is" + userID)
         
-        let docRef = database.document("Openorders: " + userID+"/"+selectedArtikel.name)
-        docRef.getDocument { snapshot, error in
-            guard let data = snapshot?.data(), error == nil else {
-                return
-            }
-            print(data)
-        }
         
         
         
@@ -223,69 +214,72 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
     
     @IBAction func addToCartTabbed(_ sender: Any) {
         
-        
-        
-        
         let userID : String = (Auth.auth().currentUser?.uid)!
            print("Current user ID is" + userID)
-       var i=0
-        db.collection("Openorders: " + userID).addSnapshotListener { (querySnapshot, error) in
-                guard let documents = querySnapshot?.documents else {
-                    //print("No documents")
-                    return
-                }
-                
-            self.artikelList = documents.map { (queryDocumentSnapshot) -> Artikel in
-                let data = queryDocumentSnapshot.data()
-                let name = data["name"] as? String ?? ""
-                let kategorie = data["kategorie"] as? String ?? ""
-                let adresse = data["adresse"] as? String ?? ""
-                let beschreibung = data["beschreibung"] as? String ?? ""
-                let bild = data["imageName"] as? String ?? ""
-                let preis = data["preis"] as? NSNumber ?? 0
-                let inhaltsstoffe = data["inhaltsstoffe"] as? String ?? ""
-                let menge = data["menge"] as? String ?? ""
-                let longitude = data["longitude"] as? NSNumber ?? 0
-                let latitude = data["latitude"] as? NSNumber ?? 0
-                let anzahl = data["anzahl"] as? Int ?? 1
-                    //let kategorie = data["kategorie"] as? String ?? ""
-                //print("preissss")
-                //print(preis)
-                //print("1" + name)
-                //print("2" + self.selectedArtikel.name ?? "")
-                /*if (name == self.selectedArtikel.name ?? ""){
-                    //print("yoyoyo")
-                    self.exist = true
-                }
-                
-                if(i == self.artikelList.count){
-                    self.addUpdate()
-                    self.exist = false
-                }*/
-                
-                self.artikelList.append(Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl))
-                i = i + 1
-                //self.articlesArray.append (Article(name: name, kategorie: kategorie))
-                return Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl)
-                }
+       
+        db.collection("Openorders: " + userID).getDocuments { snapshot, error in
+                   
+                   // Check for errors
+                   if error == nil {
+                       // No errors
+                       
+                       if let snapshot = snapshot {
+                           
+                           // Update the list property in the main thread
+                           DispatchQueue.main.async {
+                               
+                               // Get all the documents and create Todos
+                               self.artikelList = snapshot.documents.map { d in
+                                   print("list")
+                                print(d["name"])
+                                if (d["name"] as! String == self.selectedArtikel.name ?? ""){
+                                   print("yoyoyo")
+                                   self.updateData()
+                                   self.exist = true
+                               }
+                                   // Create a Todo item for each document returned
+                                   return Artikel(
+                                               name: d["name"] as? String ?? "",
+                                               kategorie: d["kategorie"] as? String ?? "")
+                               }
+                           }
+                           
+                           
+                       }
+                   }
+                   else {
+               print("fehlerrr")
+               }
         }
+       
+       
+        if (self.exist==false){
+            self.writeData(selectedArtikel: self.selectedArtikel)
+        }
+        print("artikelList GGGGG")
+            print(self.artikelList.count)
+        self.exist = false
         
-        writeData(selectedArtikel: selectedArtikel)
+        
        //updateData()
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "OpenBvc") as! OpenOrdersViewController
+        
         //OpenOrdersViewController.artikelList.append(selectedArtikel)
         self.present(newViewController, animated: true, completion: nil)
-}
+        
+        
+        
+    }
     
-    func addUpdate(){
+   /* func addUpdate(){
         
         if(self.exist == true){
             updateData()
         }else{
             writeData(selectedArtikel: selectedArtikel)
         }
-    }
+    }*/
     
     func writeData(selectedArtikel: Artikel) {
         let userID : String = (Auth.auth().currentUser?.uid)!
@@ -298,8 +292,8 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
                         "beschreibung": selectedArtikel.beschreibung ?? "",
                         "inhaltsstoffe": selectedArtikel.inhaltsstoffe ?? "",
                         "menge": selectedArtikel.menge ?? "",
-                        "adresse": selectedArtikel.menge ?? "",
-                        "longitude": selectedArtikel.menge ?? 0,
+                        "adresse": selectedArtikel.adresse ?? "",
+                        "longitude": selectedArtikel.longitude ?? 0,
                         "latitude": selectedArtikel.latitude ?? 0,
                         "anzahl": selectedArtikel.anzahl
         ])
@@ -348,5 +342,6 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
     }
     
 }
+
 
 
