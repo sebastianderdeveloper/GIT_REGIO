@@ -35,7 +35,7 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
     var selectedArtikel : Artikel!
     var articleList = [Artikel]()
     var db = Firestore.firestore()
-    var anzahl = 0
+    var anzahl = 1
     var entdecke =  false
     var mapView  = false
     var exist = false
@@ -295,7 +295,7 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
                         "adresse": selectedArtikel.adresse ?? "",
                         "longitude": selectedArtikel.longitude ?? 0,
                         "latitude": selectedArtikel.latitude ?? 0,
-                        "anzahl": selectedArtikel.anzahl
+                        "anzahl": anzahl
         ])
         
     }
@@ -338,6 +338,7 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
 
     @IBAction func stepper_Item_Tapped(_ sender: GMStepper) {
         print(sender.value)
+        anzahl = Int(sender.value)
         
     }
     
