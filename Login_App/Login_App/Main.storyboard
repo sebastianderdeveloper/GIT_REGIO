@@ -1039,6 +1039,9 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="6"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="stepper_Item_Tapped:" destination="hVk-zi-EiE" eventType="valueChanged" id="6az-rp-BDf"/>
@@ -1485,17 +1488,17 @@
                         <outlet property="offeneBestellungen" destination="4ju-gt-Vm4" id="lDs-zn-vgA"/>
                         <outlet property="routeÖffnen" destination="AGq-z4-xpd" id="P1W-fd-vCn"/>
                         <outlet property="shapeTableView" destination="8OH-SJ-XUy" id="sR1-eY-ZEr"/>
-                        <segue destination="hVk-zi-EiE" kind="show" identifier="detailSegue" id="QiE-Sd-yoj"/>
+                        <segue destination="KVX-9L-eop" kind="show" identifier="detailSegue" id="QiE-Sd-yoj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wdv-Ld-iMU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3600.0000000000005" y="-894.64285714285711"/>
         </scene>
-        <!--View Controller-->
+        <!--Table View Detail Order-->
         <scene sceneID="DX3-fK-sRu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="KVX-9L-eop" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailOrderVC" modalPresentationStyle="fullScreen" id="KVX-9L-eop" customClass="TableViewDetailOrder" customModule="LOGIN_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PQq-kX-lxz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1583,9 +1586,12 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="6"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="stepper_Item_Tapped:" destination="KVX-9L-eop" eventType="valueChanged" id="7QZ-qP-uDt"/>
+                                                    <action selector="stepper_Item_Tapped:" destination="KVX-9L-eop" eventType="valueChanged" id="Smf-tz-tRv"/>
                                                 </connections>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgb-OH-NBv">
@@ -1610,6 +1616,15 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlZ-yx-Lli">
+                                                <rect key="frame" x="134" y="239" width="41" height="41"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="41" id="Hvu-zX-kGC"/>
+                                                    <constraint firstAttribute="height" constant="41" id="ZpE-bI-L4G"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="trash" catalog="system"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -1620,6 +1635,7 @@
                                             <constraint firstItem="MGq-qh-4E1" firstAttribute="centerX" secondItem="cJl-vy-aF0" secondAttribute="centerX" id="5rS-df-9lW"/>
                                             <constraint firstItem="sd6-GP-jSv" firstAttribute="leading" secondItem="cJl-vy-aF0" secondAttribute="leading" constant="62" id="6wZ-P5-XBn"/>
                                             <constraint firstItem="rMv-3y-zJa" firstAttribute="top" secondItem="95J-N4-zgM" secondAttribute="bottom" constant="20" id="806-nH-yOH"/>
+                                            <constraint firstItem="YlZ-yx-Lli" firstAttribute="top" secondItem="MGq-qh-4E1" secondAttribute="bottom" constant="71" id="B7L-yz-pky"/>
                                             <constraint firstAttribute="trailing" secondItem="95J-N4-zgM" secondAttribute="trailing" constant="16" id="Bmw-PO-dlV"/>
                                             <constraint firstItem="jGU-dZ-zcX" firstAttribute="leading" secondItem="cJl-vy-aF0" secondAttribute="leading" constant="16" id="FlM-Bz-1SV"/>
                                             <constraint firstItem="rMv-3y-zJa" firstAttribute="leading" secondItem="cJl-vy-aF0" secondAttribute="leading" constant="16" id="GQB-Wa-vS4"/>
@@ -1635,6 +1651,7 @@
                                             <constraint firstItem="t1p-cW-Dkd" firstAttribute="leading" secondItem="cJl-vy-aF0" secondAttribute="leading" constant="16" id="YID-Im-5ZO"/>
                                             <constraint firstItem="Mho-9H-3px" firstAttribute="top" secondItem="t1p-cW-Dkd" secondAttribute="bottom" constant="17.5" id="bSB-zA-a0L"/>
                                             <constraint firstAttribute="trailing" secondItem="sd6-GP-jSv" secondAttribute="trailing" constant="62" id="e09-Oz-Alw"/>
+                                            <constraint firstItem="YlZ-yx-Lli" firstAttribute="leading" secondItem="qIN-eH-Mvs" secondAttribute="trailing" constant="12" id="eWd-r2-5FX"/>
                                             <constraint firstItem="qIN-eH-Mvs" firstAttribute="top" secondItem="ybk-Aw-IfS" secondAttribute="bottom" constant="9.5" id="g6S-cl-aQS"/>
                                             <constraint firstItem="ybk-Aw-IfS" firstAttribute="leading" secondItem="cJl-vy-aF0" secondAttribute="leading" constant="16" id="gwZ-rg-GOa"/>
                                             <constraint firstItem="lgb-OH-NBv" firstAttribute="top" secondItem="cJl-vy-aF0" secondAttribute="top" constant="207" id="lCH-WD-qW2"/>
@@ -1740,30 +1757,30 @@
                     </view>
                     <navigationItem key="navigationItem" id="96L-f4-wD5"/>
                     <connections>
-                        <outlet property="addToCartButton" destination="sd6-GP-jSv" id="Vxx-M7-fbb"/>
-                        <outlet property="adresse" destination="t1p-cW-Dkd" id="sCB-V6-Cfm"/>
-                        <outlet property="articleImage" destination="MGq-qh-4E1" id="RRk-O2-xJA"/>
-                        <outlet property="articleName" destination="ybk-Aw-IfS" id="0T6-IJ-f37"/>
-                        <outlet property="beschreibung" destination="95J-N4-zgM" id="dw6-jR-nhd"/>
-                        <outlet property="gmStepper" destination="qIN-eH-Mvs" id="A9Z-UZ-oKJ"/>
-                        <outlet property="inhaltstoffe" destination="xTy-Gs-vsz" id="HyU-c9-u46"/>
-                        <outlet property="map" destination="Mho-9H-3px" id="xi2-qB-1Oo"/>
-                        <outlet property="menge" destination="Pbt-9f-pMg" id="Kh7-hm-cXB"/>
-                        <outlet property="preis" destination="lgb-OH-NBv" id="rGu-O9-NXK"/>
-                        <outlet property="zurück" destination="jGU-dZ-zcX" id="yRa-Wm-Uoz"/>
+                        <outlet property="addToCartButton" destination="sd6-GP-jSv" id="X0x-rS-ath"/>
+                        <outlet property="adresse" destination="t1p-cW-Dkd" id="Xvk-e7-gBi"/>
+                        <outlet property="articleImage" destination="MGq-qh-4E1" id="Gv8-Rc-fux"/>
+                        <outlet property="articleName" destination="ybk-Aw-IfS" id="QjJ-2D-l6Z"/>
+                        <outlet property="beschreibung" destination="95J-N4-zgM" id="mBJ-hG-oOK"/>
+                        <outlet property="deleteButton" destination="YlZ-yx-Lli" id="zvd-Qw-KJ8"/>
+                        <outlet property="gmStepper" destination="qIN-eH-Mvs" id="BnD-ag-e8I"/>
+                        <outlet property="inhaltstoffe" destination="xTy-Gs-vsz" id="XaY-BV-Vox"/>
+                        <outlet property="map" destination="Mho-9H-3px" id="0WG-uj-Qsg"/>
+                        <outlet property="menge" destination="Pbt-9f-pMg" id="q6l-HJ-kwi"/>
+                        <outlet property="preis" destination="lgb-OH-NBv" id="Mif-q7-r4B"/>
+                        <outlet property="zurück" destination="jGU-dZ-zcX" id="Kif-z1-eI5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7IM-qe-nfs" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="412" y="-798"/>
+            <point key="canvasLocation" x="411.59420289855075" y="-798.21428571428567"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QiE-Sd-yoj"/>
         <segue reference="kkA-oS-NqB"/>
         <segue reference="BT6-aX-LvJ"/>
         <segue reference="gG6-Lv-LXA"/>
-        <segue reference="SBE-T6-3Fe"/>
+        <segue reference="wIh-du-VXu"/>
         <segue reference="4bM-tc-oiu"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -1779,6 +1796,7 @@
         <image name="mappin.circle" catalog="system" width="128" height="121"/>
         <image name="mappin.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

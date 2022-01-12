@@ -126,7 +126,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
         {
             let indexPath = self.shapeTableView.indexPathForSelectedRow!
             
-            let tableViewDetail = segue.destination as? TableViewDetail
+            let tableViewDetail = segue.destination as? TableViewDetailOrder
             
             let selectedArtikel: Artikel!
             
