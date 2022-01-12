@@ -37,6 +37,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     
     
     override func viewDidLoad() {
+        
         preis = 0
         fetchArticles()
         designUI()
@@ -148,7 +149,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
         tableViewCell.artikelOrt.text = thisArtikel.adresse
         tableViewCell.artikelName.text =  thisArtikel.name
         tableViewCell.artikelBild.image = UIImage(named: thisArtikel.imageName)
-        tableViewCell.artikelAnzahl.text = String(thisArtikel.anzahl)
+        tableViewCell.artikelAnzahl.text = "x" + String(thisArtikel.anzahl)
         
         return tableViewCell
     }
