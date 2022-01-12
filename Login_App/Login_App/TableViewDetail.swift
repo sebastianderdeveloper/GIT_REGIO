@@ -315,6 +315,7 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
                 print("Document successfully updated")
             }
         }
+        
     }
     
     
@@ -341,6 +342,8 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
         anzahl = Int(sender.value)
         
     }
+    
+    
     
 }
 
