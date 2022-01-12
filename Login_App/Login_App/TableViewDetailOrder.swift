@@ -83,6 +83,7 @@ class TableViewDetailOrder: UIViewController, CLLocationManagerDelegate, MKMapVi
         Utilities.styleHollowButton(zurück)
         Utilities.roundCorners(map)
         Utilities.styleHollowButton(deleteButton)
+        gmStepper.value = Double(selectedArtikel.anzahl)
         
         
         
