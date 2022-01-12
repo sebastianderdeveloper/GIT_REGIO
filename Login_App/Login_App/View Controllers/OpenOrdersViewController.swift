@@ -98,7 +98,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
         print("preis")
         print(artikelList)
         
-        PreisLabel.text=String(preis)
+        PreisLabel.text=String(preis) + "€"
         preis = 0
     }
     

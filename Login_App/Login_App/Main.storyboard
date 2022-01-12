@@ -1230,7 +1230,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="ddc-wq-K0o">
-                                <rect key="frame" x="40" y="832.5" width="296" height="29.5"/>
+                                <rect key="frame" x="40" y="832.5" width="334" height="29.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0Y-yD-86T">
                                         <rect key="frame" x="0.0" y="0.0" width="34.5" height="29.5"/>
@@ -1260,7 +1260,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXY-Wh-osK">
-                                        <rect key="frame" x="262.5" y="0.0" width="33.5" height="29.5"/>
+                                        <rect key="frame" x="262.5" y="0.0" width="71.5" height="29.5"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal">
                                             <imageReference key="image" image="cart.fill" catalog="system" symbolScale="large"/>
@@ -1381,12 +1381,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Circle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVk-az-tuq">
-                                                    <rect key="frame" x="267" y="36" width="45" height="28"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="WHC-kJ-MyG">
                                                     <rect key="frame" x="0.0" y="12" width="76" height="76"/>
                                                     <constraints>
@@ -1397,6 +1391,12 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYj-cm-CbH">
                                                     <rect key="frame" x="335.5" y="40" width="18.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Circle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVk-az-tuq">
+                                                    <rect key="frame" x="282" y="36" width="45" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1412,7 +1412,7 @@
                                                 <constraint firstItem="WHC-kJ-MyG" firstAttribute="leading" secondItem="yuG-Qx-SRf" secondAttribute="leading" id="TFS-HB-tBY"/>
                                                 <constraint firstItem="cym-Op-Stj" firstAttribute="leading" secondItem="yuG-Qx-SRf" secondAttribute="leading" constant="98" id="WgQ-f9-xNo"/>
                                                 <constraint firstItem="DVk-az-tuq" firstAttribute="centerY" secondItem="WHC-kJ-MyG" secondAttribute="centerY" id="aDO-sq-GzH"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="DVk-az-tuq" secondAttribute="trailing" constant="42" id="e7L-zQ-8aN"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="DVk-az-tuq" secondAttribute="trailing" constant="27" id="e7L-zQ-8aN"/>
                                                 <constraint firstItem="CVq-1Y-TsV" firstAttribute="leading" secondItem="cym-Op-Stj" secondAttribute="leading" id="fCD-db-u6q"/>
                                                 <constraint firstItem="bYj-cm-CbH" firstAttribute="top" secondItem="yuG-Qx-SRf" secondAttribute="topMargin" constant="29" id="gLG-Ka-GCb"/>
                                                 <constraint firstItem="cym-Op-Stj" firstAttribute="centerY" secondItem="yuG-Qx-SRf" secondAttribute="centerY" constant="-13.5" id="gvj-2J-icI"/>
@@ -1461,6 +1461,7 @@
                             <constraint firstItem="z5T-cW-XqO" firstAttribute="trailing" secondItem="dBf-io-Bi2" secondAttribute="trailing" constant="40" id="gbn-Zo-bdU"/>
                             <constraint firstItem="ddc-wq-K0o" firstAttribute="leading" secondItem="z5T-cW-XqO" secondAttribute="leading" constant="40" id="hBj-aK-njr"/>
                             <constraint firstItem="ddc-wq-K0o" firstAttribute="bottom" secondItem="z5T-cW-XqO" secondAttribute="bottom" id="iO6-ed-ovG"/>
+                            <constraint firstItem="z5T-cW-XqO" firstAttribute="trailing" secondItem="ddc-wq-K0o" secondAttribute="trailing" constant="40" id="jS3-QY-ev1"/>
                             <constraint firstItem="ddc-wq-K0o" firstAttribute="top" secondItem="buX-H9-NuH" secondAttribute="bottom" constant="32.5" id="nL0-Ce-WXG"/>
                             <constraint firstItem="ddc-wq-K0o" firstAttribute="top" secondItem="JQy-jC-vBb" secondAttribute="bottom" constant="100.5" id="rUj-PK-w8s"/>
                             <constraint firstItem="cEc-nf-ScF" firstAttribute="top" secondItem="z5T-cW-XqO" secondAttribute="top" constant="12" id="tdu-NV-yfJ"/>
@@ -1490,7 +1491,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cIO-Bg-yje"/>
         <segue reference="QiE-Sd-yoj"/>
         <segue reference="kkA-oS-NqB"/>
         <segue reference="BT6-aX-LvJ"/>
