@@ -7,14 +7,35 @@ import FirebaseFirestore
 import FirebaseAuth
 
 
-class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
+class TableViewDetailOrder: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 {
-	
+    
+   /* @IBOutlet weak var articleImage: UIImageView!
+    
+    @IBOutlet weak var articleName: UILabel!
+    
+    @IBOutlet weak var addToCartButton: UIButton!
+    
+    @IBOutlet weak var preis: UILabel!
+    
+    @IBOutlet weak var menge: UILabel!
+    
+    @IBOutlet weak var beschreibung: UILabel!
+    
+    @IBOutlet weak var inhaltstoffe: UILabel!
+    
+    @IBOutlet weak var adresse: UILabel!
+    
+    @IBOutlet weak var zurück: UIButton!
+    
+    @IBOutlet weak var gmStepper: GMStepper!
+    
+    @IBOutlet weak var map: MKMapView!*/
+    
     @IBOutlet weak var articleImage: UIImageView!
     
     @IBOutlet weak var articleName: UILabel!
-	
-    @IBOutlet weak var addToCartButton: UIButton!
+    
     
     @IBOutlet weak var preis: UILabel!
     
@@ -32,6 +53,8 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
     
     @IBOutlet weak var map: MKMapView!
     
+    @IBOutlet weak var deleteButton: UIButton!
+    
     var selectedArtikel : Artikel!
     var articleList = [Artikel]()
     var db = Firestore.firestore()
@@ -44,20 +67,22 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
     
     @Published var artikelList = [Artikel]()
     
-	override func viewDidLoad()
-	{
-		super.viewDidLoad()
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
         gmStepper.value = Double(anzahl)
-		articleName.text = selectedArtikel.name
-		articleImage.image = UIImage(named: selectedArtikel.imageName)
+        articleName.text = selectedArtikel.name
+        articleImage.image = UIImage(named: selectedArtikel.imageName)
         preis.text = selectedArtikel.preis.stringValue + "€"
         menge.text = selectedArtikel.menge
         beschreibung.text = selectedArtikel.beschreibung
         inhaltstoffe.text = selectedArtikel.inhaltsstoffe
         adresse.text = selectedArtikel.adresse
-        Utilities.styleFilledButton(addToCartButton)
+        //Utilities.styleFilledButton(addToCartButton)
         Utilities.styleHollowButton(zurück)
         Utilities.roundCorners(map)
+        Utilities.styleHollowButton(deleteButton)
+        gmStepper.value = Double(selectedArtikel.anzahl)
         
         
         
@@ -72,26 +97,15 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
         
         
         
-	}
+    }
     
    
 
     @IBAction func zurückTabbed(_ sender: Any) {
-        if (entdecke){
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
-            self.present(newViewController, animated: true, completion: nil)
-        }else if(mapView){
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "MapVC") as! MapViewController
-            self.present(newViewController, animated: true, completion: nil)
-        }
-        else {
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "TableVC") as! TableViewController
-            self.present(newViewController, animated: true, completion: nil)
-        }
         
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "OpenBvc") as! OpenOrdersViewController
+            self.present(newViewController, animated: true, completion: nil)
     }
     
     func addAnn(article: Artikel){
@@ -212,65 +226,8 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
             }
         }
     
-    @IBAction func addToCartTabbed(_ sender: Any) {
-        
-        let userID : String = (Auth.auth().currentUser?.uid)!
-           print("Current user ID is" + userID)
+    
        
-        db.collection("Openorders: " + userID).getDocuments { snapshot, error in
-                   
-                   // Check for errors
-                   if error == nil {
-                       // No errors
-                       
-                       if let snapshot = snapshot {
-                           
-                           // Update the list property in the main thread
-                           DispatchQueue.main.async {
-                               
-                               // Get all the documents and create Todos
-                               self.artikelList = snapshot.documents.map { d in
-                                   print("list")
-                                print(d["name"])
-                                if (d["name"] as! String == self.selectedArtikel.name ?? ""){
-                                   print("yoyoyo")
-                                   self.updateData()
-                                   self.exist = true
-                               }
-                                   // Create a Todo item for each document returned
-                                   return Artikel(
-                                               name: d["name"] as? String ?? "",
-                                               kategorie: d["kategorie"] as? String ?? "")
-                               }
-                           }
-                           
-                           
-                       }
-                   }
-                   else {
-               print("fehlerrr")
-               }
-        }
-       
-       
-        if (self.exist==false){
-            self.writeData(selectedArtikel: self.selectedArtikel)
-        }
-        print("artikelList GGGGG")
-            print(self.artikelList.count)
-        self.exist = false
-        
-        
-       //updateData()
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "OpenBvc") as! OpenOrdersViewController
-        
-        //OpenOrdersViewController.artikelList.append(selectedArtikel)
-        self.present(newViewController, animated: true, completion: nil)
-        
-        
-        
-    }
     
    /* func addUpdate(){
         
@@ -307,7 +264,7 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
 
         // Set the "capital" field of the city 'DC'
         selA.updateData([
-            "anzahl": selectedArtikel.anzahl + Int(gmStepper.value)
+            "anzahl": selectedArtikel.anzahl + 1
         ]) { err in
             if let err = err {
                 print("Error updating document: \(err)")
@@ -337,12 +294,38 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
             mapItem.openInMaps(launchOptions: options)
         }
 
-    @IBAction func stepper_Item_Tapped(_ sender: GMStepper) {
+    /*@IBAction func stepper_Item_Tapped(_ sender: GMStepper) {
         print(sender.value)
         anzahl = Int(sender.value)
         
+    }*/
+    
+    @IBAction func stepper_Item_Tapped(_ sender: GMStepper) {
+        print(sender.value)
+        anzahl = Int(sender.value)
     }
     
+    @IBAction func deleteTapped(_ sender: Any) {
+       
+            
+            let userID : String = (Auth.auth().currentUser?.uid)!
+               print("Current user ID is" + userID)
+            
+            self.db.collection("Openorders: " + userID).document(selectedArtikel.name).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                }
+                
+                
+            }
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "OpenBvc") as! OpenOrdersViewController
+        self.present(newViewController, animated: true, completion: nil)
+            
+            
+        }
     
     
 }

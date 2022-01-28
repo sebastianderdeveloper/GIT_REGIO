@@ -39,6 +39,7 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
     
     var entdeckeList = [Artikel]()
     var entdeckeListGefiltert = [Artikel]()
+    var artikelList = [Artikel]()
     
     fileprivate let locationManager:CLLocationManager = CLLocationManager()
     
