@@ -1215,7 +1215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QnG-ee-PPn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1292.753623188406" y="-798.21428571428567"/>
+            <point key="canvasLocation" x="1306" y="-1132"/>
         </scene>
         <!--Open Orders View Controller-->
         <scene sceneID="pY4-Ct-ZTc">
@@ -1559,14 +1559,6 @@
                                                     <constraint firstAttribute="width" constant="382" id="rFf-8y-FiH"/>
                                                 </constraints>
                                             </mapView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sd6-GP-jSv">
-                                                <rect key="frame" x="62" y="762" width="290" height="51"/>
-                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                                <state key="normal" title="Artikel in Warenkorb hinzufügen"/>
-                                                <connections>
-                                                    <action selector="addToCartTabbed:" destination="KVX-9L-eop" eventType="touchUpInside" id="srJ-BY-b9z"/>
-                                                </connections>
-                                            </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIN-eH-Mvs" customClass="GMStepper" customModule="GMStepper">
                                                 <rect key="frame" x="16" y="239.5" width="106" height="40.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1624,16 +1616,16 @@
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="trash" catalog="system"/>
+                                                <connections>
+                                                    <action selector="deleteTapped:" destination="KVX-9L-eop" eventType="touchUpInside" id="fxr-fG-2TI"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="sd6-GP-jSv" firstAttribute="top" secondItem="Mho-9H-3px" secondAttribute="bottom" constant="45" id="0R9-9F-zsD"/>
                                             <constraint firstAttribute="trailing" secondItem="Pbt-9f-pMg" secondAttribute="trailing" constant="16.5" id="1Qx-sN-IB7"/>
                                             <constraint firstItem="95J-N4-zgM" firstAttribute="leading" secondItem="cJl-vy-aF0" secondAttribute="leading" constant="16" id="1hF-D2-vTT"/>
-                                            <constraint firstAttribute="bottom" secondItem="sd6-GP-jSv" secondAttribute="bottom" constant="422" id="1ly-Jd-gIA"/>
                                             <constraint firstItem="MGq-qh-4E1" firstAttribute="centerX" secondItem="cJl-vy-aF0" secondAttribute="centerX" id="5rS-df-9lW"/>
-                                            <constraint firstItem="sd6-GP-jSv" firstAttribute="leading" secondItem="cJl-vy-aF0" secondAttribute="leading" constant="62" id="6wZ-P5-XBn"/>
                                             <constraint firstItem="rMv-3y-zJa" firstAttribute="top" secondItem="95J-N4-zgM" secondAttribute="bottom" constant="20" id="806-nH-yOH"/>
                                             <constraint firstItem="YlZ-yx-Lli" firstAttribute="top" secondItem="MGq-qh-4E1" secondAttribute="bottom" constant="71" id="B7L-yz-pky"/>
                                             <constraint firstAttribute="trailing" secondItem="95J-N4-zgM" secondAttribute="trailing" constant="16" id="Bmw-PO-dlV"/>
@@ -1650,7 +1642,6 @@
                                             <constraint firstAttribute="trailing" secondItem="lgb-OH-NBv" secondAttribute="trailing" constant="16" id="XE7-Xf-b8L"/>
                                             <constraint firstItem="t1p-cW-Dkd" firstAttribute="leading" secondItem="cJl-vy-aF0" secondAttribute="leading" constant="16" id="YID-Im-5ZO"/>
                                             <constraint firstItem="Mho-9H-3px" firstAttribute="top" secondItem="t1p-cW-Dkd" secondAttribute="bottom" constant="17.5" id="bSB-zA-a0L"/>
-                                            <constraint firstAttribute="trailing" secondItem="sd6-GP-jSv" secondAttribute="trailing" constant="62" id="e09-Oz-Alw"/>
                                             <constraint firstItem="YlZ-yx-Lli" firstAttribute="leading" secondItem="qIN-eH-Mvs" secondAttribute="trailing" constant="12" id="eWd-r2-5FX"/>
                                             <constraint firstItem="qIN-eH-Mvs" firstAttribute="top" secondItem="ybk-Aw-IfS" secondAttribute="bottom" constant="9.5" id="g6S-cl-aQS"/>
                                             <constraint firstItem="ybk-Aw-IfS" firstAttribute="leading" secondItem="cJl-vy-aF0" secondAttribute="leading" constant="16" id="gwZ-rg-GOa"/>
@@ -1757,7 +1748,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="96L-f4-wD5"/>
                     <connections>
-                        <outlet property="addToCartButton" destination="sd6-GP-jSv" id="X0x-rS-ath"/>
                         <outlet property="adresse" destination="t1p-cW-Dkd" id="Xvk-e7-gBi"/>
                         <outlet property="articleImage" destination="MGq-qh-4E1" id="Gv8-Rc-fux"/>
                         <outlet property="articleName" destination="ybk-Aw-IfS" id="QjJ-2D-l6Z"/>
@@ -1773,14 +1763,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7IM-qe-nfs" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="411.59420289855075" y="-798.21428571428567"/>
+            <point key="canvasLocation" x="365" y="-1132"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="kkA-oS-NqB"/>
-        <segue reference="BT6-aX-LvJ"/>
+        <segue reference="jbA-in-Dnt"/>
         <segue reference="gG6-Lv-LXA"/>
-        <segue reference="wIh-du-VXu"/>
+        <segue reference="SBE-T6-3Fe"/>
         <segue reference="4bM-tc-oiu"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -18,7 +18,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
 
  
     var a = Artikel()
-    var preis = 0.0
+    var preis = 0.00
     var anzahl = 0
     var db = Firestore.firestore()
     var selectedArtikel: Artikel!
@@ -95,17 +95,17 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
         for artikel in artikelList {
             preis = preis + artikel.preis.doubleValue
             print("preis")
-            print(artikel.preis ?? "")
+            print(artikel.preis.doubleValue ?? "")
         }
         print("preis")
         print(artikelList)
         
         PreisLabel.text=String(preis) + "€"
-        preis = 0
+        preis = 0.00
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
-            -> UISwipeActionsConfiguration? {
+    -> UISwipeActionsConfiguration?{
             let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_, _, completionHandler) in
                 // delete the item here
                 print("deletingggg")
@@ -121,14 +121,20 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
                 
                 selectedArtikel = self.artikelList[indexPath.row]
                 
+                
                 self.db.collection("Openorders: " + userID).document(selectedArtikel.name).delete() { err in
                     if let err = err {
                         print("Error removing document: \(err)")
-                    } else {
+                        
+                    } else {//self.artikelList.remove(at: indexPath.row)
+                       // self.shapeTableView.deleteRows(at: [indexPath], with: .automatic)
+                    
                         print("Document successfully removed!")
                     }
                 }
                 
+                
+                //self.shapeTableView.deleteRows(at: [indexPath], with animation: UITableView.RowAnimation)
                 self.shapeTableView.reloadData()
                 completionHandler(true)
             }
@@ -137,7 +143,25 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
             let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
             return configuration
     }
+    /*func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+          if editingStyle == .delete {
+            print("Deleted")
+
+            self.artikelList.remove(at: indexPath.row)
+            self.shapeTableView.deleteRows(at: [indexPath], with: .automatic)
+          }
+        }*/
     
+    /*func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+          if editingStyle == .delete {
+            print("Deleted")
+
+            //self.catNames.remove(at: indexPath.row)
+            self.shapeTableView.deleteRows(at: [indexPath], with: .automatic)
+          }
+        }*/
+    
+  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         self.performSegue(withIdentifier: "detailSegue", sender: self)
@@ -173,7 +197,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
         let thisArtikel: Artikel!
         
         
-        
+        print(indexPath.row)
         thisArtikel = artikelList[indexPath.row]
         
         

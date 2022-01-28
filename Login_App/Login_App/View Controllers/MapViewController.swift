@@ -67,11 +67,6 @@ class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDe
                 return Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude)
                 }
             
-            
-            
-            
-          
-            
     }
     }
     

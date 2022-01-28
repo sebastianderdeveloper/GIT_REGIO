@@ -36,7 +36,6 @@ class TableViewDetailOrder: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     @IBOutlet weak var articleName: UILabel!
     
-    @IBOutlet weak var addToCartButton: UIButton!
     
     @IBOutlet weak var preis: UILabel!
     
@@ -79,7 +78,7 @@ class TableViewDetailOrder: UIViewController, CLLocationManagerDelegate, MKMapVi
         beschreibung.text = selectedArtikel.beschreibung
         inhaltstoffe.text = selectedArtikel.inhaltsstoffe
         adresse.text = selectedArtikel.adresse
-        Utilities.styleFilledButton(addToCartButton)
+        //Utilities.styleFilledButton(addToCartButton)
         Utilities.styleHollowButton(zurück)
         Utilities.roundCorners(map)
         Utilities.styleHollowButton(deleteButton)
@@ -227,65 +226,8 @@ class TableViewDetailOrder: UIViewController, CLLocationManagerDelegate, MKMapVi
             }
         }
     
-    @IBAction func addToCartTabbed(_ sender: Any) {
-        
-        let userID : String = (Auth.auth().currentUser?.uid)!
-           print("Current user ID is" + userID)
+    
        
-        db.collection("Openorders: " + userID).getDocuments { snapshot, error in
-                   
-                   // Check for errors
-                   if error == nil {
-                       // No errors
-                       
-                       if let snapshot = snapshot {
-                           
-                           // Update the list property in the main thread
-                           DispatchQueue.main.async {
-                               
-                               // Get all the documents and create Todos
-                               self.artikelList = snapshot.documents.map { d in
-                                   print("list")
-                                print(d["name"])
-                                if (d["name"] as! String == self.selectedArtikel.name ?? ""){
-                                   print("yoyoyo")
-                                   self.updateData()
-                                   self.exist = true
-                               }
-                                   // Create a Todo item for each document returned
-                                   return Artikel(
-                                               name: d["name"] as? String ?? "",
-                                               kategorie: d["kategorie"] as? String ?? "")
-                               }
-                           }
-                           
-                           
-                       }
-                   }
-                   else {
-               print("fehlerrr")
-               }
-        }
-       
-       
-        if (self.exist==false){
-            self.writeData(selectedArtikel: self.selectedArtikel)
-        }
-        print("artikelList GGGGG")
-            print(self.artikelList.count)
-        self.exist = false
-        
-        
-       //updateData()
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "OpenBvc") as! OpenOrdersViewController
-        
-        //OpenOrdersViewController.artikelList.append(selectedArtikel)
-        self.present(newViewController, animated: true, completion: nil)
-        
-        
-        
-    }
     
    /* func addUpdate(){
         
@@ -362,6 +304,28 @@ class TableViewDetailOrder: UIViewController, CLLocationManagerDelegate, MKMapVi
         print(sender.value)
         anzahl = Int(sender.value)
     }
+    
+    @IBAction func deleteTapped(_ sender: Any) {
+       
+            
+            let userID : String = (Auth.auth().currentUser?.uid)!
+               print("Current user ID is" + userID)
+            
+            self.db.collection("Openorders: " + userID).document(selectedArtikel.name).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                }
+                
+                
+            }
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "OpenBvc") as! OpenOrdersViewController
+        self.present(newViewController, animated: true, completion: nil)
+            
+            
+        }
     
     
 }
