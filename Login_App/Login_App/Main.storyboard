@@ -1584,6 +1584,7 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="stepper_Item_Tapped:" destination="KVX-9L-eop" eventType="valueChanged" id="Smf-tz-tRv"/>
+                                                    <action selector="stepper_Tapped:" destination="KVX-9L-eop" eventType="valueChanged" id="oKM-K0-BWq"/>
                                                 </connections>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgb-OH-NBv">
