@@ -264,7 +264,7 @@ class TableViewDetailOrder: UIViewController, CLLocationManagerDelegate, MKMapVi
 
         // Set the "capital" field of the city 'DC'
         selA.updateData([
-            "anzahl": selectedArtikel.anzahl + 1
+            "anzahl": Int(gmStepper.value)
         ]) { err in
             if let err = err {
                 print("Error updating document: \(err)")
@@ -327,6 +327,9 @@ class TableViewDetailOrder: UIViewController, CLLocationManagerDelegate, MKMapVi
             
         }
     
+    @IBAction func stepper_Tapped(_ sender: GMStepper) {
+        updateData()
+    }
     
 }
 

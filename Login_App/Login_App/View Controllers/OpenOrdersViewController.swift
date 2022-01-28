@@ -133,8 +133,8 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
                     }
                 }
                 
-                
-                //self.shapeTableView.deleteRows(at: [indexPath], with animation: UITableView.RowAnimation)
+                self.artikelList.remove(at: indexPath.row)
+                //self.shapeTableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
                 self.shapeTableView.reloadData()
                 completionHandler(true)
             }
@@ -201,12 +201,14 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
         thisArtikel = artikelList[indexPath.row]
         
         
-       
+        //selectedArtikel.anzahl = thisArtikel.anzahl
+        
         tableViewCell.artikelPreis.text = thisArtikel.preis.stringValue + "€"
         tableViewCell.artikelOrt.text = thisArtikel.adresse
         tableViewCell.artikelName.text =  thisArtikel.name
         tableViewCell.artikelBild.image = UIImage(named: thisArtikel.imageName)
         tableViewCell.artikelAnzahl.text = "x" + String(thisArtikel.anzahl)
+        
         
         return tableViewCell
     }

@@ -33,6 +33,7 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
     @IBOutlet weak var map: MKMapView!
     
     var selectedArtikel : Artikel!
+    var artikelAnzahl = 0
     var articleList = [Artikel]()
     var db = Firestore.firestore()
     var anzahl = 1
@@ -223,6 +224,7 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
                    if error == nil {
                        // No errors
                        
+                    
                        if let snapshot = snapshot {
                            
                            // Update the list property in the main thread
@@ -230,12 +232,14 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
                                
                                // Get all the documents and create Todos
                                self.artikelList = snapshot.documents.map { d in
-                                   print("list")
-                                print(d["name"])
+                                   //print("list")
+                                //print(d["name"])
                                 if (d["name"] as! String == self.selectedArtikel.name ?? ""){
-                                   print("yoyoyo")
-                                   self.updateData()
-                                   self.exist = true
+                                    self.artikelAnzahl = d["anzahl"] as! Int
+                                    print(self.artikelAnzahl)
+                                    print("yoyoyo")
+                                    self.updateData()
+                                    self.exist = true
                                }
                                    // Create a Todo item for each document returned
                                    return Artikel(
@@ -250,15 +254,18 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
                    else {
                print("fehlerrr")
                }
+            
+            
+             if (self.exist==false){
+                 self.writeData(selectedArtikel: self.selectedArtikel)
+                 print("write")
+             }
+             print("artikelList GGGGG")
+                // print(self.artikelList.count)
+             self.exist = false
         }
        
        
-        if (self.exist==false){
-            self.writeData(selectedArtikel: self.selectedArtikel)
-        }
-        print("artikelList GGGGG")
-            print(self.artikelList.count)
-        self.exist = false
         
         
        //updateData()
@@ -307,7 +314,7 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
 
         // Set the "capital" field of the city 'DC'
         selA.updateData([
-            "anzahl": selectedArtikel.anzahl + Int(gmStepper.value)
+            "anzahl": self.artikelAnzahl + Int(gmStepper.value)
         ]) { err in
             if let err = err {
                 print("Error updating document: \(err)")
@@ -325,7 +332,7 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
             
             let regionDistance:CLLocationDistance = 10000
             let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
-        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+            let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
             let options = [
                 MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
                 MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
