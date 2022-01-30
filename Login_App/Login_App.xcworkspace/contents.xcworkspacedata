@@ -5,6 +5,9 @@
       location = "group:/Users/sebastian/REGIO/GIT_REGIO/Login_App/LOGIN_App.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Login_App">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
    <FileRef
