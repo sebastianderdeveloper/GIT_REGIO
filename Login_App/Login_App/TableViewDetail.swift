@@ -6,7 +6,7 @@ import MapKit
 import FirebaseFirestore
 import FirebaseAuth
 
-
+//SMOVEEE
 class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 {
 	
