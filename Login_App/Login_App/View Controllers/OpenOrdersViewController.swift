@@ -93,7 +93,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     
     func gesamtPreis(){
         for artikel in artikelList {
-            preis = preis + artikel.preis.doubleValue
+            preis = preis + artikel.preis.doubleValue * Double(artikel.anzahl)
             print("preis")
             print(artikel.preis.doubleValue ?? "")
         }
@@ -143,25 +143,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
             let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
             return configuration
     }
-    /*func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-          if editingStyle == .delete {
-            print("Deleted")
-
-            self.artikelList.remove(at: indexPath.row)
-            self.shapeTableView.deleteRows(at: [indexPath], with: .automatic)
-          }
-        }*/
     
-    /*func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-          if editingStyle == .delete {
-            print("Deleted")
-
-            //self.catNames.remove(at: indexPath.row)
-            self.shapeTableView.deleteRows(at: [indexPath], with: .automatic)
-          }
-        }*/
-    
-  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         self.performSegue(withIdentifier: "detailSegue", sender: self)

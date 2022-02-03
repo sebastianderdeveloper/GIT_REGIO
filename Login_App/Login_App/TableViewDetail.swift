@@ -7,6 +7,7 @@ import FirebaseFirestore
 import FirebaseAuth
 
 //SMOVEEE
+
 class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 {
 	
@@ -152,36 +153,8 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
         }
- /*   func map(_ map: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
-        {
-            if annotation is MKUserLocation {return nil}
 
-            let reuseId = "pin"
-
-            var pinView = map.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
-            if pinView == nil {
-                pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-                pinView!.canShowCallout = true
-                pinView!.image = UIImage(named:"pin")!
-                pinView!.animatesDrop = true
-                let calloutButton = UIButton(type: .detailDisclosure)
-                pinView!.rightCalloutAccessoryView = calloutButton
-                pinView!.sizeToFit()
-            }
-            else {
-                pinView!.annotation = annotation
-            }
-
-
-            return pinView
-        }
     
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-            if control == view.rightCalloutAccessoryView {
-              print("button tapped")
-            }
-        }
-    */
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     guard !(annotation is MKUserLocation) else {
         return nil
@@ -266,12 +239,12 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
         }
        
        
-        
+        self.selectedArtikel.anzahl = anzahl
         
        //updateData()
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "OpenBvc") as! OpenOrdersViewController
-        
+        newViewController.artikelList.append(self.selectedArtikel)
         //OpenOrdersViewController.artikelList.append(selectedArtikel)
         self.present(newViewController, animated: true, completion: nil)
         
