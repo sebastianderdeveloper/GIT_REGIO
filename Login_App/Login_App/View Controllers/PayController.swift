@@ -46,7 +46,25 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
         gesamtPreis()
         shapeTableView.reloadData()
         zahlungsMethoden()
+        NotificationCenter.default.addObserver(self, selector: #selector(namePost), name: Notification.Name("imagePost"), object: nil)
+
     }
+    
+    
+    @objc func namePost (notification: NSNotification){
+        guard let image = notification.userInfo?["payMethod"] as? UIImage else { return }
+        checkImageName(yourImage: image)
+       
+    }
+        
+    func checkImageName(yourImage: UIImage) {
+        if yourImage == UIImage(named: "Mastercard") {
+           print("Mastercard")
+        }
+        else {
+           print("no Mastercard")
+        }
+     }
     
     func zahlungsMethoden(){
         for i in 0...1 {
