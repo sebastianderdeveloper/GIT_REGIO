@@ -58,11 +58,36 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
     }
         
     func checkImageName(yourImage: UIImage) {
-        if yourImage == UIImage(named: "Mastercard") {
-           print("Mastercard")
+        if yourImage == UIImage(named: "MastercardDeselect") {
+            for subView in horizontallyScrollableStackView.subviews {
+                subView.removeFromSuperview()
+            }
+            
+            zahlungsMethoden()
         }
-        else {
-           print("no Mastercard")
+        else if yourImage == UIImage(named: "ApplePayDeselect") {
+           
+            
+            for subView in horizontallyScrollableStackView.subviews {
+                subView.removeFromSuperview()
+            }
+            
+            
+            for i in 0...1 {
+                       if let dayView = Bundle.main.loadNibNamed("PayMethod", owner: nil, options: nil)!.first as? PayMethod {
+                        if (i == 0){
+                            dayView.imageButton.setImage(UIImage(named: "MastercardDeselect"), for: .normal)
+                          }else if(i==1) {
+                            dayView.imageButton.setImage(UIImage(named: "ApplePay"), for: .normal)
+                          }
+                            
+                            horizontallyScrollableStackView.addArrangedSubview(dayView)
+                        
+                       }
+            }
+            
+           
+            
         }
      }
     
@@ -76,7 +101,7 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
                       }
                         
                         horizontallyScrollableStackView.addArrangedSubview(dayView)
-                   
+                    
                    }
         }
     }
@@ -123,7 +148,8 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
     func designUI(){
         Utilities.styleFilledButton(payMoney)
         Utilities.styleHollowButton(openRoute)
-        
+        scrollView.showsHorizontalScrollIndicator = false
+        shapeTableView.showsVerticalScrollIndicator = false
         }
     
     func gesamtPreis(){
@@ -242,7 +268,7 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
     
   
     @IBAction func openRoute(_ sender: Any) {
-        fetchArticles()
+        
     }
     
 }
