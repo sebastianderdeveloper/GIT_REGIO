@@ -24,8 +24,10 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
     var selectedArtikel: Artikel!
     
 
+    @IBOutlet weak var scrollView: UIScrollView!
     
-
+    @IBOutlet weak var horizontallyScrollableStackView: UIStackView!
+    
     @IBOutlet weak var openRoute: UIButton!
     
    
@@ -43,6 +45,22 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
         designUI()
         gesamtPreis()
         shapeTableView.reloadData()
+        zahlungsMethoden()
+    }
+    
+    func zahlungsMethoden(){
+        for i in 0...1 {
+                   if let dayView = Bundle.main.loadNibNamed("PayMethod", owner: nil, options: nil)!.first as? PayMethod {
+                    if (i == 0){
+                        dayView.imageButton.setImage(UIImage(named: "Mastercard"), for: .normal)
+                      }else if(i==1) {
+                        dayView.imageButton.setImage(UIImage(named: "ApplePay"), for: .normal)
+                      }
+                        
+                        horizontallyScrollableStackView.addArrangedSubview(dayView)
+                   
+                   }
+        }
     }
     
     func fetchArticles(){
@@ -145,16 +163,16 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        self.performSegue(withIdentifier: "detailSegue", sender: self)
+        self.performSegue(withIdentifier: "detailSegue2", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if(segue.identifier == "detailSegue")
+        if(segue.identifier == "detailSegue2")
         {
             let indexPath = self.shapeTableView.indexPathForSelectedRow!
             
-            let tableViewDetail = segue.destination as? TableViewDetailOrder
+            let tableViewDetail = segue.destination as? TableViewDetailPay
             
             let selectedArtikel: Artikel!
             
