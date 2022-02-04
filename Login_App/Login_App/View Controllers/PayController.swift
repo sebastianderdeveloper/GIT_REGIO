@@ -11,7 +11,7 @@ import FirebaseFirestore
 import FirebaseAuth
 
 
-class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource{
+class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSource{
     
     //static var artikelList = [Artikel]()
     var artikelList = [Artikel]()
@@ -23,18 +23,17 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     var db = Firestore.firestore()
     var selectedArtikel: Artikel!
     
-    @IBOutlet weak var offeneBestellungen: UIButton!
+
     
-    @IBOutlet weak var abgeschlosseneBestellungen: UIButton!
+
+    @IBOutlet weak var openRoute: UIButton!
     
-    @IBOutlet weak var routeÖffnen: UIButton!
-    
-    @IBOutlet weak var bezahlen: UIButton!
-    
+   
     @IBOutlet weak var PreisLabel: UILabel!
     
     @IBOutlet weak var shapeTableView: UITableView!
     
+    @IBOutlet weak var payMoney: UIButton!
     
     
     override func viewDidLoad() {
@@ -75,6 +74,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
                 
                 
                 self.artikelList.append(Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl))
+                self.shapeTableView.reloadData()
                 //self.articlesArray.append (Article(name: name, kategorie: kategorie))
                 return Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl)
                 }
@@ -85,10 +85,9 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     }
     
     func designUI(){
-        Utilities.styleFilledButton(offeneBestellungen)
-        Utilities.styleHollowButton(abgeschlosseneBestellungen)
-        Utilities.styleHollowButton(routeÖffnen)
-        Utilities.styleFilledButton(bezahlen)
+        Utilities.styleFilledButton(payMoney)
+        Utilities.styleHollowButton(openRoute)
+        
         }
     
     func gesamtPreis(){
@@ -203,8 +202,13 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
         //OpenOrdersViewController.artikelList.append(selectedArtikel)
         self.present(newViewController, animated: true, completion: nil)
     }
-    
 
+    
+  
+    @IBAction func openRoute(_ sender: Any) {
+        fetchArticles()
+    }
+    
 }
 
 
