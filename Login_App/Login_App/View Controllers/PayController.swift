@@ -54,7 +54,7 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
                     if (i == 0){
                         dayView.imageButton.setImage(UIImage(named: "Mastercard"), for: .normal)
                       }else if(i==1) {
-                        dayView.imageButton.setImage(UIImage(named: "ApplePay"), for: .normal)
+                        dayView.imageButton.setImage(UIImage(named: "ApplePayDeselect"), for: .normal)
                       }
                         
                         horizontallyScrollableStackView.addArrangedSubview(dayView)
