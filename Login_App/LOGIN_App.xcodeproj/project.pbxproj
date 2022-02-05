@@ -34,6 +34,8 @@
 		9E9FF69F2777397A00BD3751 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9FF69E2777397A00BD3751 /* DayView.swift */; };
 		9E9FF6AC27773A9D00BD3751 /* DayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E9FF6AB27773A9D00BD3751 /* DayView.xib */; };
 		9EA025AA2779A40C00ACC918 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA025A92779A40C00ACC918 /* SearchViewController.swift */; };
+		9EAB677027AEA220001A5427 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAB676F27AEA220001A5427 /* OrderViewController.swift */; };
+		9EAB677327AEA88E001A5427 /* TableViewDetailPayedOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAB677227AEA88E001A5427 /* TableViewDetailPayedOrder.swift */; };
 		9EC6AACC27AC14020024B9F8 /* ClosedOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC6AACB27AC14020024B9F8 /* ClosedOrdersViewController.swift */; };
 		9EC6AAE827AC2EDC0024B9F8 /* PayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC6AAE727AC2EDC0024B9F8 /* PayController.swift */; };
 		9ECF37CD278EFC5B00A9B8AF /* TableViewDetailOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECF37CC278EFC5B00A9B8AF /* TableViewDetailOrder.swift */; };
@@ -78,6 +80,8 @@
 		9E9FF69E2777397A00BD3751 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		9E9FF6AB27773A9D00BD3751 /* DayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayView.xib; sourceTree = "<group>"; };
 		9EA025A92779A40C00ACC918 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9EAB676F27AEA220001A5427 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		9EAB677227AEA88E001A5427 /* TableViewDetailPayedOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDetailPayedOrder.swift; sourceTree = "<group>"; };
 		9EC6AACB27AC14020024B9F8 /* ClosedOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosedOrdersViewController.swift; sourceTree = "<group>"; };
 		9EC6AAE727AC2EDC0024B9F8 /* PayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayController.swift; sourceTree = "<group>"; };
 		9ECF37CC278EFC5B00A9B8AF /* TableViewDetailOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDetailOrder.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				9E9391F62779FA0B00EE3C9E /* TableViewDetail.swift */,
 				9ECF37CC278EFC5B00A9B8AF /* TableViewDetailOrder.swift */,
 				9ED6C2B627AD0CE4004C4014 /* TableViewDetailPay.swift */,
+				9EAB677227AEA88E001A5427 /* TableViewDetailPayedOrder.swift */,
 				9E377C532734243500F806B2 /* Assets.xcassets */,
 				9E377C552734243500F806B2 /* LaunchScreen.storyboard */,
 				9EE90262273FC51F00736777 /* GoogleService-Info.plist */,
@@ -191,6 +196,7 @@
 				9E9C5D4C278C1B8D00C10C87 /* OpenOrdersViewController.swift */,
 				9EC6AACB27AC14020024B9F8 /* ClosedOrdersViewController.swift */,
 				9EC6AAE727AC2EDC0024B9F8 /* PayController.swift */,
+				9EAB676F27AEA220001A5427 /* OrderViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -353,9 +359,11 @@
 				9E2D1B542778BDC700E1EAC2 /* article.swift in Sources */,
 				9E377C832734474F00F806B2 /* SignUpViewController.swift in Sources */,
 				9EC6AAE827AC2EDC0024B9F8 /* PayController.swift in Sources */,
+				9EAB677327AEA88E001A5427 /* TableViewDetailPayedOrder.swift in Sources */,
 				9EC6AACC27AC14020024B9F8 /* ClosedOrdersViewController.swift in Sources */,
 				9E377C9427344B9F00F806B2 /* HomeViewController.swift in Sources */,
 				9ECF39A3273FF383003F1C8C /* Constants.swift in Sources */,
+				9EAB677027AEA220001A5427 /* OrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
