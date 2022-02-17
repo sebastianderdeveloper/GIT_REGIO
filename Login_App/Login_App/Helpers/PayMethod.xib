@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="l6h-qO-UIm" customClass="PayMethod" customModule="LOGIN_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="220" height="169"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wfR-jX-fmc">
+                    <rect key="frame" x="0.0" y="10" width="220" height="149"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcd-yF-VqF">
+                            <rect key="frame" x="0.0" y="0.0" width="220" height="149"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="220" id="MEd-hL-L7r"/>
+                                <constraint firstAttribute="height" constant="149" id="Rav-D4-Hv8"/>
+                            </constraints>
+                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <state key="normal" title="sdgfsdfg"/>
+                            <connections>
+                                <action selector="buttonTabbed:" destination="l6h-qO-UIm" eventType="touchUpInside" id="jXl-vf-bHL"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="rcd-yF-VqF" secondAttribute="trailing" id="V3E-ON-Gz1"/>
+                        <constraint firstItem="rcd-yF-VqF" firstAttribute="leading" secondItem="wfR-jX-fmc" secondAttribute="leading" id="bdu-Tw-bzS"/>
+                        <constraint firstAttribute="bottom" secondItem="rcd-yF-VqF" secondAttribute="bottom" id="l9S-pX-hK4"/>
+                        <constraint firstItem="rcd-yF-VqF" firstAttribute="top" secondItem="wfR-jX-fmc" secondAttribute="top" id="tsf-VR-Ga6"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="xN6-zD-6Rk"/>
+            <constraints>
+                <constraint firstItem="wfR-jX-fmc" firstAttribute="top" secondItem="xN6-zD-6Rk" secondAttribute="top" constant="10" id="6Kr-7j-LB7"/>
+                <constraint firstItem="xN6-zD-6Rk" firstAttribute="bottom" secondItem="wfR-jX-fmc" secondAttribute="bottom" constant="10" id="Das-Do-y8T"/>
+                <constraint firstItem="wfR-jX-fmc" firstAttribute="leading" secondItem="xN6-zD-6Rk" secondAttribute="leading" id="QPt-JA-cig"/>
+                <constraint firstItem="xN6-zD-6Rk" firstAttribute="trailing" secondItem="wfR-jX-fmc" secondAttribute="trailing" id="kYs-dz-MG0"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imageButton" destination="rcd-yF-VqF" id="tG7-sG-RUD"/>
+            </connections>
+            <point key="canvasLocation" x="-228.80000000000001" y="15.742128935532236"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

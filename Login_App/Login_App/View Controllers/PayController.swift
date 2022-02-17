@@ -11,7 +11,7 @@ import FirebaseFirestore
 import FirebaseAuth
 
 
-class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource{
+class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSource{
     
     //static var artikelList = [Artikel]()
     var artikelList = [Artikel]()
@@ -23,18 +23,19 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     var db = Firestore.firestore()
     var selectedArtikel: Artikel!
     
-    @IBOutlet weak var offeneBestellungen: UIButton!
+
+    @IBOutlet weak var scrollView: UIScrollView!
     
-    @IBOutlet weak var abgeschlosseneBestellungen: UIButton!
+    @IBOutlet weak var horizontallyScrollableStackView: UIStackView!
     
-    @IBOutlet weak var routeÖffnen: UIButton!
+    @IBOutlet weak var openRoute: UIButton!
     
-    @IBOutlet weak var bezahlen: UIButton!
-    
+   
     @IBOutlet weak var PreisLabel: UILabel!
     
     @IBOutlet weak var shapeTableView: UITableView!
     
+    @IBOutlet weak var payMoney: UIButton!
     
     
     override func viewDidLoad() {
@@ -44,6 +45,65 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
         designUI()
         gesamtPreis()
         shapeTableView.reloadData()
+        zahlungsMethoden()
+        NotificationCenter.default.addObserver(self, selector: #selector(namePost), name: Notification.Name("imagePost"), object: nil)
+
+    }
+    
+    
+    @objc func namePost (notification: NSNotification){
+        guard let image = notification.userInfo?["payMethod"] as? UIImage else { return }
+        checkImageName(yourImage: image)
+       
+    }
+        
+    func checkImageName(yourImage: UIImage) {
+        if yourImage == UIImage(named: "MastercardDeselect") {
+            for subView in horizontallyScrollableStackView.subviews {
+                subView.removeFromSuperview()
+            }
+            
+            zahlungsMethoden()
+        }
+        else if yourImage == UIImage(named: "ApplePayDeselect") {
+           
+            
+            for subView in horizontallyScrollableStackView.subviews {
+                subView.removeFromSuperview()
+            }
+            
+            
+            for i in 0...1 {
+                       if let dayView = Bundle.main.loadNibNamed("PayMethod", owner: nil, options: nil)!.first as? PayMethod {
+                        if (i == 0){
+                            dayView.imageButton.setImage(UIImage(named: "MastercardDeselect"), for: .normal)
+                          }else if(i==1) {
+                            dayView.imageButton.setImage(UIImage(named: "ApplePay"), for: .normal)
+                          }
+                            
+                            horizontallyScrollableStackView.addArrangedSubview(dayView)
+                        
+                       }
+            }
+            
+           
+            
+        }
+     }
+    
+    func zahlungsMethoden(){
+        for i in 0...1 {
+                   if let dayView = Bundle.main.loadNibNamed("PayMethod", owner: nil, options: nil)!.first as? PayMethod {
+                    if (i == 0){
+                        dayView.imageButton.setImage(UIImage(named: "Mastercard"), for: .normal)
+                      }else if(i==1) {
+                        dayView.imageButton.setImage(UIImage(named: "ApplePayDeselect"), for: .normal)
+                      }
+                        
+                        horizontallyScrollableStackView.addArrangedSubview(dayView)
+                    
+                   }
+        }
     }
     
     func fetchArticles(){
@@ -75,6 +135,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
                 
                 
                 self.artikelList.append(Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl))
+                self.shapeTableView.reloadData()
                 //self.articlesArray.append (Article(name: name, kategorie: kategorie))
                 return Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl)
                 }
@@ -85,10 +146,10 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     }
     
     func designUI(){
-        Utilities.styleFilledButton(offeneBestellungen)
-        Utilities.styleHollowButton(abgeschlosseneBestellungen)
-        Utilities.styleHollowButton(routeÖffnen)
-        Utilities.styleFilledButton(bezahlen)
+        Utilities.styleFilledButton(payMoney)
+        Utilities.styleHollowButton(openRoute)
+        scrollView.showsHorizontalScrollIndicator = false
+        shapeTableView.showsVerticalScrollIndicator = false
         }
     
     func gesamtPreis(){
@@ -146,16 +207,16 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        self.performSegue(withIdentifier: "detailSegue", sender: self)
+        self.performSegue(withIdentifier: "detailSegue2", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if(segue.identifier == "detailSegue")
+        if(segue.identifier == "detailSegue2")
         {
             let indexPath = self.shapeTableView.indexPathForSelectedRow!
             
-            let tableViewDetail = segue.destination as? TableViewDetailOrder
+            let tableViewDetail = segue.destination as? TableViewDetailPay
             
             let selectedArtikel: Artikel!
             
@@ -197,14 +258,70 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
 
     
     @IBAction func buyTabbed(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "PayVc") as! PayController
-       // newViewController.artikelList.append(self.selectedArtikel)
-        //OpenOrdersViewController.artikelList.append(selectedArtikel)
-        self.present(newViewController, animated: true, completion: nil)
+        
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+       
+        let userID : String = (Auth.auth().currentUser?.uid)!
+           print("Current user ID is" + userID)
+        
+        for artikel in self.artikelList {
+            let docRef = db.collection("Basket " + userID).document("closedBasket").collection(dateFormatter.string(from: date)).document(artikel.name)
+            
+          
+           
+                docRef.setData(["name": artikel.name ?? "",
+                                "imageName": artikel.imageName ?? "",
+                                "kategorie": artikel.kategorie ?? "",
+                                "preis": artikel.preis ?? 0,
+                                "beschreibung": artikel.beschreibung ?? "",
+                                "inhaltsstoffe": artikel.inhaltsstoffe ?? "",
+                                "menge": artikel.menge ?? "",
+                                "adresse": artikel.adresse ?? "",
+                                "longitude": artikel.longitude ?? 0,
+                                "latitude": artikel.latitude ?? 0,
+                                "anzahl": anzahl,
+                                "date": ""
+                ])
+        }
+        
+        
+        
+      /*  let docRef2 = db.collection("Basket " + userID).document("openBasketDate")
+        
+      
+        docRef2.setData(["date": dateFormatter.string(from: date) ?? ""
+        ])
+        
+       
+      
+           print("update!!!!!!")
+        let selA = db.collection("Openorders: " + userID).document((artikelList.first?.name)!)
+
+        for artikel in self.artikelList {
+            let selA = db.collection("Openorders: " + userID).document(artikel.name)
+            selA.updateData([
+                "date": dateFormatter.string(from: date)
+            ]) { err in
+                if let err = err {
+                    print("Error updating document: \(err)")
+                } else {
+                    print("Document successfully updated")
+                }
+            }
+        }
+        // Set the "capital" field of the city 'DC'
+        
+        */
+    }
+
+    
+  
+    @IBAction func openRoute(_ sender: Any) {
+        
     }
     
-
 }
 
 

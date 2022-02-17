@@ -4,6 +4,253 @@
    <FileRef
       location = "group:/Users/sebastian/REGIO/GIT_REGIO/Login_App/LOGIN_App.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:Login_App"
+      name = "Login_App">
+      <FileRef
+         location = "group:TableViewDetail.swift">
+      </FileRef>
+      <Group
+         location = "group:Assets.xcassets"
+         name = "Assets.xcassets">
+         <Group
+            location = "group:entdecke_tee.imageset"
+            name = "entdecke_tee.imageset">
+            <FileRef
+               location = "group:entdecke_tee.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Milchprodukte.imageset"
+            name = "Milchprodukte.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:Milch.svg">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:AppIcon.appiconset"
+            name = "AppIcon.appiconset">
+            <FileRef
+               location = "group:REGIO-ICON-120x120.png">
+            </FileRef>
+            <FileRef
+               location = "group:REGIO-ICON-180x180.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:pin.imageset"
+            name = "pin.imageset">
+            <FileRef
+               location = "group:pin.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Getr&#xe4;nke.imageset"
+            name = "Getr&#xe4;nke.imageset">
+            <FileRef
+               location = "group:../Getr&#xe4;nke.imageset/Getra&#x308;nke.svg">
+            </FileRef>
+            <FileRef
+               location = "group:../Getr&#xe4;nke.imageset/Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:S&#xfc;&#xdf;waren.imageset"
+            name = "S&#xfc;&#xdf;waren.imageset">
+            <FileRef
+               location = "group:../S&#xfc;&#xdf;waren.imageset/Su&#x308;&#xdf;igkeiten.svg">
+            </FileRef>
+            <FileRef
+               location = "group:../S&#xfc;&#xdf;waren.imageset/Contents.json">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <Group
+            location = "group:entdecke_eis.imageset"
+            name = "entdecke_eis.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:entdecke_eis.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:REGIO_LOGO.imageset"
+            name = "REGIO_LOGO.imageset">
+            <FileRef
+               location = "group:Logo regio-2.svg">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Obst.imageset"
+            name = "Obst.imageset">
+            <FileRef
+               location = "group:Obst.svg">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Gem&#xfc;se.imageset"
+            name = "Gem&#xfc;se.imageset">
+            <FileRef
+               location = "group:../Gem&#xfc;se.imageset/Gemu&#x308;se.svg">
+            </FileRef>
+            <FileRef
+               location = "group:../Gem&#xfc;se.imageset/Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:entdecke_milch.imageset"
+            name = "entdecke_milch.imageset">
+            <FileRef
+               location = "group:entdecke_milch.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Backwaren.imageset"
+            name = "Backwaren.imageset">
+            <FileRef
+               location = "group:Backwaren.svg">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Fleisch.imageset"
+            name = "Fleisch.imageset">
+            <FileRef
+               location = "group:Fleisch.svg">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+      </Group>
+      <FileRef
+         location = "group:TableViewCell.swift">
+      </FileRef>
+      <Group
+         location = "group:View Controllers"
+         name = "View Controllers">
+         <FileRef
+            location = "group:SignUpViewController.swift">
+         </FileRef>
+         <FileRef
+            location = "group:ViewController.swift">
+         </FileRef>
+         <FileRef
+            location = "group:SearchViewController.swift">
+         </FileRef>
+         <FileRef
+            location = "group:ClosedOrdersViewController.swift">
+         </FileRef>
+         <FileRef
+            location = "group:MapViewController.swift">
+         </FileRef>
+         <FileRef
+            location = "group:HomeViewController.swift">
+         </FileRef>
+         <FileRef
+            location = "group:OpenOrdersViewController.swift">
+         </FileRef>
+         <FileRef
+            location = "group:LoginViewController.swift">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:GoogleService-Info.plist">
+      </FileRef>
+      <Group
+         location = "group:Base.lproj"
+         name = "Base.lproj">
+         <FileRef
+            location = "group:LaunchScreen.storyboard">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:Main.storyboard">
+      </FileRef>
+      <FileRef
+         location = "group:TableViewDetailOrder.swift">
+      </FileRef>
+      <FileRef
+         location = "group:Shape.swift">
+      </FileRef>
+      <FileRef
+         location = "group:TableViewController.swift">
+      </FileRef>
+      <Group
+         location = "group:Model"
+         name = "Model">
+         <FileRef
+            location = "group:artikel.swift">
+         </FileRef>
+         <FileRef
+            location = "group:article.swift">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:AppDelegate.swift">
+      </FileRef>
+      <Group
+         location = "group:Helpers"
+         name = "Helpers">
+         <FileRef
+            location = "group:Constants.swift">
+         </FileRef>
+         <FileRef
+            location = "group:Utilities.swift">
+         </FileRef>
+         <FileRef
+            location = "group:DayView.xib">
+         </FileRef>
+         <FileRef
+            location = "group:Artwork.swift">
+         </FileRef>
+         <FileRef
+            location = "group:EntdeckeUI.swift">
+         </FileRef>
+         <FileRef
+            location = "group:TableViewCell2.swift">
+         </FileRef>
+         <FileRef
+            location = "group:DayView.swift">
+         </FileRef>
+         <FileRef
+            location = "group:EntdeckeUI.xib">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:Info.plist">
+      </FileRef>
+      <FileRef
+         location = "group:SceneDelegate.swift">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>

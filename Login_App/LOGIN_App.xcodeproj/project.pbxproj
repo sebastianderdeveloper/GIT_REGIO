@@ -21,6 +21,8 @@
 		9E377C832734474F00F806B2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E377C822734474F00F806B2 /* SignUpViewController.swift */; };
 		9E377C9427344B9F00F806B2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E377C9327344B9F00F806B2 /* HomeViewController.swift */; };
 		9E61729A278C41FB0010F6C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E617299278C41FB0010F6C0 /* Main.storyboard */; };
+		9E63BEDC27AD17380056D1BB /* PayMethod.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E63BEDB27AD17380056D1BB /* PayMethod.xib */; };
+		9E63BEDF27AD199C0056D1BB /* PayMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63BEDE27AD199C0056D1BB /* PayMethod.swift */; };
 		9E852002278886C0000BA29F /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E852001278886C0000BA29F /* Artwork.swift */; };
 		9E8ED791278C63F800DACC00 /* TableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8ED790278C63F800DACC00 /* TableViewCell2.swift */; };
 		9E9391FA2779FA0E00EE3C9E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9391F42779FA0800EE3C9E /* TableViewCell.swift */; };
@@ -32,8 +34,13 @@
 		9E9FF69F2777397A00BD3751 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9FF69E2777397A00BD3751 /* DayView.swift */; };
 		9E9FF6AC27773A9D00BD3751 /* DayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E9FF6AB27773A9D00BD3751 /* DayView.xib */; };
 		9EA025AA2779A40C00ACC918 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA025A92779A40C00ACC918 /* SearchViewController.swift */; };
+		9EAB677027AEA220001A5427 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAB676F27AEA220001A5427 /* OrderViewController.swift */; };
+		9EAB677327AEA88E001A5427 /* TableViewDetailPayedOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAB677227AEA88E001A5427 /* TableViewDetailPayedOrder.swift */; };
+		9EC6AACC27AC14020024B9F8 /* ClosedOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC6AACB27AC14020024B9F8 /* ClosedOrdersViewController.swift */; };
+		9EC6AAE827AC2EDC0024B9F8 /* PayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC6AAE727AC2EDC0024B9F8 /* PayController.swift */; };
 		9ECF37CD278EFC5B00A9B8AF /* TableViewDetailOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECF37CC278EFC5B00A9B8AF /* TableViewDetailOrder.swift */; };
 		9ECF39A3273FF383003F1C8C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECF39A2273FF383003F1C8C /* Constants.swift */; };
+		9ED6C2B727AD0CE4004C4014 /* TableViewDetailPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED6C2B627AD0CE4004C4014 /* TableViewDetailPay.swift */; };
 		9EE90263273FC51F00736777 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9EE90262273FC51F00736777 /* GoogleService-Info.plist */; };
 		9EF2720E273FBADF000417AF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF2720D273FBADF000417AF /* Utilities.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +67,8 @@
 		9E377C822734474F00F806B2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9E377C9327344B9F00F806B2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9E617299278C41FB0010F6C0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9E63BEDB27AD17380056D1BB /* PayMethod.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayMethod.xib; sourceTree = "<group>"; };
+		9E63BEDE27AD199C0056D1BB /* PayMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayMethod.swift; sourceTree = "<group>"; };
 		9E852001278886C0000BA29F /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		9E8ED790278C63F800DACC00 /* TableViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell2.swift; sourceTree = "<group>"; };
 		9E9391F42779FA0800EE3C9E /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -71,8 +80,13 @@
 		9E9FF69E2777397A00BD3751 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		9E9FF6AB27773A9D00BD3751 /* DayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayView.xib; sourceTree = "<group>"; };
 		9EA025A92779A40C00ACC918 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9EAB676F27AEA220001A5427 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		9EAB677227AEA88E001A5427 /* TableViewDetailPayedOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDetailPayedOrder.swift; sourceTree = "<group>"; };
+		9EC6AACB27AC14020024B9F8 /* ClosedOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosedOrdersViewController.swift; sourceTree = "<group>"; };
+		9EC6AAE727AC2EDC0024B9F8 /* PayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayController.swift; sourceTree = "<group>"; };
 		9ECF37CC278EFC5B00A9B8AF /* TableViewDetailOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDetailOrder.swift; sourceTree = "<group>"; };
 		9ECF39A2273FF383003F1C8C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9ED6C2B627AD0CE4004C4014 /* TableViewDetailPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDetailPay.swift; sourceTree = "<group>"; };
 		9EE90262273FC51F00736777 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9EF2720D273FBADF000417AF /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		AF9560ADE246A2A223697C64 /* Pods-LOGIN_App-LOGIN_AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOGIN_App-LOGIN_AppUITests.release.xcconfig"; path = "Target Support Files/Pods-LOGIN_App-LOGIN_AppUITests/Pods-LOGIN_App-LOGIN_AppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -160,6 +174,8 @@
 				9E9391F52779FA0A00EE3C9E /* TableViewController.swift */,
 				9E9391F62779FA0B00EE3C9E /* TableViewDetail.swift */,
 				9ECF37CC278EFC5B00A9B8AF /* TableViewDetailOrder.swift */,
+				9ED6C2B627AD0CE4004C4014 /* TableViewDetailPay.swift */,
+				9EAB677227AEA88E001A5427 /* TableViewDetailPayedOrder.swift */,
 				9E377C532734243500F806B2 /* Assets.xcassets */,
 				9E377C552734243500F806B2 /* LaunchScreen.storyboard */,
 				9EE90262273FC51F00736777 /* GoogleService-Info.plist */,
@@ -178,6 +194,9 @@
 				9EA025A92779A40C00ACC918 /* SearchViewController.swift */,
 				9E09E1C4278872FD00462F6E /* MapViewController.swift */,
 				9E9C5D4C278C1B8D00C10C87 /* OpenOrdersViewController.swift */,
+				9EC6AACB27AC14020024B9F8 /* ClosedOrdersViewController.swift */,
+				9EC6AAE727AC2EDC0024B9F8 /* PayController.swift */,
+				9EAB676F27AEA220001A5427 /* OrderViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -193,6 +212,8 @@
 				9E12A34A27818E690029AA93 /* EntdeckeUI.swift */,
 				9E852001278886C0000BA29F /* Artwork.swift */,
 				9E8ED790278C63F800DACC00 /* TableViewCell2.swift */,
+				9E63BEDB27AD17380056D1BB /* PayMethod.xib */,
+				9E63BEDE27AD199C0056D1BB /* PayMethod.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -257,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E377C572734243500F806B2 /* LaunchScreen.storyboard in Resources */,
+				9E63BEDC27AD17380056D1BB /* PayMethod.xib in Resources */,
 				9EE90263273FC51F00736777 /* GoogleService-Info.plist in Resources */,
 				9E32874F278188E200F6811B /* EntdeckeUI.xib in Resources */,
 				9E61729A278C41FB0010F6C0 /* Main.storyboard in Resources */,
@@ -331,11 +353,17 @@
 				9E9FF69F2777397A00BD3751 /* DayView.swift in Sources */,
 				9E377C4D2734242B00F806B2 /* SceneDelegate.swift in Sources */,
 				9E09E1C5278872FD00462F6E /* MapViewController.swift in Sources */,
+				9ED6C2B727AD0CE4004C4014 /* TableViewDetailPay.swift in Sources */,
 				9E9C5D4D278C1B8D00C10C87 /* OpenOrdersViewController.swift in Sources */,
+				9E63BEDF27AD199C0056D1BB /* PayMethod.swift in Sources */,
 				9E2D1B542778BDC700E1EAC2 /* article.swift in Sources */,
 				9E377C832734474F00F806B2 /* SignUpViewController.swift in Sources */,
+				9EC6AAE827AC2EDC0024B9F8 /* PayController.swift in Sources */,
+				9EAB677327AEA88E001A5427 /* TableViewDetailPayedOrder.swift in Sources */,
+				9EC6AACC27AC14020024B9F8 /* ClosedOrdersViewController.swift in Sources */,
 				9E377C9427344B9F00F806B2 /* HomeViewController.swift in Sources */,
 				9ECF39A3273FF383003F1C8C /* Constants.swift in Sources */,
+				9EAB677027AEA220001A5427 /* OrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

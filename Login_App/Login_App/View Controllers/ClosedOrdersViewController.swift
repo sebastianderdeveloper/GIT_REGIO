@@ -1,8 +1,8 @@
 //
-//  openBaskets.swift
+//  ClosedOrdersViewController.swift
 //  LOGIN_App
 //
-//  Created by Sebastian Steiner on 10.01.22.
+//  Created by Sebastian on 03.02.22.
 //
 
 import Foundation
@@ -10,8 +10,7 @@ import UIKit
 import FirebaseFirestore
 import FirebaseAuth
 
-
-class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource{
+class ClosedOrdersViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource{
     
     //static var artikelList = [Artikel]()
     var artikelList = [Artikel]()
@@ -25,24 +24,21 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     
     @IBOutlet weak var offeneBestellungen: UIButton!
     
+    
+    
     @IBOutlet weak var abgeschlosseneBestellungen: UIButton!
     
-    @IBOutlet weak var routeÖffnen: UIButton!
-    
-    @IBOutlet weak var bezahlen: UIButton!
-    
-    @IBOutlet weak var PreisLabel: UILabel!
     
     @IBOutlet weak var shapeTableView: UITableView!
     
-    
+   
     
     override func viewDidLoad() {
         
         preis = 0
-        fetchArticles()
+        //fetchArticles()
         designUI()
-        gesamtPreis()
+     
         shapeTableView.reloadData()
     }
     
@@ -85,24 +81,11 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     }
     
     func designUI(){
-        Utilities.styleFilledButton(offeneBestellungen)
-        Utilities.styleHollowButton(abgeschlosseneBestellungen)
-        Utilities.styleHollowButton(routeÖffnen)
-        Utilities.styleFilledButton(bezahlen)
-        }
-    
-    func gesamtPreis(){
-        for artikel in artikelList {
-            preis = preis + artikel.preis.doubleValue * Double(artikel.anzahl)
-            print("preis")
-            print(artikel.preis.doubleValue ?? "")
-        }
-        print("preis")
-        print(artikelList)
+        Utilities.styleHollowButton(offeneBestellungen)
+        Utilities.styleFilledButton(abgeschlosseneBestellungen)
         
-        PreisLabel.text=String(preis) + "€"
-        preis = 0.00
-    }
+        }
+  
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
     -> UISwipeActionsConfiguration?{
@@ -173,7 +156,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        gesamtPreis()
+        
         let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! TableViewCell2
         
         let thisArtikel: Artikel!
@@ -196,13 +179,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     }
 
     
-    @IBAction func buyTabbed(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "PayVc") as! PayController
-       // newViewController.artikelList.append(self.selectedArtikel)
-        //OpenOrdersViewController.artikelList.append(selectedArtikel)
-        self.present(newViewController, animated: true, completion: nil)
-    }
+  
     
 
 }

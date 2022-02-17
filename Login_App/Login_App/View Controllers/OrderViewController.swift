@@ -1,8 +1,8 @@
 //
-//  openBaskets.swift
+//  OrderViewController.swift
 //  LOGIN_App
 //
-//  Created by Sebastian Steiner on 10.01.22.
+//  Created by Sebastian on 05.02.22.
 //
 
 import Foundation
@@ -11,7 +11,7 @@ import FirebaseFirestore
 import FirebaseAuth
 
 
-class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource{
+class OrderViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource{
     
     //static var artikelList = [Artikel]()
     var artikelList = [Artikel]()
@@ -22,28 +22,40 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     var anzahl = 0
     var db = Firestore.firestore()
     var selectedArtikel: Artikel!
+  
     
-    @IBOutlet weak var offeneBestellungen: UIButton!
     
-    @IBOutlet weak var abgeschlosseneBestellungen: UIButton!
     
-    @IBOutlet weak var routeÖffnen: UIButton!
     
-    @IBOutlet weak var bezahlen: UIButton!
-    
-    @IBOutlet weak var PreisLabel: UILabel!
     
     @IBOutlet weak var shapeTableView: UITableView!
     
     
+    @IBOutlet weak var PreisLabel: UILabel!
+    
+    @IBOutlet weak var DateLabel: UILabel!
+    
+    @IBOutlet weak var QRView: UIImageView!
+    
     
     override func viewDidLoad() {
         
+        
         preis = 0
+        
         fetchArticles()
         designUI()
         gesamtPreis()
         shapeTableView.reloadData()
+        if let qrImage = generateQrCode("https://de.wikipedia.org/wiki/Regio") {
+                    QRView.image = UIImage(ciImage: qrImage)
+                    let smallLogo = UIImage(named: "Regio black")
+                    smallLogo?.addToCenter(of: QRView)
+                }
+        
+        /*let QRimage = generateQRCode(from: "Hello, world!")
+        self.QRView.image = QRimage*/
+        
     }
     
     func fetchArticles(){
@@ -69,37 +81,55 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
                 let longitude = data["longitude"] as? NSNumber ?? 0
                 let latitude = data["latitude"] as? NSNumber ?? 0
                 let anzahl = data["anzahl"] as? Int ?? 1
+                let date = data["date"] as? String ?? ""
                     //let kategorie = data["kategorie"] as? String ?? ""
                 //print("preissss")
                 //print(preis)
                 
                 
-                self.artikelList.append(Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl))
+                self.artikelList.append(Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl, date: date))
                 //self.articlesArray.append (Article(name: name, kategorie: kategorie))
-                return Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl)
+                return Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl, date: date)
                 }
             
+            
+            let date = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd.MM.yyyy"
+            dateFormatter.string(from: date)
+            
+            self.gesamtPreis()
         }
         
+       
         shapeTableView.reloadData()
     }
     
     func designUI(){
-        Utilities.styleFilledButton(offeneBestellungen)
+       /* Utilities.styleFilledButton(offeneBestellungen)
         Utilities.styleHollowButton(abgeschlosseneBestellungen)
         Utilities.styleHollowButton(routeÖffnen)
-        Utilities.styleFilledButton(bezahlen)
+        Utilities.styleFilledButton(bezahlen) */
         }
     
     func gesamtPreis(){
+       
+        print("größe\(artikelList.count)")
+        var date = ""
         for artikel in artikelList {
             preis = preis + artikel.preis.doubleValue * Double(artikel.anzahl)
             print("preis")
             print(artikel.preis.doubleValue ?? "")
+            print("date")
+            print(artikel.date)
+            date = artikel.date ?? ""
         }
-        print("preis")
-        print(artikelList)
+       
         
+        
+        
+        shapeTableView.reloadData()
+        DateLabel.text = date
         PreisLabel.text=String(preis) + "€"
         preis = 0.00
     }
@@ -146,16 +176,16 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        self.performSegue(withIdentifier: "detailSegue", sender: self)
+        self.performSegue(withIdentifier: "detailSegue2", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if(segue.identifier == "detailSegue")
+        if(segue.identifier == "detailSegue2")
         {
             let indexPath = self.shapeTableView.indexPathForSelectedRow!
             
-            let tableViewDetail = segue.destination as? TableViewDetailOrder
+            let tableViewDetail = segue.destination as? TableViewDetailPayedOrder
             
             let selectedArtikel: Artikel!
             
@@ -173,7 +203,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        gesamtPreis()
+        
         let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! TableViewCell2
         
         let thisArtikel: Artikel!
@@ -196,23 +226,52 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     }
 
     
-    @IBAction func buyTabbed(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "PayVc") as! PayController
-       // newViewController.artikelList.append(self.selectedArtikel)
-        //OpenOrdersViewController.artikelList.append(selectedArtikel)
-        self.present(newViewController, animated: true, completion: nil)
+
+    func generateQRCode(from string: String) -> UIImage? {
+        let data = string.data(using: String.Encoding.ascii)
+        if let QRFilter = CIFilter(name: "CIQRCodeGenerator") {
+            QRFilter.setValue(data, forKey: "inputMessage")
+            guard let QRImage = QRFilter.outputImage else {return nil}
+            return UIImage(ciImage: QRImage)
+        }
+        return nil
     }
     
+    func generateQrCode(_ content: String)  -> CIImage? {
+            let data = content.data(using: String.Encoding.ascii, allowLossyConversion: false)
+
+            let filter = CIFilter(name: "CIQRCodeGenerator")
+
+            filter?.setValue(data, forKey: "inputMessage")
+            filter?.setValue("Q", forKey: "inputCorrectionLevel")
+
+            if let qrCodeImage = (filter?.outputImage){
+                return qrCodeImage
+            }
+
+            return nil
+        }
 
 }
 
-
-
-
-
-
-
-
-
-
+extension UIImage {
+    
+    /// place the imageView inside a container view
+    /// - parameter superView: the containerView that you want to place the Image inside
+    /// - parameter width: width of imageView, if you opt to not give the value, it will take default value of 100
+    /// - parameter height: height of imageView, if you opt to not give the value, it will take default value of 30
+    func addToCenter(of superView: UIView, width: CGFloat = 100, height: CGFloat = 30) {
+        let overlayImageView = UIImageView(image: self)
+        
+        overlayImageView.translatesAutoresizingMaskIntoConstraints = false
+        overlayImageView.contentMode = .scaleAspectFit
+        superView.addSubview(overlayImageView)
+        
+        let centerXConst = NSLayoutConstraint(item: overlayImageView, attribute: .centerX, relatedBy: .equal, toItem: superView, attribute: .centerX, multiplier: 1, constant: 0)
+        let width = NSLayoutConstraint(item: overlayImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 100)
+        let height = NSLayoutConstraint(item: overlayImageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 30)
+        let centerYConst = NSLayoutConstraint(item: overlayImageView, attribute: .centerY, relatedBy: .equal, toItem: superView, attribute: .centerY, multiplier: 1, constant: 0)
+        
+        NSLayoutConstraint.activate([width, height, centerXConst, centerYConst])
+    }
+}
