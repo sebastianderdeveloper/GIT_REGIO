@@ -832,6 +832,9 @@
                                                     <constraint firstAttribute="width" constant="65" id="VyK-Hd-B42"/>
                                                 </constraints>
                                                 <state key="normal" title="zurück"/>
+                                                <connections>
+                                                    <segue destination="yMT-Hv-XlH" kind="show" id="SiX-WY-FCO"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfX-vD-gzA">
                                                 <rect key="frame" x="16" y="207" width="53" height="23"/>
@@ -980,7 +983,7 @@
                         <outlet property="map" destination="Yyr-Nc-hsu" id="aKf-6j-ubk"/>
                         <outlet property="menge" destination="L4B-jl-JwB" id="aaX-bK-b1g"/>
                         <outlet property="preis" destination="num-9F-j3R" id="lKp-bl-YlF"/>
-                        <outlet property="zurück" destination="OSX-Ir-KTa" id="a3P-ut-B7l"/>
+                        <outlet property="zurück" destination="OSX-Ir-KTa" id="IK8-ww-3ju"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QnG-ee-PPn" sceneMemberID="firstResponder"/>
@@ -1593,6 +1596,7 @@
                                                 <state key="normal" title="zurück"/>
                                                 <connections>
                                                     <action selector="zurückTabbed:" destination="KVX-9L-eop" eventType="touchUpInside" id="6Hj-yF-7Zw"/>
+                                                    <segue destination="Fyh-PU-sCa" kind="show" id="Gcr-QX-7OB"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybk-Aw-IfS">
@@ -2803,7 +2807,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="47t-bW-Sou"/>
-        <segue reference="f0s-dt-FRg"/>
+        <segue reference="Gcr-QX-7OB"/>
+        <segue reference="SiX-WY-FCO"/>
         <segue reference="SBE-T6-3Fe"/>
         <segue reference="PiX-Gn-nFD"/>
     </inferredMetricsTieBreakers>
