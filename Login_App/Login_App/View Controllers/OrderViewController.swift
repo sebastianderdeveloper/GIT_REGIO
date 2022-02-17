@@ -35,15 +35,22 @@ class OrderViewController: UIViewController,  UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var DateLabel: UILabel!
     
+    @IBOutlet weak var QRView: UIImageView!
     
     
     override func viewDidLoad() {
         
+        
         preis = 0
+        
         fetchArticles()
         designUI()
         gesamtPreis()
         shapeTableView.reloadData()
+        
+        let QRimage = generateQRCode(from: "Hello, world!")
+        self.QRView.image = QRimage
+        
     }
     
     func fetchArticles(){
@@ -69,18 +76,20 @@ class OrderViewController: UIViewController,  UITableViewDelegate, UITableViewDa
                 let longitude = data["longitude"] as? NSNumber ?? 0
                 let latitude = data["latitude"] as? NSNumber ?? 0
                 let anzahl = data["anzahl"] as? Int ?? 1
+                let date = data["date"] as? String ?? ""
                     //let kategorie = data["kategorie"] as? String ?? ""
                 //print("preissss")
                 //print(preis)
                 
                 
-                self.artikelList.append(Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl))
+                self.artikelList.append(Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl, date: date))
                 //self.articlesArray.append (Article(name: name, kategorie: kategorie))
-                return Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl)
+                return Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl, date: date)
                 }
-            
+            self.gesamtPreis()
         }
         
+       
         shapeTableView.reloadData()
     }
     
@@ -92,14 +101,23 @@ class OrderViewController: UIViewController,  UITableViewDelegate, UITableViewDa
         }
     
     func gesamtPreis(){
+       
+        print("größe\(artikelList.count)")
+        var date = ""
         for artikel in artikelList {
             preis = preis + artikel.preis.doubleValue * Double(artikel.anzahl)
             print("preis")
             print(artikel.preis.doubleValue ?? "")
+            print("date")
+            print(artikel.date)
+            date = artikel.date ?? ""
         }
-        print("preis")
-        print(artikelList)
+       
         
+        
+        
+        shapeTableView.reloadData()
+        DateLabel.text = date
         PreisLabel.text=String(preis) + "€"
         preis = 0.00
     }
@@ -173,7 +191,7 @@ class OrderViewController: UIViewController,  UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        gesamtPreis()
+        
         let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! TableViewCell2
         
         let thisArtikel: Artikel!
@@ -197,6 +215,14 @@ class OrderViewController: UIViewController,  UITableViewDelegate, UITableViewDa
 
     
 
-    
+    func generateQRCode(from string: String) -> UIImage? {
+        let data = string.data(using: String.Encoding.ascii)
+        if let QRFilter = CIFilter(name: "CIQRCodeGenerator") {
+            QRFilter.setValue(data, forKey: "inputMessage")
+            guard let QRImage = QRFilter.outputImage else {return nil}
+            return UIImage(ciImage: QRImage)
+        }
+        return nil
+    }
 
 }

@@ -236,6 +236,8 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
              print("artikelList GGGGG")
                 // print(self.artikelList.count)
              self.exist = false
+            
+            
         }
        
        
@@ -275,7 +277,8 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
                         "adresse": selectedArtikel.adresse ?? "",
                         "longitude": selectedArtikel.longitude ?? 0,
                         "latitude": selectedArtikel.latitude ?? 0,
-                        "anzahl": anzahl
+                        "anzahl": anzahl,
+                        "date": ""
         ])
         
     }

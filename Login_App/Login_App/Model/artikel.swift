@@ -20,6 +20,7 @@ struct Artikel {
     var longitude: NSNumber!
     var latitude: NSNumber!
     var anzahl: Int = 1
+    var date: String!
 }
 
 

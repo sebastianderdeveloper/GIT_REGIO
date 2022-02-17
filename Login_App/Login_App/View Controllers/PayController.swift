@@ -258,11 +258,29 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
 
     
     @IBAction func buyTabbed(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "PayVc") as! PayController
-       // newViewController.artikelList.append(self.selectedArtikel)
-        //OpenOrdersViewController.artikelList.append(selectedArtikel)
-        self.present(newViewController, animated: true, completion: nil)
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        dateFormatter.string(from: date)
+        
+        let userID : String = (Auth.auth().currentUser?.uid)!
+           print("update!!!!!!")
+        let selA = db.collection("Openorders: " + userID).document((artikelList.first?.name)!)
+
+        for artikel in self.artikelList {
+            let selA = db.collection("Openorders: " + userID).document(artikel.name)
+            selA.updateData([
+                "date": dateFormatter.string(from: date)
+            ]) { err in
+                if let err = err {
+                    print("Error updating document: \(err)")
+                } else {
+                    print("Document successfully updated")
+                }
+            }
+        }
+        // Set the "capital" field of the city 'DC'
+        
     }
 
     
