@@ -258,12 +258,44 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
 
     
     @IBAction func buyTabbed(_ sender: Any) {
+        
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
-        dateFormatter.string(from: date)
-        
+       
         let userID : String = (Auth.auth().currentUser?.uid)!
+           print("Current user ID is" + userID)
+        
+        for artikel in self.artikelList {
+            let docRef = db.collection("Basket " + userID).document("closedBasket").collection(dateFormatter.string(from: date)).document(artikel.name)
+            
+          
+           
+                docRef.setData(["name": artikel.name ?? "",
+                                "imageName": artikel.imageName ?? "",
+                                "kategorie": artikel.kategorie ?? "",
+                                "preis": artikel.preis ?? 0,
+                                "beschreibung": artikel.beschreibung ?? "",
+                                "inhaltsstoffe": artikel.inhaltsstoffe ?? "",
+                                "menge": artikel.menge ?? "",
+                                "adresse": artikel.adresse ?? "",
+                                "longitude": artikel.longitude ?? 0,
+                                "latitude": artikel.latitude ?? 0,
+                                "anzahl": anzahl,
+                                "date": ""
+                ])
+        }
+        
+        
+        
+      /*  let docRef2 = db.collection("Basket " + userID).document("openBasketDate")
+        
+      
+        docRef2.setData(["date": dateFormatter.string(from: date) ?? ""
+        ])
+        
+       
+      
            print("update!!!!!!")
         let selA = db.collection("Openorders: " + userID).document((artikelList.first?.name)!)
 
@@ -281,6 +313,7 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
         }
         // Set the "capital" field of the city 'DC'
         
+        */
     }
 
     
