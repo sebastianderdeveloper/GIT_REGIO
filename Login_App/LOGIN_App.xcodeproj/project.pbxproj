@@ -36,6 +36,7 @@
 		9EA025AA2779A40C00ACC918 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA025A92779A40C00ACC918 /* SearchViewController.swift */; };
 		9EAB677027AEA220001A5427 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAB676F27AEA220001A5427 /* OrderViewController.swift */; };
 		9EAB677327AEA88E001A5427 /* TableViewDetailPayedOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAB677227AEA88E001A5427 /* TableViewDetailPayedOrder.swift */; };
+		9EB2315327BF927900412FB3 /* TableViewCell3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB2315227BF927900412FB3 /* TableViewCell3.swift */; };
 		9EC6AACC27AC14020024B9F8 /* ClosedOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC6AACB27AC14020024B9F8 /* ClosedOrdersViewController.swift */; };
 		9EC6AAE827AC2EDC0024B9F8 /* PayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC6AAE727AC2EDC0024B9F8 /* PayController.swift */; };
 		9ECF37CD278EFC5B00A9B8AF /* TableViewDetailOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECF37CC278EFC5B00A9B8AF /* TableViewDetailOrder.swift */; };
@@ -82,6 +83,7 @@
 		9EA025A92779A40C00ACC918 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9EAB676F27AEA220001A5427 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		9EAB677227AEA88E001A5427 /* TableViewDetailPayedOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDetailPayedOrder.swift; sourceTree = "<group>"; };
+		9EB2315227BF927900412FB3 /* TableViewCell3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell3.swift; sourceTree = "<group>"; };
 		9EC6AACB27AC14020024B9F8 /* ClosedOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosedOrdersViewController.swift; sourceTree = "<group>"; };
 		9EC6AAE727AC2EDC0024B9F8 /* PayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayController.swift; sourceTree = "<group>"; };
 		9ECF37CC278EFC5B00A9B8AF /* TableViewDetailOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDetailOrder.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				9E8ED790278C63F800DACC00 /* TableViewCell2.swift */,
 				9E63BEDB27AD17380056D1BB /* PayMethod.xib */,
 				9E63BEDE27AD199C0056D1BB /* PayMethod.swift */,
+				9EB2315227BF927900412FB3 /* TableViewCell3.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				9E377C832734474F00F806B2 /* SignUpViewController.swift in Sources */,
 				9EC6AAE827AC2EDC0024B9F8 /* PayController.swift in Sources */,
 				9EAB677327AEA88E001A5427 /* TableViewDetailPayedOrder.swift in Sources */,
+				9EB2315327BF927900412FB3 /* TableViewCell3.swift in Sources */,
 				9EC6AACC27AC14020024B9F8 /* ClosedOrdersViewController.swift in Sources */,
 				9E377C9427344B9F00F806B2 /* HomeViewController.swift in Sources */,
 				9ECF39A3273FF383003F1C8C /* Constants.swift in Sources */,

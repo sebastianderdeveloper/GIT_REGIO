@@ -16,7 +16,7 @@ class ClosedOrdersViewController: UIViewController,  UITableViewDelegate, UITabl
     
     //static var artikelList = [Artikel]()
     var artikelList = [Artikel]()
-
+    var datesList = [String]()
  
     var a = Artikel()
     var preis = 0.00
@@ -40,8 +40,35 @@ class ClosedOrdersViewController: UIViewController,  UITableViewDelegate, UITabl
     override func viewDidLoad() {
         
         preis = 0
+        
         fetchArticles()
         designUI()
+        getDates()
+        shapeTableView.reloadData()
+    }
+    
+    func getDates(){
+        let userID : String = (Auth.auth().currentUser?.uid)!
+           print("Current user ID is" + userID)
+        
+        db.collection("Dates " + userID).addSnapshotListener { (querySnapshot, error) in
+                guard let documents = querySnapshot?.documents else {
+                    //print("No documents")
+                    return
+                }
+                
+            self.datesList = documents.map { (queryDocumentSnapshot) -> String in
+                let data = queryDocumentSnapshot.data()
+                let date = data["date"] as? String ?? ""
+                print("date")
+                print(date)
+                
+                self.datesList.append(date)
+                //self.articlesArray.append (Article(name: name, kategorie: kategorie))
+                return date
+                }
+            
+        }
         
         shapeTableView.reloadData()
     }
@@ -50,7 +77,7 @@ class ClosedOrdersViewController: UIViewController,  UITableViewDelegate, UITabl
         let userID : String = (Auth.auth().currentUser?.uid)!
            print("Current user ID is" + userID)
         
-        db.collection("Openorders: " + userID).addSnapshotListener { (querySnapshot, error) in
+        db.collection("Basket " + userID).document("closedBasket").collection("17.02.2022").addSnapshotListener { (querySnapshot, error) in
                 guard let documents = querySnapshot?.documents else {
                     //print("No documents")
                     return
@@ -71,7 +98,7 @@ class ClosedOrdersViewController: UIViewController,  UITableViewDelegate, UITabl
                 let anzahl = data["anzahl"] as? Int ?? 1
                     //let kategorie = data["kategorie"] as? String ?? ""
                 //print("preissss")
-                //print(preis)
+                print(preis)
                 
                 
                 self.artikelList.append(Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl))
@@ -157,41 +184,30 @@ class ClosedOrdersViewController: UIViewController,  UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return artikelList.count
+        return datesList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
-        let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! TableViewCell2
+        let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! TableViewCell3
         
-        let thisArtikel: Artikel!
+        let thisDate: String!
         
         
         print(indexPath.row)
-        thisArtikel = artikelList[indexPath.row]
+        thisDate = datesList[indexPath.row]
         
         
         //selectedArtikel.anzahl = thisArtikel.anzahl
         
-        tableViewCell.artikelPreis.text = thisArtikel.preis.stringValue + "€"
-        tableViewCell.artikelOrt.text = thisArtikel.adresse
-        tableViewCell.artikelName.text =  thisArtikel.name
-        tableViewCell.artikelBild.image = UIImage(named: thisArtikel.imageName)
-        tableViewCell.artikelAnzahl.text = "x" + String(thisArtikel.anzahl)
+        tableViewCell.orderDate.text = thisDate
         
         
         return tableViewCell
     }
 
     
-    @IBAction func buyTabbed(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "PayVc") as! PayController
-       // newViewController.artikelList.append(self.selectedArtikel)
-        //OpenOrdersViewController.artikelList.append(selectedArtikel)
-        self.present(newViewController, animated: true, completion: nil)
-    }
-    
+
 
 }
 
