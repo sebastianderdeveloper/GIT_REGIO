@@ -10,10 +10,11 @@ import FirebaseAuth
 
 
 class ViewController: UIViewController {
+    
+    
+    var date = ""
 
     @IBOutlet weak var signUpButton: UIButton!
-    
-    
     
     @IBOutlet weak var loginButton: UIButton!
     

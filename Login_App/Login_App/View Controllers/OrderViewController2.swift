@@ -16,7 +16,7 @@ class OrderViewController2: UIViewController,  UITableViewDelegate, UITableViewD
     //static var artikelList = [Artikel]()
     var artikelList = [Artikel]()
 
- 
+    var date = ""
     var a = Artikel()
     var preis = 0.00
     var anzahl = 0
@@ -62,7 +62,7 @@ class OrderViewController2: UIViewController,  UITableViewDelegate, UITableViewD
         let userID : String = (Auth.auth().currentUser?.uid)!
            print("Current user ID is" + userID)
         
-        db.collection("Openorders: " + userID).addSnapshotListener { (querySnapshot, error) in
+        db.collection("Basket " + userID).document("closedBasket").collection(date).addSnapshotListener { (querySnapshot, error) in
                 guard let documents = querySnapshot?.documents else {
                     //print("No documents")
                     return
@@ -115,14 +115,12 @@ class OrderViewController2: UIViewController,  UITableViewDelegate, UITableViewD
     func gesamtPreis(){
        
         print("größe\(artikelList.count)")
-        var date = ""
+        
         for artikel in artikelList {
             preis = preis + artikel.preis.doubleValue * Double(artikel.anzahl)
             print("preis")
             print(artikel.preis.doubleValue ?? "")
-            print("date")
-            print(artikel.date)
-            date = artikel.date ?? ""
+            
         }
        
         
