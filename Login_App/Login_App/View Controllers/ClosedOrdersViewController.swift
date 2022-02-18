@@ -201,6 +201,7 @@ class ClosedOrdersViewController: UIViewController,  UITableViewDelegate, UITabl
         //selectedArtikel.anzahl = thisArtikel.anzahl
         
         tableViewCell.orderDate.text = thisDate
+        tableViewCell.basketImage.image = UIImage(named: "shoppingBasket")
         
         
         return tableViewCell

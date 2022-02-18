@@ -13,6 +13,7 @@ class TableViewCell3 : UITableViewCell
 {
     
 
-   
+    @IBOutlet weak var basketImage: UIImageView!
+    
     @IBOutlet weak var orderDate: UILabel!
 }

@@ -2709,30 +2709,39 @@
                                     <segue destination="Fyh-PU-sCa" kind="show" id="fxN-lV-4Xq"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sd1-uS-bGD">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sd1-uS-bGD">
                                 <rect key="frame" x="20" y="224" width="374" height="579"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCellID" id="adg-Wg-EWd" customClass="TableViewCell3" customModule="LOGIN_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCellID" rowHeight="74" id="adg-Wg-EWd" customClass="TableViewCell3" customModule="LOGIN_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="adg-Wg-EWd" id="3hQ-Ix-q7z">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Circle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEK-z6-rUC">
-                                                    <rect key="frame" x="20" y="35" width="64" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                                    <rect key="frame" x="20" y="25.5" width="50" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wBa-BW-MV7">
+                                                    <rect key="frame" x="309" y="14" width="45" height="46"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="JEK-z6-rUC" firstAttribute="leading" secondItem="3hQ-Ix-q7z" secondAttribute="leadingMargin" id="ve4-xM-ztk"/>
+                                                <constraint firstItem="wBa-BW-MV7" firstAttribute="top" secondItem="3hQ-Ix-q7z" secondAttribute="topMargin" constant="3" id="27w-U2-PM1"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="wBa-BW-MV7" secondAttribute="bottom" constant="3" id="33k-Di-ifo"/>
+                                                <constraint firstItem="JEK-z6-rUC" firstAttribute="leading" secondItem="3hQ-Ix-q7z" secondAttribute="leadingMargin" id="3hL-z7-Qay"/>
+                                                <constraint firstItem="wBa-BW-MV7" firstAttribute="centerY" secondItem="3hQ-Ix-q7z" secondAttribute="centerY" id="9Oe-Gd-dsC"/>
+                                                <constraint firstItem="wBa-BW-MV7" firstAttribute="leading" secondItem="3hQ-Ix-q7z" secondAttribute="leadingMargin" constant="289" id="S2T-AC-wsH"/>
+                                                <constraint firstItem="wBa-BW-MV7" firstAttribute="trailing" secondItem="3hQ-Ix-q7z" secondAttribute="trailingMargin" id="cQO-21-Q7K"/>
                                                 <constraint firstItem="JEK-z6-rUC" firstAttribute="centerY" secondItem="3hQ-Ix-q7z" secondAttribute="centerY" id="x9C-iz-26F"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="basketImage" destination="wBa-BW-MV7" id="sns-aD-1Th"/>
                                             <outlet property="orderDate" destination="JEK-z6-rUC" id="Vv2-gi-6Uk"/>
                                         </connections>
                                     </tableViewCell>
