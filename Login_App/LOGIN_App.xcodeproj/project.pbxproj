@@ -10,6 +10,7 @@
 		68DE05F7CF44854CEA1CEE2B /* Pods_LOGIN_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525B37E4B8F4D2A2CC155A6C /* Pods_LOGIN_App.framework */; };
 		9E09E1C5278872FD00462F6E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E09E1C4278872FD00462F6E /* MapViewController.swift */; };
 		9E12A34B27818E690029AA93 /* EntdeckeUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E12A34A27818E690029AA93 /* EntdeckeUI.swift */; };
+		9E14721327BF9A0D0047ACBF /* OrderViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E14721227BF9A0D0047ACBF /* OrderViewController2.swift */; };
 		9E2D1B542778BDC700E1EAC2 /* article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2D1B532778BDC700E1EAC2 /* article.swift */; };
 		9E32874F278188E200F6811B /* EntdeckeUI.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E32874E278188E200F6811B /* EntdeckeUI.xib */; };
 		9E377C4B2734242B00F806B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E377C4A2734242B00F806B2 /* AppDelegate.swift */; };
@@ -55,6 +56,7 @@
 		9C9D28918FF5F7F280D20425 /* Pods-Login_App-Login_AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login_App-Login_AppUITests.release.xcconfig"; path = "Target Support Files/Pods-Login_App-Login_AppUITests/Pods-Login_App-Login_AppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9E09E1C4278872FD00462F6E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9E12A34A27818E690029AA93 /* EntdeckeUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntdeckeUI.swift; sourceTree = "<group>"; };
+		9E14721227BF9A0D0047ACBF /* OrderViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController2.swift; sourceTree = "<group>"; };
 		9E2D1B532778BDC700E1EAC2 /* article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = article.swift; sourceTree = "<group>"; };
 		9E32874E278188E200F6811B /* EntdeckeUI.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EntdeckeUI.xib; sourceTree = "<group>"; };
 		9E377C472734242B00F806B2 /* LOGIN_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LOGIN_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +201,7 @@
 				9EC6AACB27AC14020024B9F8 /* ClosedOrdersViewController.swift */,
 				9EC6AAE727AC2EDC0024B9F8 /* PayController.swift */,
 				9EAB676F27AEA220001A5427 /* OrderViewController.swift */,
+				9E14721227BF9A0D0047ACBF /* OrderViewController2.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				9E8ED791278C63F800DACC00 /* TableViewCell2.swift in Sources */,
 				9E377C4B2734242B00F806B2 /* AppDelegate.swift in Sources */,
 				9E939245277A0B8300EE3C9E /* artikel.swift in Sources */,
+				9E14721327BF9A0D0047ACBF /* OrderViewController2.swift in Sources */,
 				9E852002278886C0000BA29F /* Artwork.swift in Sources */,
 				9ECF37CD278EFC5B00A9B8AF /* TableViewDetailOrder.swift in Sources */,
 				9E9FF69F2777397A00BD3751 /* DayView.swift in Sources */,

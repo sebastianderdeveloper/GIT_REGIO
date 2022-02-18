@@ -170,14 +170,14 @@ class ClosedOrdersViewController: UIViewController,  UITableViewDelegate, UITabl
         {
             let indexPath = self.shapeTableView.indexPathForSelectedRow!
             
-            let tableViewDetail = segue.destination as? TableViewDetailOrder
+            let tableViewDetail = segue.destination as? OrderViewController2
             
-            let selectedArtikel: Artikel!
+            /*let selectedArtikel: Artikel!
             
             selectedArtikel = artikelList[indexPath.row]
                
             tableViewDetail!.selectedArtikel = selectedArtikel
-            tableViewDetail!.entdecke = false
+            tableViewDetail!.entdecke = false*/
             
             self.shapeTableView.deselectRow(at: indexPath, animated: true)
         }
