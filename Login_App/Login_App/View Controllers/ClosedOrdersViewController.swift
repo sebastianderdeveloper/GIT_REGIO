@@ -1,14 +1,16 @@
+
 //
-//  ClosedOrdersViewController.swift
+//  openBaskets.swift
 //  LOGIN_App
 //
-//  Created by Sebastian on 03.02.22.
+//  Created by Sebastian Steiner on 10.01.22.
 //
 
 import Foundation
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
+
 
 class ClosedOrdersViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource{
     
@@ -22,23 +24,25 @@ class ClosedOrdersViewController: UIViewController,  UITableViewDelegate, UITabl
     var db = Firestore.firestore()
     var selectedArtikel: Artikel!
     
+    
+    
+
+    
+    @IBOutlet weak var shapeTableView: UITableView!
+    
     @IBOutlet weak var offeneBestellungen: UIButton!
-    
-    
     
     @IBOutlet weak var abgeschlosseneBestellungen: UIButton!
     
     
-    @IBOutlet weak var shapeTableView: UITableView!
     
-   
     
     override func viewDidLoad() {
         
         preis = 0
-        //fetchArticles()
+        fetchArticles()
         designUI()
-     
+        
         shapeTableView.reloadData()
     }
     
@@ -83,8 +87,9 @@ class ClosedOrdersViewController: UIViewController,  UITableViewDelegate, UITabl
     func designUI(){
         Utilities.styleHollowButton(offeneBestellungen)
         Utilities.styleFilledButton(abgeschlosseneBestellungen)
-        
+      
         }
+    
   
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
@@ -156,7 +161,7 @@ class ClosedOrdersViewController: UIViewController,  UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+       
         let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! TableViewCell2
         
         let thisArtikel: Artikel!
@@ -179,7 +184,13 @@ class ClosedOrdersViewController: UIViewController,  UITableViewDelegate, UITabl
     }
 
     
-  
+    @IBAction func buyTabbed(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "PayVc") as! PayController
+       // newViewController.artikelList.append(self.selectedArtikel)
+        //OpenOrdersViewController.artikelList.append(selectedArtikel)
+        self.present(newViewController, animated: true, completion: nil)
+    }
     
 
 }

@@ -288,17 +288,20 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
         
         
         
-      /*  let docRef2 = db.collection("Basket " + userID).document("openBasketDate")
-        
-      
-        docRef2.setData(["date": dateFormatter.string(from: date) ?? ""
-        ])
+        db.collection("Dates " + userID).document(dateFormatter.string(from: date)).setData([
+            "date": dateFormatter.string(from: date)
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
         
        
       
-           print("update!!!!!!")
-        let selA = db.collection("Openorders: " + userID).document((artikelList.first?.name)!)
-
+           
+      
         for artikel in self.artikelList {
             let selA = db.collection("Openorders: " + userID).document(artikel.name)
             selA.updateData([
@@ -311,9 +314,11 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
                 }
             }
         }
+        
+        
         // Set the "capital" field of the city 'DC'
         
-        */
+        
     }
 
     
