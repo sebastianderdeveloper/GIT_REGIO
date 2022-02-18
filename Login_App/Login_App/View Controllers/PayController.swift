@@ -241,16 +241,20 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
         
         
         print(indexPath.row)
-        thisArtikel = artikelList[indexPath.row]
+        if(artikelList.indices.contains(indexPath.row)){
+            thisArtikel = artikelList[indexPath.row]
+            tableViewCell.artikelPreis.text = thisArtikel.preis.stringValue + "€"
+            tableViewCell.artikelOrt.text = thisArtikel.adresse
+            tableViewCell.artikelName.text =  thisArtikel.name
+            tableViewCell.artikelBild.image = UIImage(named: thisArtikel.imageName)
+            tableViewCell.artikelAnzahl.text = "x" + String(thisArtikel.anzahl)
+            
+        }
+        
         
         
         //selectedArtikel.anzahl = thisArtikel.anzahl
         
-        tableViewCell.artikelPreis.text = thisArtikel.preis.stringValue + "€"
-        tableViewCell.artikelOrt.text = thisArtikel.adresse
-        tableViewCell.artikelName.text =  thisArtikel.name
-        tableViewCell.artikelBild.image = UIImage(named: thisArtikel.imageName)
-        tableViewCell.artikelAnzahl.text = "x" + String(thisArtikel.anzahl)
         
         
         return tableViewCell
@@ -261,7 +265,7 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
         
         let date = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"
+        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
        
         let userID : String = (Auth.auth().currentUser?.uid)!
            print("Current user ID is" + userID)
@@ -281,9 +285,11 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
                                 "adresse": artikel.adresse ?? "",
                                 "longitude": artikel.longitude ?? 0,
                                 "latitude": artikel.latitude ?? 0,
-                                "anzahl": anzahl,
-                                "date": ""
+                                "anzahl": artikel.preis ,
+                                "date": date ?? ""
                 ])
+            
+            
         }
         
         
@@ -318,7 +324,11 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
         
         // Set the "capital" field of the city 'DC'
         
-        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "PayedVc") as! OrderViewController
+       
+        //newViewController.kategorie=text
+        self.present(newViewController, animated: true, completion: nil)
     }
 
     

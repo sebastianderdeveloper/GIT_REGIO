@@ -201,7 +201,7 @@ class OrderViewController2: UIViewController,  UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        //gesamtPreis()
         let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! TableViewCell2
         
         let thisArtikel: Artikel!

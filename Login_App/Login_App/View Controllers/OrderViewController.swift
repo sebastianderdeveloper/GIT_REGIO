@@ -95,7 +95,7 @@ class OrderViewController: UIViewController,  UITableViewDelegate, UITableViewDa
             
             let date = Date()
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd.MM.yyyy"
+            dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
             dateFormatter.string(from: date)
             
             self.gesamtPreis()
