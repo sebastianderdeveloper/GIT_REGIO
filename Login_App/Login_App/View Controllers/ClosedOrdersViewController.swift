@@ -40,10 +40,10 @@ class ClosedOrdersViewController: UIViewController,  UITableViewDelegate, UITabl
     override func viewDidLoad() {
         
         preis = 0
-        
+        getDates()
         fetchArticles()
         designUI()
-        getDates()
+        
         shapeTableView.reloadData()
     }
     
@@ -67,9 +67,9 @@ class ClosedOrdersViewController: UIViewController,  UITableViewDelegate, UITabl
                 //self.articlesArray.append (Article(name: name, kategorie: kategorie))
                 return date
                 }
-            
+            self.fetchArticles()
         }
-        
+        fetchArticles()
         shapeTableView.reloadData()
     }
     
@@ -105,7 +105,7 @@ class ClosedOrdersViewController: UIViewController,  UITableViewDelegate, UITabl
                 //self.articlesArray.append (Article(name: name, kategorie: kategorie))
                 return Artikel(name: name, imageName: bild, kategorie: kategorie, preis: preis, beschreibung: beschreibung, inhaltsstoffe: inhaltsstoffe, menge: menge, adresse: adresse, longitude: longitude, latitude: latitude, anzahl: anzahl)
                 }
-            
+            self.shapeTableView.reloadData()
         }
         
         shapeTableView.reloadData()
