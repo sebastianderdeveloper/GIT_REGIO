@@ -6,7 +6,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 {
 
 	
-	@IBOutlet weak var shapeTableView: UITableView!
+    @IBOutlet var myView: UIView!
+    @IBOutlet weak var shapeTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     
@@ -23,6 +24,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     private var db = Firestore.firestore()
     @Published var articles = [Article]()
 	
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+   
 	override func viewDidLoad()
 	{
         searchBar.becomeFirstResponder()
@@ -35,7 +42,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 		super.viewDidLoad()
         setKategorie()
         initList(searchString: searchString, searchScopeButton: selectedScopeIndex)
-        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+            //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+            //tap.cancelsTouchesInView = false
+
+            myView.addGestureRecognizer(tap)
         
         
 		

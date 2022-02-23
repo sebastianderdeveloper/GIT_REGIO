@@ -12,6 +12,7 @@ import CoreLocation
 
 class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegate {
 
+    @IBOutlet var myView: UIView!
     
     @IBOutlet weak var homeButton: UIButton!
     
@@ -66,6 +67,13 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
         fetchData()
         fetchEntdeckeArtikel()
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+            //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+            //tap.cancelsTouchesInView = false
+
+            myView.addGestureRecognizer(tap)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(kategoriePost), name: Notification.Name("kategoriePost"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(namePost), name: Notification.Name("namePost"), object: nil)
 
@@ -105,6 +113,13 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
         
         
     }
+    
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+   
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             print("searchText \(searchText)")
