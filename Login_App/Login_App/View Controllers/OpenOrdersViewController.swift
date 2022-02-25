@@ -27,7 +27,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     
     @IBOutlet weak var abgeschlosseneBestellungen: UIButton!
     
-    @IBOutlet weak var routeÖffnen: UIButton!
+    
     
     @IBOutlet weak var bezahlen: UIButton!
     
@@ -87,7 +87,7 @@ class OpenOrdersViewController: UIViewController,  UITableViewDelegate, UITableV
     func designUI(){
         Utilities.styleFilledButton(offeneBestellungen)
         Utilities.styleHollowButton(abgeschlosseneBestellungen)
-        Utilities.styleHollowButton(routeÖffnen)
+        //Utilities.styleHollowButton(routeÖffnen)
         Utilities.styleFilledButton(bezahlen)
         }
     

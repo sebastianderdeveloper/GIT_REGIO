@@ -126,6 +126,7 @@ class HomeViewController: UIViewController, ObservableObject, UISearchBarDelegat
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "TableVC") as! TableViewController
         newViewController.searchString = searchText
+      
         self.present(newViewController, animated: true, completion: nil)
         
         //self.searchString = searchText

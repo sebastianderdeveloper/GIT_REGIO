@@ -147,7 +147,7 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
     
     func designUI(){
         Utilities.styleFilledButton(payMoney)
-        Utilities.styleHollowButton(openRoute)
+        
         scrollView.showsHorizontalScrollIndicator = false
         shapeTableView.showsVerticalScrollIndicator = false
         }

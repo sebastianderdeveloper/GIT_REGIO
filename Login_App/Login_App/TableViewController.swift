@@ -30,7 +30,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 	override func viewDidLoad()
 	{
         
-        //searchBar.becomeFirstResponder()
+        searchBar.becomeFirstResponder()
         
         searchBar.selectedScopeButtonIndex = 0
         searchBar.searchBarStyle = .minimal
@@ -51,8 +51,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
    
 	}
     
-
-  
+    
     
     func setKategorie(){
         if(kategorie=="Obst"){
