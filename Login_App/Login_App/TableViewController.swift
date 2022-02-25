@@ -31,6 +31,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 	{
         
         //searchBar.becomeFirstResponder()
+        
         searchBar.selectedScopeButtonIndex = 0
         searchBar.searchBarStyle = .minimal
         searchBar.searchTextField.text = searchString
@@ -46,7 +47,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 		
         searchBar.delegate = self
         
-      
+        
    
 	}
     
@@ -117,6 +118,22 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         searchBar.placeholder=""
         
     }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar){
+        searchBar.showsCancelButton=true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar){
+        searchBar.showsCancelButton=false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar){
+        view.endEditing(true)
+        searchBar.text=""
+        initList(searchString: "", searchScopeButton: 0)
+        
+    }
+    
 	
     var name = ""
     var kategorie = ""
