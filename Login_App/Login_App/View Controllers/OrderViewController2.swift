@@ -123,8 +123,13 @@ class OrderViewController2: UIViewController,  UITableViewDelegate, UITableViewD
             print("preis")
             print(artikel.preis.doubleValue ?? "")
             
+            
         }
        
+        
+        
+        //var preisString = String(preis)
+       // let index = preisString.index(preisString.firstIndex(of: ".")?.utf16Offset(in: "hold") , offsetBy: 2)
         
         
         

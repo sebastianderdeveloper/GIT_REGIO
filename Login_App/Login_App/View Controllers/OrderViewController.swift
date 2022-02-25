@@ -26,6 +26,7 @@ class OrderViewController: UIViewController,  UITableViewDelegate, UITableViewDa
     
     
     
+    @IBOutlet weak var zurückButton: UIButton!
     
     
     @IBOutlet weak var shapeTableView: UITableView!
@@ -55,6 +56,7 @@ class OrderViewController: UIViewController,  UITableViewDelegate, UITableViewDa
         
         /*let QRimage = generateQRCode(from: "Hello, world!")
         self.QRView.image = QRimage*/
+        
         
     }
     
@@ -110,7 +112,8 @@ class OrderViewController: UIViewController,  UITableViewDelegate, UITableViewDa
         Utilities.styleHollowButton(abgeschlosseneBestellungen)
         Utilities.styleHollowButton(routeÖffnen)
         Utilities.styleFilledButton(bezahlen) */
-        }
+        Utilities.styleHollowButton(zurückButton)
+    }
     
     func gesamtPreis(){
        

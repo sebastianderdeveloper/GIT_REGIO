@@ -39,14 +39,14 @@
                                             <action selector="enterTriggered:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="AZo-cT-g9Z"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8y-bP-7TF">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nj0-IV-gPg">
                                         <rect key="frame" x="0.0" y="128" width="334" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="XfG-fR-WzQ"/>
+                                            <constraint firstAttribute="height" constant="34" id="633-hw-e1b"/>
                                         </constraints>
                                         <state key="normal" title="Log In"/>
                                         <connections>
-                                            <action selector="logginTabbed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Vq-w7-dzC"/>
+                                            <action selector="logginTabbed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CrR-PJ-4z3"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7YG-VN-nEB">
@@ -81,7 +81,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IYG-k1-BIi" secondAttribute="bottom" constant="23" id="0BF-Ud-aJ6"/>
-                            <constraint firstItem="IYG-k1-BIi" firstAttribute="top" secondItem="eiQ-NL-cYS" secondAttribute="bottom" constant="228" id="6CW-MF-0hA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="O0W-6B-YKG" secondAttribute="trailing" constant="95" id="6Kd-AP-EPE"/>
                             <constraint firstItem="O0W-6B-YKG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="95" id="O1v-wB-nOp"/>
                             <constraint firstItem="IYG-k1-BIi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="RNL-VT-Vs3"/>
@@ -96,7 +95,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="zP4-wp-Ikp" id="T7g-Rl-AFH"/>
                         <outlet property="errorLabel" destination="7YG-VN-nEB" id="E7I-DH-f5C"/>
-                        <outlet property="loginButton" destination="v8y-bP-7TF" id="wEx-DP-oyx"/>
+                        <outlet property="loginButton" destination="Nj0-IV-gPg" id="MaG-UD-wMh"/>
                         <outlet property="myView" destination="8bC-Xf-vdC" id="4KL-Iv-Rga"/>
                         <outlet property="passwordTextField" destination="xbo-Wt-ns6" id="NhS-j3-hyz"/>
                         <outlet property="signUpButton" destination="IYG-k1-BIi" id="hBr-B9-gUk"/>
@@ -456,6 +455,9 @@
                                             <imageReference key="image" image="magnifyingglass.circle" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="yMT-Hv-XlH" kind="show" id="ToQ-nD-MJz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Un4-UJ-CBz">
                                         <rect key="frame" x="177" y="0.0" width="28.5" height="29.5"/>
@@ -474,6 +476,7 @@
                                         </state>
                                         <connections>
                                             <action selector="card:" destination="C1Q-KS-Xxg" eventType="touchUpInside" id="Q6P-gu-FwR"/>
+                                            <segue destination="Fyh-PU-sCa" kind="show" id="we1-wb-TIM"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -615,6 +618,9 @@
                                             <imageReference key="image" image="mappin.circle" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="C1Q-KS-Xxg" kind="show" id="bCp-Rz-3ca"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGo-qK-yTl">
                                         <rect key="frame" x="262.5" y="0.0" width="71.5" height="29.5"/>
@@ -623,6 +629,9 @@
                                             <imageReference key="image" image="cart" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Fyh-PU-sCa" kind="show" id="90Y-vO-Xbu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -942,6 +951,9 @@
                                             <imageReference key="image" image="magnifyingglass.circle.fill" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="yMT-Hv-XlH" kind="show" id="POq-S6-Skw"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Oj-fI-mC2">
                                         <rect key="frame" x="177" y="0.0" width="28.5" height="29.5"/>
@@ -950,6 +962,9 @@
                                             <imageReference key="image" image="mappin.circle" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="C1Q-KS-Xxg" kind="show" id="fIK-Px-sdo"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyp-OS-0Ze">
                                         <rect key="frame" x="262.5" y="0.0" width="71.5" height="29.5"/>
@@ -958,6 +973,9 @@
                                             <imageReference key="image" image="cart" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Fyh-PU-sCa" kind="show" id="p1q-3p-M3b"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -1034,6 +1052,9 @@
                                             <imageReference key="image" image="magnifyingglass.circle" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="yMT-Hv-XlH" kind="show" id="bFR-Kh-wMM"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzc-XE-1Nq">
                                         <rect key="frame" x="177" y="0.0" width="28.5" height="29.5"/>
@@ -1042,6 +1063,9 @@
                                             <imageReference key="image" image="mappin.circle" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="C1Q-KS-Xxg" kind="show" id="cRQ-sZ-EAc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXY-Wh-osK">
                                         <rect key="frame" x="262.5" y="0.0" width="71.5" height="29.5"/>
@@ -1485,6 +1509,9 @@
                                             <imageReference key="image" image="magnifyingglass.circle.fill" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="yMT-Hv-XlH" kind="show" id="o8m-LB-q8c"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfR-jx-clz">
                                         <rect key="frame" x="177" y="0.0" width="28.5" height="29.5"/>
@@ -1757,6 +1784,9 @@
                                             <imageReference key="image" image="magnifyingglass.circle.fill" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="yMT-Hv-XlH" kind="show" id="ZTP-zJ-fwH"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8M-jn-aH8">
                                         <rect key="frame" x="177" y="0.0" width="28.5" height="29.5"/>
@@ -1765,6 +1795,9 @@
                                             <imageReference key="image" image="mappin.circle" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="C1Q-KS-Xxg" kind="show" id="ftL-LY-xaF"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XoR-U2-fNe">
                                         <rect key="frame" x="262.5" y="0.0" width="71.5" height="29.5"/>
@@ -1773,6 +1806,9 @@
                                             <imageReference key="image" image="cart" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Fyh-PU-sCa" kind="show" id="7Se-nm-nCk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -2029,6 +2065,9 @@
                                             <imageReference key="image" image="magnifyingglass.circle.fill" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="yMT-Hv-XlH" kind="show" id="Clf-8v-4on"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8q-Vg-O50">
                                         <rect key="frame" x="177" y="0.0" width="28.5" height="29.5"/>
@@ -2037,6 +2076,9 @@
                                             <imageReference key="image" image="mappin.circle" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="C1Q-KS-Xxg" kind="show" id="gIW-wE-as3"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9O-5W-NCI">
                                         <rect key="frame" x="262.5" y="0.0" width="71.5" height="29.5"/>
@@ -2045,6 +2087,9 @@
                                             <imageReference key="image" image="cart" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Fyh-PU-sCa" kind="show" id="gfF-th-rNK"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -2121,6 +2166,9 @@
                                             <imageReference key="image" image="magnifyingglass.circle" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="yMT-Hv-XlH" kind="show" id="SQU-kF-Mk5"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D12-MV-VFR">
                                         <rect key="frame" x="177" y="0.0" width="28.5" height="29.5"/>
@@ -2129,6 +2177,9 @@
                                             <imageReference key="image" image="mappin.circle" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="C1Q-KS-Xxg" kind="show" id="qQu-X4-XMj"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Hq-7l-V1H">
                                         <rect key="frame" x="262.5" y="0.0" width="71.5" height="29.5"/>
@@ -2137,6 +2188,9 @@
                                             <imageReference key="image" image="cart.fill" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Fyh-PU-sCa" kind="show" id="vAl-y7-3Z5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -2381,6 +2435,9 @@
                                             <imageReference key="image" image="magnifyingglass.circle" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="yMT-Hv-XlH" kind="show" id="Oig-ET-Lhl"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYA-A1-X6r">
                                         <rect key="frame" x="177" y="0.0" width="28.5" height="29.5"/>
@@ -2389,6 +2446,9 @@
                                             <imageReference key="image" image="mappin.circle" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="C1Q-KS-Xxg" kind="show" id="vjZ-Ma-sHa"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJM-fy-8mL">
                                         <rect key="frame" x="262.5" y="0.0" width="44" height="29.5"/>
@@ -2397,6 +2457,9 @@
                                             <imageReference key="image" image="cart.fill" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Fyh-PU-sCa" kind="show" id="dUS-b3-bkn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -2530,6 +2593,16 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Uj-8Z-DNb">
                                 <rect key="frame" x="139" y="690" width="108" height="108"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGd-or-rHJ">
+                                <rect key="frame" x="20" y="117" width="65" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="Hku-Ub-ACs"/>
+                                </constraints>
+                                <state key="normal" title="zurück"/>
+                                <connections>
+                                    <segue destination="LKP-PL-9ea" kind="show" id="at6-mg-ybJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hdN-O9-MRa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2548,6 +2621,7 @@
                             <constraint firstItem="eGr-rt-2UH" firstAttribute="top" secondItem="hdN-O9-MRa" secondAttribute="top" constant="73" id="KbY-H5-iOF"/>
                             <constraint firstItem="eGr-rt-2UH" firstAttribute="centerX" secondItem="ml4-5R-ena" secondAttribute="centerX" id="MCQ-kT-I2e"/>
                             <constraint firstItem="Z0K-8r-umL" firstAttribute="top" secondItem="LTW-tI-23x" secondAttribute="bottom" constant="7.5" id="PJE-MT-Xbl"/>
+                            <constraint firstItem="yGd-or-rHJ" firstAttribute="top" secondItem="EoC-gY-XRy" secondAttribute="bottom" constant="31" id="RwJ-92-ndQ"/>
                             <constraint firstItem="hdN-O9-MRa" firstAttribute="trailing" secondItem="xiI-qz-CP9" secondAttribute="trailing" constant="40" id="Sbt-dp-Pvf"/>
                             <constraint firstItem="EoC-gY-XRy" firstAttribute="leading" secondItem="hdN-O9-MRa" secondAttribute="leading" constant="40" id="Sea-Gq-VOS"/>
                             <constraint firstItem="Zgn-6X-RZh" firstAttribute="top" secondItem="Z0K-8r-umL" secondAttribute="bottom" constant="165" id="Wyu-Db-Qm1"/>
@@ -2555,6 +2629,7 @@
                             <constraint firstItem="xiI-qz-CP9" firstAttribute="top" secondItem="hdN-O9-MRa" secondAttribute="top" constant="12" id="YtB-HY-AFU"/>
                             <constraint firstItem="y86-oH-SFZ" firstAttribute="leading" secondItem="hdN-O9-MRa" secondAttribute="leading" constant="109" id="aRN-AD-FF4"/>
                             <constraint firstItem="hdN-O9-MRa" firstAttribute="trailing" secondItem="Z0K-8r-umL" secondAttribute="trailing" constant="23" id="eK8-w2-Kv0"/>
+                            <constraint firstItem="yGd-or-rHJ" firstAttribute="leading" secondItem="hdN-O9-MRa" secondAttribute="leading" constant="20" id="fxB-zE-FKv"/>
                             <constraint firstItem="IXS-L1-0Aa" firstAttribute="top" secondItem="eGr-rt-2UH" secondAttribute="bottom" constant="57.5" id="i29-Zr-F08"/>
                             <constraint firstItem="Z0K-8r-umL" firstAttribute="top" secondItem="LTW-tI-23x" secondAttribute="bottom" constant="7.5" id="iCo-HE-7KE"/>
                             <constraint firstItem="hdN-O9-MRa" firstAttribute="trailing" secondItem="1Uj-8Z-DNb" secondAttribute="trailing" constant="139.5" id="pIk-zw-zoM"/>
@@ -2571,6 +2646,7 @@
                         <outlet property="PreisLabel" destination="Z0K-8r-umL" id="8g3-ct-3jW"/>
                         <outlet property="QRView" destination="1Uj-8Z-DNb" id="7VW-mL-C4H"/>
                         <outlet property="shapeTableView" destination="IXS-L1-0Aa" id="YPE-LR-Nol"/>
+                        <outlet property="zurückButton" destination="yGd-or-rHJ" id="L16-md-5XW"/>
                         <segue destination="lyn-v4-Hm4" kind="show" identifier="detailSegue2" id="8ud-9g-Ens"/>
                     </connections>
                 </viewController>
@@ -2622,6 +2698,9 @@
                                             <imageReference key="image" image="mappin.circle" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="C1Q-KS-Xxg" kind="show" id="IiM-Vg-1qd"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sf5-an-4P2">
                                         <rect key="frame" x="262.5" y="0.0" width="71.5" height="29.5"/>
@@ -2797,6 +2876,9 @@
                                             <imageReference key="image" image="magnifyingglass.circle" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="yMT-Hv-XlH" kind="show" id="1za-CM-eWc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1K-4O-Bir">
                                         <rect key="frame" x="177" y="0.0" width="28.5" height="29.5"/>
@@ -2805,6 +2887,9 @@
                                             <imageReference key="image" image="mappin.circle" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="C1Q-KS-Xxg" kind="show" id="ur7-aK-4bL"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBp-CA-blj">
                                         <rect key="frame" x="262.5" y="0.0" width="71.5" height="29.5"/>
@@ -2813,6 +2898,9 @@
                                             <imageReference key="image" image="cart.fill" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Fyh-PU-sCa" kind="show" id="K9M-ei-ScM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -3007,10 +3095,11 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="8ud-9g-Ens"/>
-        <segue reference="1ML-1D-yhv"/>
-        <segue reference="cIO-Bg-yje"/>
-        <segue reference="dTd-b4-wmy"/>
-        <segue reference="Qrw-g4-EVr"/>
+        <segue reference="at6-mg-ybJ"/>
+        <segue reference="dUS-b3-bkn"/>
+        <segue reference="Oig-ET-Lhl"/>
+        <segue reference="vjZ-Ma-sHa"/>
+        <segue reference="kze-ZH-R35"/>
         <segue reference="PiX-Gn-nFD"/>
     </inferredMetricsTieBreakers>
     <resources>
