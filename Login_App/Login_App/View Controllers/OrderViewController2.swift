@@ -30,6 +30,7 @@ class OrderViewController2: UIViewController,  UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var shapeTableView: UITableView!
     
+    @IBOutlet weak var zurückButton: UIButton!
     
     @IBOutlet weak var PreisLabel: UILabel!
     
@@ -110,6 +111,7 @@ class OrderViewController2: UIViewController,  UITableViewDelegate, UITableViewD
         Utilities.styleHollowButton(abgeschlosseneBestellungen)
         Utilities.styleHollowButton(routeÖffnen)
         Utilities.styleFilledButton(bezahlen) */
+        Utilities.styleHollowButton(zurückButton)
         }
     
     func gesamtPreis(){

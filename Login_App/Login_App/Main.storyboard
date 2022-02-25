@@ -3029,6 +3029,7 @@
                         <outlet property="PreisLabel" destination="BUf-ZD-1MT" id="7EI-4Q-VRh"/>
                         <outlet property="QRView" destination="EHh-Su-qqf" id="9Rw-jO-Z8T"/>
                         <outlet property="shapeTableView" destination="BZn-dd-JPq" id="Pre-Z1-wEs"/>
+                        <outlet property="zurückButton" destination="xhQ-9C-wOD" id="VS4-b3-t73"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A28-GM-Vqf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3039,10 +3040,10 @@
     <inferredMetricsTieBreakers>
         <segue reference="8ud-9g-Ens"/>
         <segue reference="JQA-dN-26Z"/>
-        <segue reference="1ML-1D-yhv"/>
+        <segue reference="aVm-M4-lvS"/>
         <segue reference="cIO-Bg-yje"/>
         <segue reference="dTd-b4-wmy"/>
-        <segue reference="Qrw-g4-EVr"/>
+        <segue reference="qsd-C6-hTf"/>
         <segue reference="PiX-Gn-nFD"/>
     </inferredMetricsTieBreakers>
     <resources>

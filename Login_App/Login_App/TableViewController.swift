@@ -25,14 +25,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @Published var articles = [Article]()
 	
     
-    @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
+   
    
 	override func viewDidLoad()
 	{
-        searchBar.becomeFirstResponder()
+        
+        //searchBar.becomeFirstResponder()
         searchBar.selectedScopeButtonIndex = 0
         searchBar.searchBarStyle = .minimal
         searchBar.searchTextField.text = searchString
@@ -42,19 +40,18 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 		super.viewDidLoad()
         setKategorie()
         initList(searchString: searchString, searchScopeButton: selectedScopeIndex)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-
-            //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-            //tap.cancelsTouchesInView = false
-
-            myView.addGestureRecognizer(tap)
+        
         
         
 		
         searchBar.delegate = self
-       
         
+      
+   
 	}
+    
+
+  
     
     func setKategorie(){
         if(kategorie=="Obst"){
@@ -108,9 +105,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("searchText \(String(describing: searchBar.text))")
-        
+        //print("searchText \(String(describing: searchBar.text))")
+        view.endEditing(true)
         }
+    
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         print("New scope index is now \(selectedScope)")
@@ -425,5 +423,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 		}
 		shapeTableView.reloadData()
 	}
+    
+    
 }
 
