@@ -4,6 +4,7 @@
    <FileRef
       location = "group:/Users/sebastian/REGIO/GIT_REGIO/Login_App/LOGIN_App.xcodeproj">
    </FileRef>
+<<<<<<< Updated upstream
    <Group
       location = "group:Login_App"
       name = "Login_App">
@@ -251,6 +252,8 @@
          location = "group:SceneDelegate.swift">
       </FileRef>
    </Group>
+=======
+>>>>>>> Stashed changes
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>

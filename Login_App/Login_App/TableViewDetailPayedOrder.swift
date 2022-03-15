@@ -73,7 +73,7 @@ class TableViewDetailPayedOrder: UIViewController, CLLocationManagerDelegate, MK
         gmStepper.value = Double(anzahl)
         articleName.text = selectedArtikel.name
         articleImage.image = UIImage(named: selectedArtikel.imageName)
-        preis.text = selectedArtikel.preis.stringValue + "€"
+        preis.text = "€" + selectedArtikel.preis.stringValue 
         menge.text = selectedArtikel.menge
         beschreibung.text = selectedArtikel.beschreibung
         inhaltstoffe.text = selectedArtikel.inhaltsstoffe

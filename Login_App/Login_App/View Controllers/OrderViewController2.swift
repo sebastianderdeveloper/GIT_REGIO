@@ -135,7 +135,7 @@ class OrderViewController2: UIViewController,  UITableViewDelegate, UITableViewD
         
         shapeTableView.reloadData()
         DateLabel.text = date
-        PreisLabel.text=String(preis) + "€"
+        PreisLabel.text="€" + String(preis)
         preis = 0.00
     }
     
@@ -220,7 +220,7 @@ class OrderViewController2: UIViewController,  UITableViewDelegate, UITableViewD
         
         //selectedArtikel.anzahl = thisArtikel.anzahl
         
-        tableViewCell.artikelPreis.text = thisArtikel.preis.stringValue + "€"
+        tableViewCell.artikelPreis.text = "€" + thisArtikel.preis.stringValue 
         tableViewCell.artikelOrt.text = thisArtikel.adresse
         tableViewCell.artikelName.text =  thisArtikel.name
         tableViewCell.artikelBild.image = UIImage(named: thisArtikel.imageName)

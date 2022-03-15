@@ -170,11 +170,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.menge = data["menge"] as? String ?? ""
                 self.longitude = data["longitude"] as? NSNumber ?? 0
                 self.latitude = data["latitude"] as? NSNumber ?? 0
-                    //let kategorie = data["kategorie"] as? String ?? ""
-                //print("preissss")
-                //print(preis)
+                  
                 self.artikelList.append(Artikel(name: self.name, imageName: self.bild, kategorie: self.kategorie, preis: self.preis, beschreibung: self.beschreibung, inhaltsstoffe: self.inhaltsstoffe, menge: self.menge, adresse: self.adresse, longitude: self.longitude, latitude: self.latitude))
-                //self.articlesArray.append (Article(name: name, kategorie: kategorie))
+                
                 return Artikel(name: self.name, imageName: self.bild, kategorie: self.kategorie, preis: self.preis, beschreibung: self.beschreibung, inhaltsstoffe: self.inhaltsstoffe, menge: self.menge, adresse: self.adresse, longitude: self.longitude, latitude: self.latitude)
                 }
             
@@ -376,7 +374,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
 		
        
-        tableViewCell.artikelPreis.text = thisArtikel.preis.stringValue + "€"
+        tableViewCell.artikelPreis.text = "€" + thisArtikel.preis.stringValue 
         tableViewCell.artikelOrt.text = thisArtikel.adresse
         tableViewCell.artikelName.text =  thisArtikel.name
         tableViewCell.artikelBild.image = UIImage(named: thisArtikel.imageName)
