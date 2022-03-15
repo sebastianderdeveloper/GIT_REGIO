@@ -26,6 +26,7 @@ class OrderViewController: UIViewController,  UITableViewDelegate, UITableViewDa
     
     
     
+    @IBOutlet weak var zurückButton: UIButton!
     
     
     @IBOutlet weak var shapeTableView: UITableView!
@@ -55,6 +56,7 @@ class OrderViewController: UIViewController,  UITableViewDelegate, UITableViewDa
         
         /*let QRimage = generateQRCode(from: "Hello, world!")
         self.QRView.image = QRimage*/
+        
         
     }
     
@@ -95,7 +97,7 @@ class OrderViewController: UIViewController,  UITableViewDelegate, UITableViewDa
             
             let date = Date()
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd.MM.yyyy"
+            dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
             dateFormatter.string(from: date)
             
             self.gesamtPreis()
@@ -110,7 +112,8 @@ class OrderViewController: UIViewController,  UITableViewDelegate, UITableViewDa
         Utilities.styleHollowButton(abgeschlosseneBestellungen)
         Utilities.styleHollowButton(routeÖffnen)
         Utilities.styleFilledButton(bezahlen) */
-        }
+        //Utilities.styleHollowButton(zurückButton)
+    }
     
     func gesamtPreis(){
        
@@ -130,7 +133,7 @@ class OrderViewController: UIViewController,  UITableViewDelegate, UITableViewDa
         
         shapeTableView.reloadData()
         DateLabel.text = date
-        PreisLabel.text=String(preis) + "€"
+        PreisLabel.text="€" + String(preis)
         preis = 0.00
     }
     
@@ -215,7 +218,7 @@ class OrderViewController: UIViewController,  UITableViewDelegate, UITableViewDa
         
         //selectedArtikel.anzahl = thisArtikel.anzahl
         
-        tableViewCell.artikelPreis.text = thisArtikel.preis.stringValue + "€"
+        tableViewCell.artikelPreis.text = "€" + thisArtikel.preis.stringValue 
         tableViewCell.artikelOrt.text = thisArtikel.adresse
         tableViewCell.artikelName.text =  thisArtikel.name
         tableViewCell.artikelBild.image = UIImage(named: thisArtikel.imageName)

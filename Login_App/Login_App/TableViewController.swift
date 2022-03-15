@@ -6,7 +6,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 {
 
 	
-	@IBOutlet weak var shapeTableView: UITableView!
+    @IBOutlet var myView: UIView!
+    @IBOutlet weak var shapeTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     
@@ -23,9 +24,14 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     private var db = Firestore.firestore()
     @Published var articles = [Article]()
 	
+    
+   
+   
 	override func viewDidLoad()
 	{
+        
         searchBar.becomeFirstResponder()
+        
         searchBar.selectedScopeButtonIndex = 0
         searchBar.searchBarStyle = .minimal
         searchBar.searchTextField.text = searchString
@@ -40,9 +46,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
 		
         searchBar.delegate = self
-       
         
+        
+   
 	}
+    
+    
     
     func setKategorie(){
         if(kategorie=="Obst"){
@@ -96,9 +105,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("searchText \(String(describing: searchBar.text))")
-        
+        //print("searchText \(String(describing: searchBar.text))")
+        view.endEditing(true)
         }
+    
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         print("New scope index is now \(selectedScope)")
@@ -107,6 +117,22 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         searchBar.placeholder=""
         
     }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar){
+        searchBar.showsCancelButton=true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar){
+        searchBar.showsCancelButton=false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar){
+        view.endEditing(true)
+        searchBar.text=""
+        initList(searchString: "", searchScopeButton: 0)
+        
+    }
+    
 	
     var name = ""
     var kategorie = ""
@@ -144,11 +170,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.menge = data["menge"] as? String ?? ""
                 self.longitude = data["longitude"] as? NSNumber ?? 0
                 self.latitude = data["latitude"] as? NSNumber ?? 0
-                    //let kategorie = data["kategorie"] as? String ?? ""
-                //print("preissss")
-                //print(preis)
+                  
                 self.artikelList.append(Artikel(name: self.name, imageName: self.bild, kategorie: self.kategorie, preis: self.preis, beschreibung: self.beschreibung, inhaltsstoffe: self.inhaltsstoffe, menge: self.menge, adresse: self.adresse, longitude: self.longitude, latitude: self.latitude))
-                //self.articlesArray.append (Article(name: name, kategorie: kategorie))
+                
                 return Artikel(name: self.name, imageName: self.bild, kategorie: self.kategorie, preis: self.preis, beschreibung: self.beschreibung, inhaltsstoffe: self.inhaltsstoffe, menge: self.menge, adresse: self.adresse, longitude: self.longitude, latitude: self.latitude)
                 }
             
@@ -350,7 +374,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
 		
        
-        tableViewCell.artikelPreis.text = thisArtikel.preis.stringValue + "€"
+        tableViewCell.artikelPreis.text = "€" + thisArtikel.preis.stringValue 
         tableViewCell.artikelOrt.text = thisArtikel.adresse
         tableViewCell.artikelName.text =  thisArtikel.name
         tableViewCell.artikelBild.image = UIImage(named: thisArtikel.imageName)
@@ -413,5 +437,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 		}
 		shapeTableView.reloadData()
 	}
+    
+    
 }
 

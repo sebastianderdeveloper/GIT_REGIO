@@ -16,6 +16,7 @@ class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDe
     @IBOutlet weak var mapView: MKMapView!
   
     
+    
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
     
@@ -30,7 +31,7 @@ class MapViewController:UIViewController, CLLocationManagerDelegate, MKMapViewDe
         fetchData()
         checkLocationServices()
         
-        
+     
         
         mapView.delegate = self
         
