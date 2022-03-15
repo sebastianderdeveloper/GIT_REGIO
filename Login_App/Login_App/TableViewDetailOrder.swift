@@ -79,7 +79,7 @@ class TableViewDetailOrder: UIViewController, CLLocationManagerDelegate, MKMapVi
         inhaltstoffe.text = selectedArtikel.inhaltsstoffe
         adresse.text = selectedArtikel.adresse
         //Utilities.styleFilledButton(addToCartButton)
-        Utilities.styleHollowButton(zurück)
+        //Utilities.styleHollowButton(zurück)
         Utilities.roundCorners(map)
         Utilities.styleHollowButton(deleteButton)
         gmStepper.value = Double(selectedArtikel.anzahl)

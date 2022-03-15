@@ -111,7 +111,7 @@ class OrderViewController2: UIViewController,  UITableViewDelegate, UITableViewD
         Utilities.styleHollowButton(abgeschlosseneBestellungen)
         Utilities.styleHollowButton(routeÖffnen)
         Utilities.styleFilledButton(bezahlen) */
-        Utilities.styleHollowButton(zurückButton)
+        //Utilities.styleHollowButton(zurückButton)
         }
     
     func gesamtPreis(){

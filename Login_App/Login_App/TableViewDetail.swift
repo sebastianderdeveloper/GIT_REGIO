@@ -58,7 +58,7 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
         inhaltstoffe.text = selectedArtikel.inhaltsstoffe
         adresse.text = selectedArtikel.adresse
         Utilities.styleFilledButton(addToCartButton)
-        Utilities.styleHollowButton(zurück)
+        //Utilities.styleHollowButton(zurück)
         Utilities.roundCorners(map)
         
         
