@@ -249,7 +249,6 @@ class TableViewDetailPayedOrder: UIViewController, CLLocationManagerDelegate, MK
                         "latitude": selectedArtikel.latitude ?? 0,
                         "anzahl": anzahl
         ])
-        
     }
     
     func updateData(){
@@ -267,9 +266,6 @@ class TableViewDetailPayedOrder: UIViewController, CLLocationManagerDelegate, MK
                 print("Document successfully updated")
             }
         }
-        
-        
-        
     }
     
     
@@ -294,7 +290,6 @@ class TableViewDetailPayedOrder: UIViewController, CLLocationManagerDelegate, MK
     /*@IBAction func stepper_Item_Tapped(_ sender: GMStepper) {
         print(sender.value)
         anzahl = Int(sender.value)
-        
     }*/
     
     @IBAction func stepper_Item_Tapped(_ sender: GMStepper) {

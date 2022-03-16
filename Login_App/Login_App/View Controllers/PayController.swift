@@ -327,7 +327,7 @@ class PayController: UIViewController,  UITableViewDelegate, UITableViewDataSour
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "PayedVc") as! OrderViewController
        
-        //newViewController.kategorie=text
+        newViewController.artikelList = artikelList
         self.present(newViewController, animated: true, completion: nil)
     }
 

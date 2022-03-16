@@ -285,10 +285,10 @@ class TableViewDetail: UIViewController, CLLocationManagerDelegate, MKMapViewDel
     
     func updateData(){
         let userID : String = (Auth.auth().currentUser?.uid)!
-           print("update!!!!!!")
+          
         let selA = db.collection("Openorders: " + userID).document(selectedArtikel.name)
 
-        // Set the "capital" field of the city 'DC'
+        
         selA.updateData([
             "anzahl": self.artikelAnzahl + Int(gmStepper.value)
         ]) { err in

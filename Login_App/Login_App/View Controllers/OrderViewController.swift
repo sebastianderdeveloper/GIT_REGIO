@@ -43,12 +43,24 @@ class OrderViewController: UIViewController,  UITableViewDelegate, UITableViewDa
         
         
         preis = 0
-        
+        var i = 0
         fetchArticles()
         designUI()
         gesamtPreis()
         shapeTableView.reloadData()
-        if let qrImage = generateQrCode("https://de.wikipedia.org/wiki/Regio") {
+        var info = ""
+        for artikel in artikelList {
+            i = i+1
+            if(artikelList.count == i){
+                info = info + artikel.name
+            }else{
+                info = info + artikel.name + ","
+            }
+            
+            
+        }
+        
+        if let qrImage = generateQrCode(info) {
                     QRView.image = UIImage(ciImage: qrImage)
                     let smallLogo = UIImage(named: "Regio black")
                     smallLogo?.addToCenter(of: QRView)
